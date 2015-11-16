@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--CleanUrLungs-->
@@ -18,55 +20,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Iv-RN-lDi">
-                                <rect key="frame" x="139" y="297" width="97" height="75"/>
+                                <rect key="frame" x="126" y="296" width="97" height="75"/>
                                 <animations/>
-                                <state key="normal" title="Had a Craving"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="SQU-WP-hW6"/>
+                                </constraints>
+                                <state key="normal" title="Craving"/>
                                 <connections>
                                     <action selector="cravingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E2V-sK-Up5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnJ-u7-AiM">
-                                <rect key="frame" x="325" y="296" width="136" height="75"/>
-                                <animations/>
-                                <state key="normal" title="Smoked a Cigerette"/>
-                                <connections>
-                                    <action selector="smokedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="asi-Tu-P6h"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xx-IY-7bS">
-                                <rect key="frame" x="166" y="229" width="42" height="21"/>
+                                <rect key="frame" x="153" y="229" width="42" height="21"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Tr4-MB-KeR"/>
+                                    <constraint firstAttribute="height" constant="21" id="fa4-um-jpJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPE-dL-oaz">
-                                <rect key="frame" x="372" y="228" width="42" height="21"/>
+                                <rect key="frame" x="385" y="229" width="42" height="21"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="yZX-Eh-6UX"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnJ-u7-AiM">
+                                <rect key="frame" x="338" y="296" width="136" height="75"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="136" id="WA5-4O-Lfr"/>
+                                </constraints>
+                                <state key="normal" title="Smoked"/>
+                                <connections>
+                                    <action selector="smokedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="asi-Tu-P6h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3Iv-RN-lDi" firstAttribute="centerX" secondItem="5xx-IY-7bS" secondAttribute="centerX" id="Dk6-kR-btA"/>
-                            <constraint firstItem="3Iv-RN-lDi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="139" id="Jux-1I-AQZ"/>
-                            <constraint firstItem="LnJ-u7-AiM" firstAttribute="centerX" secondItem="iPE-dL-oaz" secondAttribute="centerX" id="Vxp-MV-Nq2"/>
-                            <constraint firstItem="5xx-IY-7bS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="165" id="Z9I-FI-wvw"/>
-                            <constraint firstItem="LnJ-u7-AiM" firstAttribute="top" secondItem="iPE-dL-oaz" secondAttribute="bottom" constant="47" id="gNA-pl-b5c"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3Iv-RN-lDi" secondAttribute="bottom" constant="228" id="idD-IZ-ps4"/>
-                            <constraint firstItem="LnJ-u7-AiM" firstAttribute="leading" secondItem="3Iv-RN-lDi" secondAttribute="trailing" constant="89" id="rF1-SC-Wqz"/>
-                            <constraint firstItem="iPE-dL-oaz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="164" id="sUI-tm-ANz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LnJ-u7-AiM" secondAttribute="bottom" constant="229" id="tye-gP-ORv"/>
-                            <constraint firstItem="3Iv-RN-lDi" firstAttribute="top" secondItem="5xx-IY-7bS" secondAttribute="bottom" constant="47" id="uYs-h8-Ugc"/>
+                            <constraint firstItem="3Iv-RN-lDi" firstAttribute="top" secondItem="LnJ-u7-AiM" secondAttribute="top" id="0Pp-2O-Y5Z"/>
+                            <constraint firstItem="iPE-dL-oaz" firstAttribute="centerX" secondItem="LnJ-u7-AiM" secondAttribute="centerX" id="2bc-hn-eID"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3Iv-RN-lDi" secondAttribute="bottom" constant="229" id="4GI-TP-huo"/>
+                            <constraint firstItem="LnJ-u7-AiM" firstAttribute="baseline" secondItem="3Iv-RN-lDi" secondAttribute="firstBaseline" id="CUa-LT-fbT"/>
+                            <constraint firstItem="5xx-IY-7bS" firstAttribute="centerX" secondItem="3Iv-RN-lDi" secondAttribute="centerX" id="UFU-R5-UY0"/>
+                            <constraint firstItem="5xx-IY-7bS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="165" id="VmW-y3-s7n"/>
+                            <constraint firstItem="3Iv-RN-lDi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="126" id="gMO-BH-UDu"/>
+                            <constraint firstItem="3Iv-RN-lDi" firstAttribute="top" secondItem="5xx-IY-7bS" secondAttribute="bottom" constant="46" id="hUd-H9-bi6"/>
+                            <constraint firstAttribute="trailing" secondItem="LnJ-u7-AiM" secondAttribute="trailing" constant="126" id="lZD-eI-Roj"/>
+                            <constraint firstItem="iPE-dL-oaz" firstAttribute="firstBaseline" secondItem="5xx-IY-7bS" secondAttribute="firstBaseline" id="sZi-fg-ZF7"/>
+                            <constraint firstItem="iPE-dL-oaz" firstAttribute="baseline" secondItem="5xx-IY-7bS" secondAttribute="baseline" id="vyZ-1c-YvN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="CleanUrLungs" id="ARk-vH-Vqj"/>
