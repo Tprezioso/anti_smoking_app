@@ -21,16 +21,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.cravingLabel.text = @"0";
+    self.smokedLabel.text = @"0";
 }
 
 - (IBAction)cravingButton:(id)sender
 {
-
+    self.cravingLabel.text = [NSString stringWithFormat:@"%d", [self.cravingLabel.text intValue]+1];
 }
 
 - (IBAction)smokedButton:(id)sender
 {
+    self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue]+1];
 
 }
 @end
