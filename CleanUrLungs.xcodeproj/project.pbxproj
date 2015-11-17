@@ -16,6 +16,7 @@
 		9F17595B1BFA67E400BAC8EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1759591BFA67E400BAC8EE /* LaunchScreen.storyboard */; };
 		9F1759661BFA67E400BAC8EE /* CleanUrLungsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1759651BFA67E400BAC8EE /* CleanUrLungsTests.m */; };
 		9F1759711BFA67E400BAC8EE /* CleanUrLungsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1759701BFA67E400BAC8EE /* CleanUrLungsUITests.m */; };
+		9F43251D1BFB82DF002418E6 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F43251C1BFB82DF002418E6 /* CalendarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		9F17596C1BFA67E400BAC8EE /* CleanUrLungsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanUrLungsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1759701BFA67E400BAC8EE /* CleanUrLungsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CleanUrLungsUITests.m; sourceTree = "<group>"; };
 		9F1759721BFA67E400BAC8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F43251B1BFB82DF002418E6 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		9F43251C1BFB82DF002418E6 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				9F17594C1BFA67E400BAC8EE /* AppDelegate.m */,
 				9F17594E1BFA67E400BAC8EE /* ViewController.h */,
 				9F17594F1BFA67E400BAC8EE /* ViewController.m */,
+				9F43251B1BFB82DF002418E6 /* CalendarViewController.h */,
+				9F43251C1BFB82DF002418E6 /* CalendarViewController.m */,
 				9F1759511BFA67E400BAC8EE /* Main.storyboard */,
 				9F1759571BFA67E400BAC8EE /* Assets.xcassets */,
 				9F1759591BFA67E400BAC8EE /* LaunchScreen.storyboard */,
@@ -276,6 +281,7 @@
 				9F1759561BFA67E400BAC8EE /* CleanUrLungs.xcdatamodeld in Sources */,
 				9F1759501BFA67E400BAC8EE /* ViewController.m in Sources */,
 				9F17594D1BFA67E400BAC8EE /* AppDelegate.m in Sources */,
+				9F43251D1BFB82DF002418E6 /* CalendarViewController.m in Sources */,
 				9F17594A1BFA67E400BAC8EE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +506,7 @@
 				9F1759771BFA67E400BAC8EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F1759781BFA67E400BAC8EE /* Build configuration list for PBXNativeTarget "CleanUrLungsTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +515,7 @@
 				9F17597A1BFA67E400BAC8EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F17597B1BFA67E400BAC8EE /* Build configuration list for PBXNativeTarget "CleanUrLungsUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +524,7 @@
 				9F17597D1BFA67E400BAC8EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
