@@ -37,10 +37,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"isFirstRun"])
     {
-        
-        return NO;
+         return NO;
     }
-    
     [defaults setObject:[NSDate date] forKey:@"isFirstRun"];
     [[NSUserDefaults standardUserDefaults] synchronize];
    
@@ -52,7 +50,6 @@
     UIAlertController *firstTimeAlert = [UIAlertController alertControllerWithTitle:@"Welcome to CleanUrLungs" message:@"Lets get started by Finding out how many Cigarttees you smoke" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.dailyGoalLabel.text = self.alertTextField.text;
-        
     }];
     
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
@@ -63,6 +60,7 @@
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
 
 }
+
 - (IBAction)cravingButton:(id)sender
 {
     self.cravingLabel.text = [NSString stringWithFormat:@"%d", [self.cravingLabel.text intValue]+1];
