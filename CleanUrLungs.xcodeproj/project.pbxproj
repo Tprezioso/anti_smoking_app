@@ -108,15 +108,8 @@
 			children = (
 				9F17594B1BFA67E400BAC8EE /* AppDelegate.h */,
 				9F17594C1BFA67E400BAC8EE /* AppDelegate.m */,
-				9F17594E1BFA67E400BAC8EE /* ViewController.h */,
-				9F17594F1BFA67E400BAC8EE /* ViewController.m */,
-				9F43251B1BFB82DF002418E6 /* CalendarViewController.h */,
-				9F43251C1BFB82DF002418E6 /* CalendarViewController.m */,
-				9F1759511BFA67E400BAC8EE /* Main.storyboard */,
-				9F1759571BFA67E400BAC8EE /* Assets.xcassets */,
-				9F1759591BFA67E400BAC8EE /* LaunchScreen.storyboard */,
-				9F17595C1BFA67E400BAC8EE /* Info.plist */,
-				9F1759541BFA67E400BAC8EE /* CleanUrLungs.xcdatamodeld */,
+				9F43251E1BFBAFF9002418E6 /* Controller */,
+				9F43251F1BFBB01F002418E6 /* View */,
 				9F1759481BFA67E400BAC8EE /* Supporting Files */,
 			);
 			path = CleanUrLungs;
@@ -125,6 +118,8 @@
 		9F1759481BFA67E400BAC8EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F17595C1BFA67E400BAC8EE /* Info.plist */,
+				9F1759541BFA67E400BAC8EE /* CleanUrLungs.xcdatamodeld */,
 				9F1759491BFA67E400BAC8EE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -146,6 +141,27 @@
 				9F1759721BFA67E400BAC8EE /* Info.plist */,
 			);
 			path = CleanUrLungsUITests;
+			sourceTree = "<group>";
+		};
+		9F43251E1BFBAFF9002418E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9F17594E1BFA67E400BAC8EE /* ViewController.h */,
+				9F17594F1BFA67E400BAC8EE /* ViewController.m */,
+				9F43251B1BFB82DF002418E6 /* CalendarViewController.h */,
+				9F43251C1BFB82DF002418E6 /* CalendarViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9F43251F1BFBB01F002418E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9F1759511BFA67E400BAC8EE /* Main.storyboard */,
+				9F1759591BFA67E400BAC8EE /* LaunchScreen.storyboard */,
+				9F1759571BFA67E400BAC8EE /* Assets.xcassets */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
