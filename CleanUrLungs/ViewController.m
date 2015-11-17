@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *smokedLabel;
 @property (strong, nonatomic) IBOutlet UILabel *inspiringQuote;
 @property (strong, nonatomic) IBOutlet UILabel *dailyGoalLabel;
+@property (strong, nonatomic) UITextField *alertTextField;
 - (IBAction)cravingButton:(id)sender;
 - (IBAction)smokedButton:(id)sender;
 
@@ -25,10 +26,27 @@
     [super viewDidLoad];
     self.cravingLabel.text = @"0";
     self.smokedLabel.text = @"0";
-    self.dailyGoalLabel.text = @"20";
     self.smokedLabel.textColor = [UIColor greenColor];
+    [self setUpAlert];
+    
 }
 
+- (void) setUpAlert
+{
+    UIAlertController *firstTimeAlert = [UIAlertController alertControllerWithTitle:@"Welcome to CleanUrLungs" message:@"Lets get started by Finding out how many Cigarttees you smoke" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.dailyGoalLabel.text = self.alertTextField.text;
+        
+    }];
+    
+    [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        self.alertTextField = textField;
+        NSLog(@"%@", textField);
+    }];
+    [firstTimeAlert addAction:firstTimeAction];
+    [self presentViewController:firstTimeAlert animated:YES completion:nil];
+
+}
 - (IBAction)cravingButton:(id)sender
 {
     self.cravingLabel.text = [NSString stringWithFormat:@"%d", [self.cravingLabel.text intValue]+1];
