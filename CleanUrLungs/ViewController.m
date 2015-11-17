@@ -55,7 +55,7 @@
 - (IBAction)smokedButton:(id)sender
 {
     self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue]+1];
-    if ([self.smokedLabel.text isEqualToString:@"20"]) {
+    if ([self.smokedLabel.text isEqualToString:self.dailyGoalLabel.text]) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
 
