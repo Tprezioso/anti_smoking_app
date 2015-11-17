@@ -59,10 +59,19 @@
                                     <action selector="smokedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="asi-Tu-P6h"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="inspirational Quote" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4H-Y8-Yzq">
+                                <rect key="frame" x="20" y="72" width="560" height="105"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="h4H-Y8-Yzq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="1vy-gc-b4Q"/>
+                            <constraint firstItem="h4H-Y8-Yzq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2Co-d8-Pfu"/>
                             <constraint firstItem="LnJ-u7-AiM" firstAttribute="baseline" secondItem="3Iv-RN-lDi" secondAttribute="firstBaseline" id="48R-sP-iAj"/>
                             <constraint firstItem="iPE-dL-oaz" firstAttribute="firstBaseline" secondItem="5xx-IY-7bS" secondAttribute="firstBaseline" id="9F5-g0-uFx"/>
                             <constraint firstItem="5xx-IY-7bS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="165" id="CVE-AJ-Acu"/>
@@ -72,6 +81,8 @@
                             <constraint firstItem="LnJ-u7-AiM" firstAttribute="centerX" secondItem="iPE-dL-oaz" secondAttribute="centerX" id="Ilf-gj-bEa"/>
                             <constraint firstItem="3Iv-RN-lDi" firstAttribute="top" secondItem="5xx-IY-7bS" secondAttribute="bottom" constant="46" id="K77-kc-9fB"/>
                             <constraint firstItem="LnJ-u7-AiM" firstAttribute="leading" secondItem="3Iv-RN-lDi" secondAttribute="trailing" constant="188" id="QhZ-8t-psD"/>
+                            <constraint firstItem="h4H-Y8-Yzq" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Uyp-te-44Z"/>
+                            <constraint firstItem="iPE-dL-oaz" firstAttribute="top" secondItem="h4H-Y8-Yzq" secondAttribute="bottom" constant="52" id="bKc-y3-GGG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LnJ-u7-AiM" secondAttribute="trailing" constant="63" id="uEe-iV-JxQ"/>
                             <constraint firstItem="3Iv-RN-lDi" firstAttribute="centerX" secondItem="5xx-IY-7bS" secondAttribute="centerX" id="w4z-hc-PG9"/>
                         </constraints>
@@ -79,6 +90,7 @@
                     <navigationItem key="navigationItem" title="CleanUrLungs" id="ARk-vH-Vqj"/>
                     <connections>
                         <outlet property="cravingLabel" destination="5xx-IY-7bS" id="AjX-eL-VFn"/>
+                        <outlet property="inspiringQuote" destination="h4H-Y8-Yzq" id="2KI-7q-E8n"/>
                         <outlet property="smokedLabel" destination="iPE-dL-oaz" id="tnu-pZ-TGD"/>
                     </connections>
                 </viewController>
