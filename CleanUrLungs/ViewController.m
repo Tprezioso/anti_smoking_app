@@ -32,7 +32,7 @@
     }
 }
 
-- (BOOL) isFirstRun
+- (BOOL)isFirstRun
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"isFirstRun"])
@@ -45,7 +45,7 @@
     return YES;
 }
 
-- (void) setUpAlert
+- (void)setUpAlert
 {
     UIAlertController *firstTimeAlert = [UIAlertController alertControllerWithTitle:@"Welcome to CleanUrLungs" message:@"Lets get started by Finding out how many Cigarttees you smoke" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -72,7 +72,6 @@
     if ([self.smokedLabel.text isEqualToString:self.dailyGoalLabel.text]) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
-
 }
 
 @end
