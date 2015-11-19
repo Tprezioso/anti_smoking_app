@@ -72,6 +72,7 @@
     if ([self.smokedLabel.text isEqualToString:self.dailyGoalLabel.text]) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [self.smokedLabel.text intValue];
 }
 
 @end
