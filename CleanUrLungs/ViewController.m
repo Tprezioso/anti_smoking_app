@@ -27,12 +27,12 @@
     self.cravingLabel.text = @"0";
     self.smokedLabel.text = @"0";
     self.smokedLabel.textColor = [UIColor greenColor];
-    if ([self isFirstRun] ) {
+    if ([self isFirstTimeInApp] ) {
          [self setUpAlert];
     }
 }
 
-- (BOOL)isFirstRun
+- (BOOL)isFirstTimeInApp
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"isFirstRun"])
