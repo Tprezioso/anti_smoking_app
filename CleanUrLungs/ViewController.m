@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *cravingLabel;
@@ -29,7 +30,18 @@
     self.smokedLabel.textColor = [UIColor greenColor];
     if ([self isFirstTimeInApp]) {
          [self setUpAlert];
+      
     }
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Tally"];
+    NSMutableArray *dailyGoalDic = [[NSMutableArray alloc] init];
+    NSString *savedCigs = @"";
+    dailyGoalDic = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    for (NSInteger i = 0; i < [dailyGoalDic count]; i++) {
+    [dailyGoalDic[i] setValue:savedCigs forKey:@"smokeCount"];
+    }
+    self.dailyGoalLabel.text = savedCigs;
+
 }
 
 - (BOOL)isFirstTimeInApp
@@ -48,8 +60,51 @@
 - (void)setUpAlert
 {
     UIAlertController *firstTimeAlert = [UIAlertController alertControllerWithTitle:@"Welcome to CleanUrLungs" message:@"Lets get started by Finding out how many Cigarttees you smoke" preferredStyle:UIAlertControllerStyleAlert];
+//    //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            //self.dailyGoalLabel.text = self.alertTextField.text;
+//            NSManagedObjectContext *context = [self managedObjectContext];
+//            NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Tally" inManagedObjectContext:context];
+//            [newDevice setValue:self.alertTextField.text forKey:@"smokeCount"];
+//            
+//            //NSManagedObjectContext *context = [self managedObjectContext];
+//            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Tally"];
+//            NSMutableArray *dailyGoalDic = [[NSMutableArray alloc] init];
+//            
+//            dailyGoalDic = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//            for (NSInteger i = 0; i < [dailyGoalDic count]; i++) {
+//                [dailyGoalDic[i] setValue:self.dailyGoalLabel.text forKey:@"smokeCount"];
+//            }
+//
+//            
+//            NSError *error = nil;
+//            if (![context save:&error]) {
+//                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//            }
+//            
+//        }];
+//        
+//        [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//            self.alertTextField = textField;
+//            NSLog(@"%@", textField);
+//        }];
+//
+//        [firstTimeAlert addAction:firstTimeAction];
+//
+//        
+    
+    //});
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.dailyGoalLabel.text = self.alertTextField.text;
+        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Tally" inManagedObjectContext:context];
+        [newDevice setValue:self.alertTextField.text forKey:@"smokeCount"];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+
     }];
     
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
