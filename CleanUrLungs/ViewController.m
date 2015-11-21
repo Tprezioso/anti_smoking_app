@@ -29,18 +29,20 @@
     self.smokedLabel.text = @"0";
     self.smokedLabel.textColor = [UIColor greenColor];
     if ([self isFirstTimeInApp]) {
-         [self setUpAlert];
+        [self setUpAlert];
+        //[self saveCig];
       
     }
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Tally"];
+   
     NSMutableArray *dailyGoalDic = [[NSMutableArray alloc] init];
     NSString *savedCigs = @"";
     dailyGoalDic = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
     for (NSInteger i = 0; i < [dailyGoalDic count]; i++) {
-    [dailyGoalDic[i] setValue:savedCigs forKey:@"smokeCount"];
+        self.dailyGoalLabel.text = dailyGoalDic[i];
     }
-    self.dailyGoalLabel.text = savedCigs;
+    //self.dailyGoalLabel.text = savedCigs;
 
 }
 
@@ -96,15 +98,7 @@
     //});
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.dailyGoalLabel.text = self.alertTextField.text;
-        NSManagedObjectContext *context = [self managedObjectContext];
-        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Tally" inManagedObjectContext:context];
-        [newDevice setValue:self.alertTextField.text forKey:@"smokeCount"];
-        
-        NSError *error = nil;
-        if (![context save:&error]) {
-            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        }
-
+        [self saveCig];
     }];
     
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
@@ -113,6 +107,20 @@
     }];
     [firstTimeAlert addAction:firstTimeAction];
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
+
+}
+
+- (void)saveCig
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Tally" inManagedObjectContext:context];
+   // NSString *toSaveCig = self.dailyGoalLabel.text;
+    [newDevice setValue:self.alertTextField.text forKey:@"smokeCount"];
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
 
 }
 
