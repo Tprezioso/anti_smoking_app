@@ -142,11 +142,11 @@
             </objects>
             <point key="canvasLocation" x="1867" y="1002"/>
         </scene>
-        <!--Item-->
+        <!--Tracker-->
         <scene sceneID="hwc-Zu-6Gr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z7G-Ac-Tex" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="5MU-lF-jOj"/>
+                    <tabBarItem key="tabBarItem" title="Tracker" id="5MU-lF-jOj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hn9-SD-lfv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -181,11 +181,11 @@
             </objects>
             <point key="canvasLocation" x="245" y="339"/>
         </scene>
-        <!--Item-->
+        <!--Calendar-->
         <scene sceneID="CQX-Mp-V5T">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="13I-RF-3v0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Nq8-GY-uvN"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" id="Nq8-GY-uvN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EU8-IE-Gnx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
