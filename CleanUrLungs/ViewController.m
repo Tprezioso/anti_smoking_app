@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+
 @property (strong, nonatomic) IBOutlet UILabel *cravingLabel;
 @property (strong, nonatomic) IBOutlet UILabel *smokedLabel;
 @property (strong, nonatomic) IBOutlet UILabel *inspiringQuote;
