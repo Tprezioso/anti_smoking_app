@@ -30,8 +30,8 @@
     if ([self isFirstTimeInApp]) {
         [self setUpAlert];
     } else {
-        NSString *savedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"preferenceName"];
-        self.dailyGoalLabel.text = savedValue;
+        NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+        self.dailyGoalLabel.text = savedCigValue;
     }
 }
 
@@ -53,8 +53,8 @@
     UIAlertController *firstTimeAlert = [UIAlertController alertControllerWithTitle:@"Welcome to CleanUrLungs" message:@"Lets get started by Finding out how many Cigarttees you smoke" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.dailyGoalLabel.text = self.alertTextField.text;
-        NSString *valueToSave = self.dailyGoalLabel.text;
-        [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"preferenceName"];
+        NSString *cigValueToSave = self.dailyGoalLabel.text;
+        [[NSUserDefaults standardUserDefaults] setObject:cigValueToSave forKey:@"cigValueToSave"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }];
     
