@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import <CoreData/CoreData.h>
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *cravingLabel;
