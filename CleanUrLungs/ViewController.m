@@ -33,6 +33,7 @@
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
+    
     if ([self isFirstTimeInApp]) {
         [self setUpAlert];
         NSDate *startDate = [NSDate date];
@@ -57,8 +58,7 @@
 - (BOOL)isFirstTimeInApp
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"isFirstRun"])
-    {
+    if ([defaults objectForKey:@"isFirstRun"]) {
         return NO;
     }
     [defaults setObject:[NSDate date] forKey:@"isFirstRun"];
