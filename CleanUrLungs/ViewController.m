@@ -25,20 +25,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+
+    self.cravingLabel.text = @"0";
+    self.smokedLabel.text = @"0";
+    self.smokedLabel.textColor = [UIColor greenColor];
+
+    if (self.smokedLabel.text > self.dailyGoalLabel.text) {
+        self.smokedLabel.textColor = [UIColor redColor];
+    }
     if ([self isFirstTimeInApp]) {
-        self.cravingLabel.text = @"0";
-        self.smokedLabel.text = @"0";
-        self.smokedLabel.textColor = [UIColor greenColor];
         [self setUpAlert];
     } else {
-        NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-        self.dailyGoalLabel.text = savedCigValue;
-        NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-        self.smokedLabel.text = savedCigSmokedValue;
-        NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
-        self.cravingLabel.text = savedCravedValue;
+        [self savedValues];
     }
+}
+
+- (void)savedValues
+{
+    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+    self.dailyGoalLabel.text = savedCigValue;
+    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    self.smokedLabel.text = savedCigSmokedValue;
+    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+    self.cravingLabel.text = savedCravedValue;
 }
 
 - (BOOL)isFirstTimeInApp
