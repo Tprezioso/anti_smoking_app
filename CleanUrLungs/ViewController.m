@@ -35,6 +35,9 @@
     }
     if ([self isFirstTimeInApp]) {
         [self setUpAlert];
+        NSDate *startDate = [NSDate date];
+        [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         [self savedValues];
     }
@@ -85,12 +88,16 @@
 
 - (void)weekLater
 {
-    NSDate *todayDate = [NSDate date];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setDay:+7];
-    NSDate *afterSevenDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:todayDate options:0];
-    NSLog(@"todayDate: %@", todayDate);
+    NSDate *beginningDate = [[NSDate alloc] init];
+    [[NSUserDefaults standardUserDefaults] setObject:beginningDate forKey:@"startDate"];
+    NSDate *afterSevenDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:beginningDate options:0];
+    NSLog(@"beginningDay: %@", beginningDate);
     NSLog(@"afterSevenDays: %@", afterSevenDays);
+    if (afterSevenDays) {
+      self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue]-2] ;
+    }
 }
 
 - (IBAction)cravingButton:(id)sender
