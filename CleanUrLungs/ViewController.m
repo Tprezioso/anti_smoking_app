@@ -34,6 +34,10 @@
     } else {
         NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
         self.dailyGoalLabel.text = savedCigValue;
+        NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+        self.smokedLabel.text = savedCigSmokedValue;
+        NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+        self.cravingLabel.text = savedCravedValue;
     }
 }
 
@@ -72,6 +76,9 @@
 - (IBAction)cravingButton:(id)sender
 {
     self.cravingLabel.text = [NSString stringWithFormat:@"%d", [self.cravingLabel.text intValue]+1];
+    NSString *cavedNumberToSave = self.cravingLabel.text;
+    [[NSUserDefaults standardUserDefaults] setObject:cavedNumberToSave forKey:@"cravedSaved"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (IBAction)smokedButton:(id)sender
@@ -81,6 +88,9 @@
         self.smokedLabel.textColor = [UIColor redColor];
     }
     [UIApplication sharedApplication].applicationIconBadgeNumber = [self.smokedLabel.text intValue];
+    NSString *smokedNumberToSave = self.smokedLabel.text;
+    [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
