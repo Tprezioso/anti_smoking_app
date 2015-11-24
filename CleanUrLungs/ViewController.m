@@ -38,6 +38,7 @@
     } else {
         [self savedValues];
     }
+    [self weekLater];
 }
 
 - (void)savedValues
@@ -80,6 +81,16 @@
     [firstTimeAlert addAction:firstTimeAction];
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
 
+}
+
+- (void)weekLater
+{
+    NSDate *todayDate = [NSDate date];
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setDay:+7];
+    NSDate *afterSevenDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:todayDate options:0];
+    NSLog(@"todayDate: %@", todayDate);
+    NSLog(@"afterSevenDays: %@", afterSevenDays);
 }
 
 - (IBAction)cravingButton:(id)sender
