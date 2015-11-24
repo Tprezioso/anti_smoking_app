@@ -25,7 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+// tommorrow the text should show 2 less
     self.cravingLabel.text = @"0";
     self.smokedLabel.text = @"0";
     self.smokedLabel.textColor = [UIColor greenColor];
@@ -89,7 +89,8 @@
 - (void)weekLater
 {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    [dateComponents setDay:+7];
+    //remember to switch back set day to 7 when done with test
+    [dateComponents setDay:+1];
     NSDate *beginningDate = [[NSDate alloc] init];
     [[NSUserDefaults standardUserDefaults] setObject:beginningDate forKey:@"startDate"];
     NSDate *afterSevenDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:beginningDate options:0];
