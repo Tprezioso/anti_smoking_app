@@ -25,10 +25,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.cravingLabel.text = @"0";
-    self.smokedLabel.text = @"0";
-    self.smokedLabel.textColor = [UIColor greenColor];
+   
     if ([self isFirstTimeInApp]) {
+        self.cravingLabel.text = @"0";
+        self.smokedLabel.text = @"0";
+        self.smokedLabel.textColor = [UIColor greenColor];
         [self setUpAlert];
     } else {
         NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
