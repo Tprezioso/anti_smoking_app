@@ -41,7 +41,7 @@
     } else {
         [self savedValues];
     }
-    [self weekLater];
+    [self weekLaterReduceDailyCig];
 }
 
 - (void)savedValues
@@ -85,7 +85,7 @@
 
 }
 
-- (void)weekLater
+- (void)weekLaterReduceDailyCig
 {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setDay:+7];
