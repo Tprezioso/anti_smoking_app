@@ -39,11 +39,11 @@
         NSDate *startDate = [NSDate date];
         [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        [self savedValues];
+        //[self savedValues];
     } else {
         [self savedValues];
     }
-    [self weekLaterReduceDailyCig];
+        [self weekLaterReduceDailyCig];
 }
 
 - (void)savedValues
@@ -87,22 +87,9 @@
 
 }
 
-- (void)resetCounterOnNewDay
-{
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    [dateComponents setDay:+1];
-    NSDate *todaysDate = [NSDate date];
-    NSDate *afterOneDay = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:todaysDate options:0];
-    NSLog(@"beginningDay: %@", todaysDate);
-    NSLog(@"afterSevenDays: %@", afterOneDay);
-    if (afterOneDay) {
-        self.cravingLabel.text = @"0";
-        self.smokedLabel.text = @"0";
-    }
-
-}
 - (void)weekLaterReduceDailyCig
 {
+    NSDate *currentDate = [NSDate date];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setDay:+7];
     NSDate *beginningDate = [[NSDate alloc] init];
@@ -110,7 +97,7 @@
     NSDate *afterSevenDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:beginningDate options:0];
     NSLog(@"beginningDay: %@", beginningDate);
     NSLog(@"afterSevenDays: %@", afterSevenDays);
-    if (afterSevenDays) {
+    if (afterSevenDays == currentDate) {
       self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue]-2] ;
     }
 }
