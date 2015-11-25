@@ -27,6 +27,7 @@
     [super viewDidLoad];
     self.cravingLabel.text = @"0";
     self.smokedLabel.text = @"0";
+    self.dailyGoalLabel.text = @"0";
     self.smokedLabel.textColor = [UIColor greenColor];
 
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
@@ -38,6 +39,7 @@
         NSDate *startDate = [NSDate date];
         [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        [self savedValues];
     } else {
         [self savedValues];
     }
@@ -85,6 +87,20 @@
 
 }
 
+- (void)resetCounterOnNewDay
+{
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setDay:+1];
+    NSDate *todaysDate = [NSDate date];
+    NSDate *afterOneDay = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:todaysDate options:0];
+    NSLog(@"beginningDay: %@", todaysDate);
+    NSLog(@"afterSevenDays: %@", afterOneDay);
+    if (afterOneDay) {
+        self.cravingLabel.text = @"0";
+        self.smokedLabel.text = @"0";
+    }
+
+}
 - (void)weekLaterReduceDailyCig
 {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
