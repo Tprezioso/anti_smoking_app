@@ -62,6 +62,7 @@
     if ([defaults objectForKey:@"isFirstRun"]) {
         return NO;
     }
+    
     [defaults setObject:[NSDate date] forKey:@"isFirstRun"];
     [[NSUserDefaults standardUserDefaults] synchronize];
    
