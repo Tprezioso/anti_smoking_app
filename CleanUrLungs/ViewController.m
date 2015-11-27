@@ -36,7 +36,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
-
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
@@ -46,7 +45,6 @@
         NSDate *startDate = [NSDate date];
         [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        //[self savedValues];
     } else {
         [self savedValues];
     }
