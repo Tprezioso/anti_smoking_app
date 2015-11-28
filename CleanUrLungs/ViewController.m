@@ -65,6 +65,7 @@
 - (BOOL)isFirstTimeInApp
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+   
     if ([defaults objectForKey:@"isFirstRun"]) {
         return NO;
     }
