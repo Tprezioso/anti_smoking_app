@@ -104,6 +104,7 @@
     NSDate *afterOneDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:beginningDate options:0];
     NSLog(@"beginningDay: %@", beginningDate);
     NSLog(@"afterSevenDays: %@", afterOneDays);
+
     if (afterOneDays == currentDate) {
         self.cravingLabel.text = @"0";
         self.smokedLabel.text = @"0";
@@ -120,6 +121,7 @@
     NSDate *afterSevenDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:beginningDate options:0];
     NSLog(@"beginningDay: %@", beginningDate);
     NSLog(@"afterSevenDays: %@", afterSevenDays);
+    
     if (afterSevenDays == currentDate) {
       self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue]-2] ;
     }
