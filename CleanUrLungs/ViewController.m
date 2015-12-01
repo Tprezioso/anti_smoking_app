@@ -25,16 +25,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.cravingLabel.text = @"0";
-    self.smokedLabel.text = @"0";
+//    self.cravingLabel.text = @"0";
+//    self.smokedLabel.text = @"0";
     self.dailyGoalLabel.text = @"0";
     self.smokedLabel.textColor = [UIColor greenColor];
-    NSString *cavedNumberToSave = self.cravingLabel.text;
-    [[NSUserDefaults standardUserDefaults] setObject:cavedNumberToSave forKey:@"cravedSaved"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    NSString *smokedNumberToSave = self.smokedLabel.text;
-    [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    
+  // self.cravingLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+    //    NSString *cavedNumberToSave = self.cravingLabel.text;
+//    [[NSUserDefaults standardUserDefaults] setObject:cavedNumberToSave forKey:@"cravedSaved"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//    NSString *smokedNumberToSave = self.smokedLabel.text;
+//    [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
 
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
@@ -48,7 +51,7 @@
     } else {
         [self savedValues];
     }
-    [self oneDayLater];
+   // [self oneDayLater];
     [self weekLaterReduceDailyCig];
 }
 
