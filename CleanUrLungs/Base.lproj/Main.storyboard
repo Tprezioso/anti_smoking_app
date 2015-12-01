@@ -134,7 +134,7 @@
                         <viewControllerLayoutGuide type="top" id="a4T-Ha-SeQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Wwn-Fg-fK0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ltS-TA-qaW">
+                    <view key="view" contentMode="scaleToFill" id="ltS-TA-qaW" customClass="FSCalendar">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
