@@ -17,6 +17,7 @@
 		9F1759661BFA67E400BAC8EE /* CleanUrLungsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1759651BFA67E400BAC8EE /* CleanUrLungsTests.m */; };
 		9F1759711BFA67E400BAC8EE /* CleanUrLungsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1759701BFA67E400BAC8EE /* CleanUrLungsUITests.m */; };
 		9F43251D1BFB82DF002418E6 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F43251C1BFB82DF002418E6 /* CalendarViewController.m */; };
+		E172AF1AF66A4A3A20D81C5D /* libPods-CleanUrLungs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F084A59427EABB1866A3F764 /* libPods-CleanUrLungs.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		488BD529CF2FC56C6915B094 /* Pods-CleanUrLungs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanUrLungs.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanUrLungs/Pods-CleanUrLungs.release.xcconfig"; sourceTree = "<group>"; };
+		82AA8896B5144253291B0359 /* Pods-CleanUrLungs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanUrLungs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanUrLungs/Pods-CleanUrLungs.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1759451BFA67E400BAC8EE /* CleanUrLungs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanUrLungs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1759491BFA67E400BAC8EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F17594B1BFA67E400BAC8EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		9F1759721BFA67E400BAC8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F43251B1BFB82DF002418E6 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		9F43251C1BFB82DF002418E6 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		F084A59427EABB1866A3F764 /* libPods-CleanUrLungs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CleanUrLungs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E172AF1AF66A4A3A20D81C5D /* libPods-CleanUrLungs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +95,8 @@
 				9F1759641BFA67E400BAC8EE /* CleanUrLungsTests */,
 				9F17596F1BFA67E400BAC8EE /* CleanUrLungsUITests */,
 				9F1759461BFA67E400BAC8EE /* Products */,
+				C7032AFAB487BF16903753A1 /* Pods */,
+				D0171C7062DC7CA0F4579389 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +171,23 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		C7032AFAB487BF16903753A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82AA8896B5144253291B0359 /* Pods-CleanUrLungs.debug.xcconfig */,
+				488BD529CF2FC56C6915B094 /* Pods-CleanUrLungs.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D0171C7062DC7CA0F4579389 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F084A59427EABB1866A3F764 /* libPods-CleanUrLungs.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F1759751BFA67E400BAC8EE /* Build configuration list for PBXNativeTarget "CleanUrLungs" */;
 			buildPhases = (
+				3E36AB0E7683B88988F01F76 /* Check Pods Manifest.lock */,
 				9F1759411BFA67E400BAC8EE /* Sources */,
 				9F1759421BFA67E400BAC8EE /* Frameworks */,
 				9F1759431BFA67E400BAC8EE /* Resources */,
+				3F97C1043ED6FCF0DD14BDFC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -288,6 +314,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E36AB0E7683B88988F01F76 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3F97C1043ED6FCF0DD14BDFC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanUrLungs/Pods-CleanUrLungs-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9F1759411BFA67E400BAC8EE /* Sources */ = {
@@ -435,6 +494,7 @@
 		};
 		9F1759761BFA67E400BAC8EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82AA8896B5144253291B0359 /* Pods-CleanUrLungs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CleanUrLungs/Info.plist;
@@ -446,6 +506,7 @@
 		};
 		9F1759771BFA67E400BAC8EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 488BD529CF2FC56C6915B094 /* Pods-CleanUrLungs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CleanUrLungs/Info.plist;
