@@ -134,11 +134,24 @@
                         <viewControllerLayoutGuide type="top" id="a4T-Ha-SeQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Wwn-Fg-fK0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ltS-TA-qaW" customClass="FSCalendar">
+                    <view key="view" contentMode="scaleToFill" id="ltS-TA-qaW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-Jp-NkF" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vfV-Jp-NkF" firstAttribute="bottom" secondItem="Wwn-Fg-fK0" secondAttribute="top" id="01L-yP-gVY"/>
+                            <constraint firstAttribute="trailing" secondItem="vfV-Jp-NkF" secondAttribute="trailing" id="K1r-xL-2YR"/>
+                            <constraint firstItem="vfV-Jp-NkF" firstAttribute="leading" secondItem="ltS-TA-qaW" secondAttribute="leading" id="L86-AC-pgL"/>
+                            <constraint firstItem="vfV-Jp-NkF" firstAttribute="top" secondItem="a4T-Ha-SeQ" secondAttribute="bottom" id="mC2-16-QcF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dDQ-fM-yYU"/>
                 </viewController>
