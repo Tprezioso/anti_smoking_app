@@ -30,9 +30,6 @@
     self.dailyGoalLabel.text = @"0";
     self.smokedLabel.textColor = [UIColor greenColor];
 
-    
-  
-
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
