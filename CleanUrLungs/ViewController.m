@@ -99,13 +99,13 @@
 {
     NSDate *currentDate = [NSDate date];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    [dateComponents setDay:+1];
+    [dateComponents setDay:0];
     NSDate *beginningDate = [[NSDate alloc] init];
-    NSDate *afterOneDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:beginningDate options:0];
+    NSDate *afterOneDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:currentDate options:0];
     NSLog(@"beginningDay: %@", beginningDate);
     NSLog(@"afterSevenDays: %@", afterOneDays);
 
-    if (afterOneDays == currentDate) {
+    if (dateComponents == currentDate) {
         self.cravingLabel.text = @"0";
         self.smokedLabel.text = @"0";
     }
