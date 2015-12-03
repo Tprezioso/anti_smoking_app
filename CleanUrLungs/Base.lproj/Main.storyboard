@@ -126,10 +126,10 @@
             </objects>
             <point key="canvasLocation" x="1869" y="339"/>
         </scene>
-        <!--View Controller-->
+        <!--Calendar View Controller-->
         <scene sceneID="sob-zx-pQe">
             <objects>
-                <viewController id="2tR-VI-vOp" sceneMemberID="viewController">
+                <viewController id="2tR-VI-vOp" customClass="CalendarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a4T-Ha-SeQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Wwn-Fg-fK0"/>
@@ -147,13 +147,16 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vfV-Jp-NkF" firstAttribute="bottom" secondItem="Wwn-Fg-fK0" secondAttribute="top" id="01L-yP-gVY"/>
+                            <constraint firstItem="vfV-Jp-NkF" firstAttribute="top" secondItem="a4T-Ha-SeQ" secondAttribute="bottom" id="6lI-Zd-tMD"/>
                             <constraint firstAttribute="trailing" secondItem="vfV-Jp-NkF" secondAttribute="trailing" id="K1r-xL-2YR"/>
                             <constraint firstItem="vfV-Jp-NkF" firstAttribute="leading" secondItem="ltS-TA-qaW" secondAttribute="leading" id="L86-AC-pgL"/>
-                            <constraint firstItem="vfV-Jp-NkF" firstAttribute="top" secondItem="a4T-Ha-SeQ" secondAttribute="bottom" id="mC2-16-QcF"/>
+                            <constraint firstItem="vfV-Jp-NkF" firstAttribute="bottom" secondItem="Wwn-Fg-fK0" secondAttribute="top" id="b4l-pX-2DR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dDQ-fM-yYU"/>
+                    <connections>
+                        <outlet property="calendar" destination="vfV-Jp-NkF" id="3XF-Sm-AwR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K92-Cm-o69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

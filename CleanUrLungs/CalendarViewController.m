@@ -8,7 +8,9 @@
 
 #import "CalendarViewController.h"
 
-@interface CalendarViewController ()
+@interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate>
+
+@property (strong, nonatomic) IBOutlet FSCalendar *calendar;
 
 @end
 
@@ -17,8 +19,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.calendar.dataSource = self;
+    self.calendar.delegate = self;
+    FSCalendar *calendar = [[FSCalendar alloc] init];
+    self.calendar = calendar;
+    NSDate *currentDay = [NSDate date];
+    NSLog(@"Current Date In calendar %@",currentDay);
+    [self calendar:self.calendar hasEventForDate:currentDay];
+    self.calendar.appearance.eventColor = [UIColor greenColor];
+    
 }
 
+- (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
+{
+    
+    return YES;
+}
 /*
 #pragma mark - Navigation
 
