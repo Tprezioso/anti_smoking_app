@@ -21,11 +21,8 @@
     [super viewDidLoad];
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
-
-   // NSLog(@"Current Date In calendar %@",currentDay);
     [self calendar:self.calendar hasEventForDate:self.calendar.today];
     self.calendar.appearance.eventColor = [UIColor greenColor];
-    
 }
 
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
@@ -35,6 +32,7 @@
     }
     return NO;
 }
+
 /*
 #pragma mark - Navigation
 
