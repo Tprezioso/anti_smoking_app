@@ -103,7 +103,6 @@
     NSDate *afterOneDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:currentDate options:0];
     NSLog(@"afterOneDays: %@", afterOneDays);
     NSLog(@"currentDate :  %@",currentDate);
-    
 //    [[NSUserDefaults standardUserDefaults] setObject:afterOneDays forKey:@"oneDayLater"];
 //    NSDate *oneDayLater = [[NSDate alloc] init];
 //    [[NSUserDefaults standardUserDefaults] setObject:oneDayLater forKey:@"oneDayLater"];
