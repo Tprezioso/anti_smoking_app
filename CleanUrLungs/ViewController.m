@@ -65,7 +65,6 @@
 - (BOOL)isFirstTimeInApp
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-   
     if ([defaults objectForKey:@"isFirstRun"]) {
         return NO;
     }
@@ -108,7 +107,6 @@
 //    [[NSUserDefaults standardUserDefaults] setObject:oneDayLater forKey:@"oneDayLater"];
 //
 //    NSLog(@"ONE DAY LATER >>>>>>> %@",oneDayLater);
-    
     if (afterOneDays > currentDate) {
         self.cravingLabel.text = @"0";
         self.smokedLabel.text = @"0";
