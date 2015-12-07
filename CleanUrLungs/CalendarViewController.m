@@ -22,7 +22,15 @@
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
     [self calendar:self.calendar hasEventForDate:self.calendar.today];
-    self.calendar.appearance.eventColor = [UIColor greenColor];
+    
+    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    
+    if ([savedCigSmokedValue isEqualToString:savedCigValue]) {
+        self.calendar.appearance.eventColor = [UIColor redColor];
+    } else {
+        self.calendar.appearance.eventColor = [UIColor greenColor];
+    }
 }
 
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
