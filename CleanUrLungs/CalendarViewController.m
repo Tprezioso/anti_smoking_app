@@ -27,10 +27,9 @@
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smokeLimitReached:) name:@"smokeLimit" object:nil];
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-
     NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
     if (savedCigSmokedValue >= savedCigValue) {
         self.calendar.appearance.eventColor = [UIColor redColor];
