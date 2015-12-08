@@ -23,7 +23,18 @@
     self.calendar.delegate = self;
     [self calendar:self.calendar hasEventForDate:self.calendar.today];
     self.calendar.appearance.eventColor = [UIColor greenColor];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smokeLimitReached:) name:@"smokeLimit" object:nil];
+   
+    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smokeLimitReached:) name:@"smokeLimit" object:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+
+    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    if (savedCigSmokedValue >= savedCigValue) {
+        self.calendar.appearance.eventColor = [UIColor redColor];
+    }
 }
 
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
