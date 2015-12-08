@@ -23,8 +23,6 @@
     self.calendar.delegate = self;
     [self calendar:self.calendar hasEventForDate:self.calendar.today];
     self.calendar.appearance.eventColor = [UIColor greenColor];
-   
-    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smokeLimitReached:) name:@"smokeLimit" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -42,16 +40,6 @@
         return YES;
     }
     return NO;
-}
-
-- (void)smokeLimitReached:(NSNotification *)pinNotification
-{
-    NSString *smokeLimit = (NSString*)[pinNotification.userInfo objectForKey:@"smokeLimit"];
-    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-
-    if ([smokeLimit isEqualToString:savedCigValue]) {
-        self.calendar.appearance.eventColor = [UIColor redColor];
-    }
 }
 
 /*

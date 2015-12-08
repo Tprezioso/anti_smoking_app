@@ -30,11 +30,8 @@
     self.dailyGoalLabel.text = @"0";
     self.smokedLabel.textColor = [UIColor greenColor];
 
-    if (self.smokedLabel.text > self.dailyGoalLabel.text) {
+    if (self.smokedLabel.text >= self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
-        NSMutableDictionary *smokeLimit = [[NSMutableDictionary alloc] init];
-        smokeLimit[@"smoked"] = self.smokedLabel.text;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"smokeLimit" object:nil userInfo:smokeLimit];
     }
     
     if ([self isFirstTimeInApp]) {
