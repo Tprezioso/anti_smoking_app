@@ -98,7 +98,7 @@
 {
     NSDate *currentDate = [NSDate date];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    [dateComponents setDay:-1];
+    [dateComponents setDay:+1];
     NSDate *afterOneDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:currentDate options:0];
     NSLog(@"afterOneDays: %@", afterOneDays);
     NSLog(@"currentDate :  %@",currentDate);
@@ -108,8 +108,8 @@
 //
 //    NSLog(@"ONE DAY LATER >>>>>>> %@",oneDayLater);
     if (afterOneDays > currentDate) {
-        self.cravingLabel.text = @"0";
-        self.smokedLabel.text = @"0";
+      //  self.cravingLabel.text = @"0";
+        //self.smokedLabel.text = @"0";
     }
 }
 
