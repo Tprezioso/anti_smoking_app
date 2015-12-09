@@ -42,7 +42,12 @@
     } else {
         [self savedValues];
     }
-    [self oneDayLater];
+    NSDate *tomorrow = [self oneDayLater];
+    NSDate *today = [NSDate date];
+    if (today == tomorrow) {
+        self.smokedLabel.text = @"0";
+        self.cravingLabel.text = @"0";
+    }
     [self weekLaterReduceDailyCig];
 //    NSString *cavedNumberToSave = self.cravingLabel.text;
 //    [[NSUserDefaults standardUserDefaults] setObject:cavedNumberToSave forKey:@"cravedSaved"];
@@ -106,7 +111,7 @@
 
 }
 
-- (void)oneDayLater
+- (NSDate*)oneDayLater
 {
     NSDate *currentDate = [NSDate date];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
@@ -114,15 +119,16 @@
     NSDate *afterOneDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:currentDate options:0];
     NSLog(@"afterOneDays: %@", afterOneDays);
     NSLog(@"currentDate :  %@",currentDate);
+    return afterOneDays;
 //    [[NSUserDefaults standardUserDefaults] setObject:afterOneDays forKey:@"oneDayLater"];
 //    NSDate *oneDayLater = [[NSDate alloc] init];
 //    [[NSUserDefaults standardUserDefaults] setObject:oneDayLater forKey:@"oneDayLater"];
 //
 //    NSLog(@"ONE DAY LATER >>>>>>> %@",oneDayLater);
-    if (afterOneDays > currentDate) {
-      //  self.cravingLabel.text = @"0";
-        //self.smokedLabel.text = @"0";
-    }
+//    if (currentDate < afterOneDays) {
+//        self.cravingLabel.text = @"0";
+//        self.smokedLabel.text = @"0";
+//    }
 }
 
 - (void)weekLaterReduceDailyCig
