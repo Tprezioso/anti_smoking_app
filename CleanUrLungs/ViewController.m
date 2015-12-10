@@ -25,12 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.cravingLabel.text = @"0";
-    self.smokedLabel.text = @"0";
-    self.dailyGoalLabel.text = @"0";
-    self.smokedLabel.textColor = [UIColor greenColor];
-
-    if (self.smokedLabel.text > self.dailyGoalLabel.text) {
+    [self setupLabels];
+    if (self.smokedLabel.text >= self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
     
@@ -42,9 +38,17 @@
     } else {
         [self savedValues];
     }
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChange) name:UIApplicationSignificantTimeChangeNotification object:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChange) name:UIApplicationSignificantTimeChangeNotification object:nil];
     [self weekLaterReduceDailyCig];
+}
+
+- (void)setupLabels
+{
+    self.cravingLabel.text = @"0";
+    self.smokedLabel.text = @"0";
+    self.dailyGoalLabel.text = @"0";
+    self.smokedLabel.textColor = [UIColor greenColor];
 }
 
 - (void)savedValues
@@ -55,14 +59,17 @@
     self.smokedLabel.text = savedCigSmokedValue;
     NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
     self.cravingLabel.text = savedCravedValue;
+   
     if (savedCigValue == nil) {
         savedCigValue = @"0";
         self.dailyGoalLabel.text = savedCigValue;
     }
+   
     if (savedCigSmokedValue == nil) {
         savedCigSmokedValue = @"0";
         self.smokedLabel.text = savedCigSmokedValue;
     }
+    
     if (savedCravedValue == nil) {
         savedCravedValue = @"0";
         self.cravingLabel.text = savedCravedValue;
