@@ -42,19 +42,9 @@
     } else {
         [self savedValues];
     }
-    NSDate *tomorrow = [self oneDayLater];
-    NSDate *today = [NSDate date];
-    if (today == tomorrow) {
-        self.smokedLabel.text = @"0";
-        self.cravingLabel.text = @"0";
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChange) name:UIApplicationSignificantTimeChangeNotification object:nil];
+
     [self weekLaterReduceDailyCig];
-//    NSString *cavedNumberToSave = self.cravingLabel.text;
-//    [[NSUserDefaults standardUserDefaults] setObject:cavedNumberToSave forKey:@"cravedSaved"];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
-//    NSString *smokedNumberToSave = self.smokedLabel.text;
-//    [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)savedValues
@@ -111,25 +101,30 @@
 
 }
 
-- (NSDate*)oneDayLater
+- (void)timeChange
 {
-    NSDate *currentDate = [NSDate date];
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    [dateComponents setDay:+1];
-    NSDate *afterOneDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:currentDate options:0];
-    NSLog(@"afterOneDays: %@", afterOneDays);
-    NSLog(@"currentDate :  %@",currentDate);
-    return afterOneDays;
+    self.cravingLabel.text = @"0";
+    self.smokedLabel.text = @"0";
+}
+
+//- (void)oneDayLater
+//{
+//    NSDate *currentDate = [NSDate date];
+//    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+//    [dateComponents setDay:-1];
+//    NSDate *afterOneDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:currentDate options:0];
+//    NSLog(@"afterOneDays: %@", afterOneDays);
+//    NSLog(@"currentDate :  %@",currentDate);
 //    [[NSUserDefaults standardUserDefaults] setObject:afterOneDays forKey:@"oneDayLater"];
 //    NSDate *oneDayLater = [[NSDate alloc] init];
 //    [[NSUserDefaults standardUserDefaults] setObject:oneDayLater forKey:@"oneDayLater"];
 //
 //    NSLog(@"ONE DAY LATER >>>>>>> %@",oneDayLater);
-//    if (currentDate < afterOneDays) {
+//    if (currentDate  afterOneDays) {
 //        self.cravingLabel.text = @"0";
 //        self.smokedLabel.text = @"0";
 //    }
-}
+//}
 
 - (void)weekLaterReduceDailyCig
 {
