@@ -85,7 +85,6 @@
     
     [defaults setObject:[NSDate date] forKey:@"isFirstRun"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-   
     return YES;
 }
 
