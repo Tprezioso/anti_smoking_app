@@ -38,17 +38,14 @@
     } else {
         [self savedValues];
     }
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChange) name:UIApplicationSignificantTimeChangeNotification object:nil];
-//    [self timeChange];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification
-                                       object:nil
-                                        queue:nil
-                                   usingBlock:^(NSNotification *note) {
-                                       self.smokedLabel.text = @"0";
-                                       self.cravingLabel.text = @"0";
-                                   }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetLabels) name:@"changedDayNotification" object:nil];
     [self weekLaterReduceDailyCig];
+}
+
+- (void)resetLabels
+{
+    self.cravingLabel.text = @"0";
+    self.smokedLabel.text = @"0";
 }
 
 - (void)setupLabels
