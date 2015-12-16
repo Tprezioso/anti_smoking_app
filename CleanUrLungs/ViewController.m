@@ -49,12 +49,12 @@
         self.smokedLabel.text = @"0";
 }
 
-- (void)resetLabels
-{
-    self.cravingLabel.text = @"0";
-    self.smokedLabel.text = @"0";
-}
-
+//- (void)resetLabels
+//{
+//    self.cravingLabel.text = @"0";
+//    self.smokedLabel.text = @"0";
+//}
+//
 - (void)setupLabels
 {
     self.cravingLabel.text = @"0";
