@@ -113,8 +113,11 @@
     
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         self.alertTextField = textField;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
         NSLog(@".....%@", textField);
     }];
+//    [[firstTimeAlert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+//    [[firstTimeAction textFieldAtIndex:0] becomeFirstResponder];
     [firstTimeAlert addAction:firstTimeAction];
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
 
