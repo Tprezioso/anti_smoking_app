@@ -26,9 +26,6 @@
 {
     [super viewDidLoad];
     [self setupLabels];
-    if (self.smokedLabel.text > self.dailyGoalLabel.text) {
-        self.smokedLabel.textColor = [UIColor redColor];
-    }
     
     if ([self isFirstTimeInApp]) {
         [self setUpAlert];
@@ -38,6 +35,12 @@
     } else {
         [self savedValues];
     }
+    if (self.smokedLabel.text > self.dailyGoalLabel.text) {
+        self.smokedLabel.textColor = [UIColor redColor];
+    } else {
+        self.smokedLabel.textColor = [UIColor greenColor];
+    }
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChanged:) name:UIApplicationSignificantTimeChangeNotification object:nil];
     [self weekLaterReduceDailyCig];
 }
@@ -70,7 +73,6 @@
     self.cravingLabel.text = @"0";
     self.smokedLabel.text = @"0";
     self.dailyGoalLabel.text = @"0";
-    self.smokedLabel.textColor = [UIColor greenColor];
 }
 
 - (void)savedValues
