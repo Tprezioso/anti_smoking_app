@@ -40,7 +40,6 @@
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChanged:) name:UIApplicationSignificantTimeChangeNotification object:nil];
     [self weekLaterReduceDailyCig];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationSignificantTimeChangeNotification object:nil];
 }
 
 - (void)timeChanged:(NSNotification *)notification
