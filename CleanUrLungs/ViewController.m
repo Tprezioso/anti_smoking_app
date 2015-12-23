@@ -26,7 +26,7 @@
 {
     [super viewDidLoad];
     [self setupLabels];
-    if (self.smokedLabel.text >= self.dailyGoalLabel.text) {
+    if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
     
