@@ -45,8 +45,17 @@
 
 - (void)timeChanged:(NSNotification *)notification
 {
-    self.cravingLabel.text = @"0";
-    self.smokedLabel.text = @"0";
+    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    savedCigSmokedValue = @"0";
+    [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.smokedLabel.text = savedCigSmokedValue;
+
+    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+    savedCravedValue = @"0";
+    [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.cravingLabel.text = savedCravedValue;
 }
 
 - (void)resetLabels
