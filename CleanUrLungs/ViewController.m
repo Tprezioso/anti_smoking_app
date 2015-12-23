@@ -26,7 +26,6 @@
 {
     [super viewDidLoad];
     [self setupLabels];
-    
     if ([self isFirstTimeInApp]) {
         [self setUpAlert];
         NSDate *startDate = [NSDate date];
@@ -35,6 +34,7 @@
     } else {
         [self savedValues];
     }
+   
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     } else {
