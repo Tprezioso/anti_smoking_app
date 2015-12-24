@@ -60,14 +60,6 @@
     self.cravingLabel.text = savedCravedValue;
 }
 
-- (void)resetLabels
-{
-    if (UIApplicationSignificantTimeChangeNotification) {
-        self.cravingLabel.text = @"0";
-        self.smokedLabel.text = @"0";
-    }
-}
-
 - (void)setupLabels
 {
     self.cravingLabel.text = @"0";
