@@ -26,6 +26,7 @@
 {
     [super viewDidLoad];
     [self setupLabels];
+
     if ([self isFirstTimeInApp]) {
         [self setUpAlert];
         NSDate *startDate = [NSDate date];
