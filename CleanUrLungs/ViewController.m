@@ -42,7 +42,10 @@
         self.smokedLabel.textColor = [UIColor greenColor];
     }
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChanged:) name:UIApplicationSignificantTimeChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(timeChanged:)
+                                                 name:UIApplicationSignificantTimeChangeNotification
+                                               object:nil];
     [self weekLaterReduceDailyCig];
 }
 
