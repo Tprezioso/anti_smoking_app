@@ -21,7 +21,6 @@
     [super viewDidLoad];
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
-    [self calendar:self.calendar hasEventForDate:self.calendar.today];
     self.calendar.appearance.eventColor = [UIColor greenColor];
 }
 
