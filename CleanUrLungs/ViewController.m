@@ -158,7 +158,7 @@
     NSLog(@"afterSevenDays: %@", afterSevenDays);
     
     if (afterSevenDays == currentDate) {
-      self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue]-2] ;
+      self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2] ;
     }
     
     if ([self.dailyGoalLabel.text isEqualToString:@"0"]) {
@@ -168,7 +168,7 @@
 
 - (IBAction)cravingButton:(id)sender
 {
-    self.cravingLabel.text = [NSString stringWithFormat:@"%d", [self.cravingLabel.text intValue]+1];
+    self.cravingLabel.text = [NSString stringWithFormat:@"%d", [self.cravingLabel.text intValue] +1];
     NSString *cavedNumberToSave = self.cravingLabel.text;
     [[NSUserDefaults standardUserDefaults] setObject:cavedNumberToSave forKey:@"cravedSaved"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -176,7 +176,7 @@
 
 - (IBAction)smokedButton:(id)sender
 {
-    self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue]+1];
+    self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue] +1];
     if ([self.smokedLabel.text isEqualToString:self.dailyGoalLabel.text]) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
