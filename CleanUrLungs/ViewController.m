@@ -160,6 +160,7 @@
     if (afterSevenDays == currentDate) {
       self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue]-2] ;
     }
+    
     if ([self.dailyGoalLabel.text isEqualToString:@"0"]) {
         self.dailyGoalLabel.text = @"0";
     }
