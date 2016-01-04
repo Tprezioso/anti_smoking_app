@@ -127,25 +127,6 @@
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
 }
 
-//- (void)oneDayLater
-//{
-//    NSDate *currentDate = [NSDate date];
-//    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-//    [dateComponents setDay:-1];
-//    NSDate *afterOneDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:currentDate options:0];
-//    NSLog(@"afterOneDays: %@", afterOneDays);
-//    NSLog(@"currentDate :  %@",currentDate);
-//    [[NSUserDefaults standardUserDefaults] setObject:afterOneDays forKey:@"oneDayLater"];
-//    NSDate *oneDayLater = [[NSDate alloc] init];
-//    [[NSUserDefaults standardUserDefaults] setObject:oneDayLater forKey:@"oneDayLater"];
-//
-//    NSLog(@"ONE DAY LATER >>>>>>> %@",oneDayLater);
-//    if (currentDate  afterOneDays) {
-//        self.cravingLabel.text = @"0";
-//        self.smokedLabel.text = @"0";
-//    }
-//}
-
 - (void)weekLaterReduceDailyCig
 {
     NSDate *currentDate = [NSDate date];
