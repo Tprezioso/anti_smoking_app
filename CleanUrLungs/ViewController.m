@@ -140,7 +140,9 @@
     [dateComponents setDay:+7];
     NSDate *beginningDate = [[NSDate alloc] init];
     [[NSUserDefaults standardUserDefaults] setObject:beginningDate forKey:@"startDate"];
-    NSDate *afterSevenDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:beginningDate options:0];
+    NSDate *afterSevenDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents
+                                                                           toDate:beginningDate
+                                                                          options:0];
     NSLog(@"beginningDay: %@", beginningDate);
     NSLog(@"afterSevenDays: %@", afterSevenDays);
     
