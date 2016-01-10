@@ -156,8 +156,7 @@
 {
     self.cravingLabel.text = [NSString stringWithFormat:@"%d", [self.cravingLabel.text intValue] +1];
     NSString *cavedNumberToSave = self.cravingLabel.text;
-    [[NSUserDefaults standardUserDefaults] setObject:cavedNumberToSave
-                                              forKey:@"cravedSaved"];
+    [[NSUserDefaults standardUserDefaults] setObject:cavedNumberToSave forKey:@"cravedSaved"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
