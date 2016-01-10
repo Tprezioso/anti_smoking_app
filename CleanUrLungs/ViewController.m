@@ -53,15 +53,13 @@
 {
     NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
     savedCigSmokedValue = @"0";
-    [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue
-                                              forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.smokedLabel.text = savedCigSmokedValue;
 
     NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
     savedCravedValue = @"0";
-    [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue
-                                              forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.cravingLabel.text = savedCravedValue;
 }
@@ -120,8 +118,7 @@
                                                             handler:^(UIAlertAction * _Nonnull action) {
         self.dailyGoalLabel.text = self.alertTextField.text;
         NSString *cigValueToSave = self.dailyGoalLabel.text;
-        [[NSUserDefaults standardUserDefaults] setObject:cigValueToSave
-                                                  forKey:@"cigValueToSave"];
+        [[NSUserDefaults standardUserDefaults] setObject:cigValueToSave forKey:@"cigValueToSave"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }];
     
@@ -169,8 +166,7 @@
    
     [UIApplication sharedApplication].applicationIconBadgeNumber = [self.smokedLabel.text intValue];
     NSString *smokedNumberToSave = self.smokedLabel.text;
-    [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave
-                                              forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
