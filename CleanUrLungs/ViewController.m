@@ -59,7 +59,7 @@
 
     NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
     savedCravedValue = @"0";
-    [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] setObject:savedCravedValue forKey:@"cravedSaved"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.cravingLabel.text = savedCravedValue;
 }
