@@ -41,19 +41,22 @@
     } else {
         self.smokedLabel.textColor = [UIColor greenColor];
     }
-
+    [self weekLaterReduceDailyCig];
+    [self setupTomorrowDate];
+    // The run loop retains timer, so you don't need to.
+    
 //    [[NSNotificationCenter defaultCenter] addObserver:self
 //                                             selector:@selector(timeChanged)
 //                                                 name:UIApplicationSignificantTimeChangeNotification
 //                                               object:nil];
-    [self weekLaterReduceDailyCig];
-    NSCalendar *cal = [NSCalendar autoupdatingCurrentCalendar];
-    NSDate *start = [cal startOfDayForDate:[NSDate date]];
+//    NSCalendar *cal = [NSCalendar autoupdatingCurrentCalendar];
+//    NSDate *start = [cal startOfDayForDate:[NSDate date]];
 //    NSDate *sometimeTomorrow = [cal dateByAddingUnit:NSCalendarUnitDay
 //                                       value:+1
 //                                      toDate:start
 //                                     options:0];
-//    if (start) {
+//    BOOL isToday = [cal isDateInYesterday:start];
+//    if (!isToday) {
 //        [self timeChanged];
 //    }
 //    start = [cal startOfDayForDate:sometimeTomorrow];
@@ -63,6 +66,24 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];
+}
+
+- (void)setupTomorrowDate
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *todayComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    NSDate *today = [calendar dateFromComponents:todayComponents];
+    NSDateComponents *oneDay = [[NSDateComponents alloc] init];
+    oneDay.day = 1;
+    NSDate *tomorrow = [calendar dateByAddingComponents:oneDay toDate:today options:0];
+    
+    NSTimer *timer = [[NSTimer alloc] initWithFireDate:tomorrow interval:0 target:self selector:@selector(tomorrowTimerDidFire:) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)tomorrowTimerDidFire:(NSTimer *)timer
+{
+    [self timeChanged];
 }
 
 - (void)timeChanged//:(NSNotification *)notification
