@@ -43,8 +43,6 @@
     }
     [self weekLaterReduceDailyCig];
     [self setupTomorrowDate];
-    // The run loop retains timer, so you don't need to.
-    
 //    [[NSNotificationCenter defaultCenter] addObserver:self
 //                                             selector:@selector(timeChanged)
 //                                                 name:UIApplicationSignificantTimeChangeNotification
