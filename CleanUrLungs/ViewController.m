@@ -42,14 +42,30 @@
         self.smokedLabel.textColor = [UIColor greenColor];
     }
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(timeChanged:)
-                                                 name:UIApplicationSignificantTimeChangeNotification
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(timeChanged)
+//                                                 name:UIApplicationSignificantTimeChangeNotification
+//                                               object:nil];
     [self weekLaterReduceDailyCig];
+    NSCalendar *cal = [NSCalendar autoupdatingCurrentCalendar];
+    NSDate *start = [cal startOfDayForDate:[NSDate date]];
+//    NSDate *sometimeTomorrow = [cal dateByAddingUnit:NSCalendarUnitDay
+//                                       value:+1
+//                                      toDate:start
+//                                     options:0];
+//    if (start) {
+//        [self timeChanged];
+//    }
+//    start = [cal startOfDayForDate:sometimeTomorrow];
+//    if (sometimeTomorrow) {
+//        [self timeChanged];
+//    }
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [self timeChanged];
+    }];
 }
 
-- (void)timeChanged:(NSNotification *)notification
+- (void)timeChanged//:(NSNotification *)notification
 {
     NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
     savedCigSmokedValue = @"0";

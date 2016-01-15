@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-- (void)timeChanged:(NSNotification *)notification;
+//- (void)timeChanged:(NSNotification *)notification;
 
 @end
 

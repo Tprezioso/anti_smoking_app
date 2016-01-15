@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-    [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationSignificantTimeChangeNotification object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NSCalendarDayChangedNotification object:nil userInfo:nil];
   
     return YES;
 }
@@ -66,7 +66,7 @@
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSLog(@"Fetch started");
-    [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationSignificantTimeChangeNotification object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NSCalendarDayChangedNotification object:nil userInfo:nil];
     completionHandler(UIBackgroundFetchResultNewData);
 }
     
