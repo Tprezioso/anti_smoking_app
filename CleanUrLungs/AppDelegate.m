@@ -55,7 +55,6 @@
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    NSLog(@"Fetch started");
     [[NSNotificationCenter defaultCenter] postNotificationName:NSCalendarDayChangedNotification object:nil userInfo:nil];
     completionHandler(UIBackgroundFetchResultNewData);
 }
