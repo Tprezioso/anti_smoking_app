@@ -33,7 +33,14 @@
         [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
+        
         [self savedValues];
+        NSDate *savedDate = [[NSDate alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:savedDate forKey:@"startDate"];
+        NSDate *today = [NSDate new];
+        if ([savedDate isEqualToDate:today]) {
+            [self timeChanged];
+        }
     }
    
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
