@@ -26,14 +26,12 @@
 {
     [super viewDidLoad];
     [self setupLabels];
-
     if ([self isFirstTimeInApp]) {
         [self setUpAlert];
         NSDate *startDate = [NSDate date];
         [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
-        
         [self savedValues];
         NSDate *savedDate = [[NSDate alloc] init];
         [[NSUserDefaults standardUserDefaults] setObject:savedDate forKey:@"startDate"];
@@ -63,7 +61,6 @@
     NSDateComponents *oneDay = [[NSDateComponents alloc] init];
     oneDay.day = 1;
     NSDate *tomorrow = [calendar dateByAddingComponents:oneDay toDate:today options:0];
-    
     NSTimer *timer = [[NSTimer alloc] initWithFireDate:tomorrow interval:0 target:self selector:@selector(tomorrowTimerDidFire:) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
