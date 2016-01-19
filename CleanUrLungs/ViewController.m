@@ -50,24 +50,6 @@
     }
     [self weekLaterReduceDailyCig];
     [self setupTomorrowDate];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(timeChanged)
-//                                                 name:UIApplicationSignificantTimeChangeNotification
-//                                               object:nil];
-//    NSCalendar *cal = [NSCalendar autoupdatingCurrentCalendar];
-//    NSDate *start = [cal startOfDayForDate:[NSDate date]];
-//    NSDate *sometimeTomorrow = [cal dateByAddingUnit:NSCalendarUnitDay
-//                                       value:+1
-//                                      toDate:start
-//                                     options:0];
-//    BOOL isToday = [cal isDateInYesterday:start];
-//    if (!isToday) {
-//        [self timeChanged];
-//    }
-//    start = [cal startOfDayForDate:sometimeTomorrow];
-//    if (sometimeTomorrow) {
-//        [self timeChanged];
-//    }
     [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];
