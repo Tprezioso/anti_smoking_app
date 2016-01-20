@@ -66,6 +66,7 @@
     NSString *closeString = [dateFormat stringFromDate:close];
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     }
 }
 
