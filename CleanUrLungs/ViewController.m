@@ -158,14 +158,21 @@
 {
     self.counter = 1;
     if (self.isNewDay) {
-        self.counter += 1;
+        self.counter = [[NSUserDefaults standardUserDefaults] integerForKey:@"counter"];
+        self.counter++;
+        [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         if (self.counter == 7) {
             self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
             NSString *newDailyGoalSaved = self.dailyGoalLabel.text;
             [[NSUserDefaults standardUserDefaults] setObject:newDailyGoalSaved forKey:@"cigValueToSave"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            self.counter = 0;
+            [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         } else {
             if ([self.dailyGoalLabel.text isEqualToString:@"0"]) {
+                self.isNewDay = NO;
                 NSString *dailyGoalLimit = self.dailyGoalLabel.text;
                 [[NSUserDefaults standardUserDefaults] setObject:dailyGoalLimit forKey:@"cigValueToSave"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
