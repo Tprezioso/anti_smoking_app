@@ -36,16 +36,21 @@
     }
 
     [self checkIfDayChanged];
+    [self checkIfOverDailyGoal];
+    [self weekLaterReduceDailyCig];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [self timeChanged];
+    }];
+}
+
+
+- (void)checkIfOverDailyGoal
+{
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     } else {
         self.smokedLabel.textColor = [UIColor greenColor];
     }
-    
-    [self weekLaterReduceDailyCig];
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        [self timeChanged];
-    }];
 }
 
 - (void)checkIfDayChanged
