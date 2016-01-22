@@ -40,7 +40,15 @@
             [self timeChanged];
         }
     }
-   
+    NSDate *open = [[NSUserDefaults standardUserDefaults] objectForKey:@"openDate"];
+    NSDate *close = [[NSUserDefaults standardUserDefaults] objectForKey:@"closeDate"];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString *openString = [dateFormat stringFromDate:open];
+    NSString *closeString = [dateFormat stringFromDate:close];
+    if (![openString isEqualToString:closeString]) {
+        [self timeChanged];
+    }
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     } else {
@@ -48,7 +56,7 @@
     }
     [self weekLaterReduceDailyCig];
     [self setupTomorrowDate];
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];
 }
