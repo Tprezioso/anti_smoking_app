@@ -26,15 +26,7 @@
 {
     [super viewDidLoad];
     [self setupLabels];
-    if ([self isFirstTimeInApp]) {
-        [self setUpAlert];
-        NSDate *startDate = [NSDate date];
-        [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    } else {
-        [self savedValues];
-    }
-
+    [self checkIfFirstTimeInApp];
     [self checkIfDayChanged];
     [self checkIfOverDailyGoal];
     [self weekLaterReduceDailyCig];
@@ -43,6 +35,17 @@
     }];
 }
 
+- (void)checkIfFirstTimeInApp
+{
+    if ([self isFirstTimeInApp]) {
+        [self setUpAlert];
+        NSDate *startDate = [NSDate date];
+        [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        [self savedValues];
+    }
+}
 
 - (void)checkIfOverDailyGoal
 {
