@@ -40,6 +40,20 @@
             [self timeChanged];
         }
     }
+    [self checkIfDayChanged];
+    if (self.smokedLabel.text > self.dailyGoalLabel.text) {
+        self.smokedLabel.textColor = [UIColor redColor];
+    } else {
+        self.smokedLabel.textColor = [UIColor greenColor];
+    }
+    [self weekLaterReduceDailyCig];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [self timeChanged];
+    }];
+}
+
+- (void)checkIfDayChanged
+{
     NSDate *open = [[NSUserDefaults standardUserDefaults] objectForKey:@"openDate"];
     NSDate *close = [[NSUserDefaults standardUserDefaults] objectForKey:@"closeDate"];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -49,33 +63,6 @@
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
     }
-    if (self.smokedLabel.text > self.dailyGoalLabel.text) {
-        self.smokedLabel.textColor = [UIColor redColor];
-    } else {
-        self.smokedLabel.textColor = [UIColor greenColor];
-    }
-    [self weekLaterReduceDailyCig];
-    [self setupTomorrowDate];
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        [self timeChanged];
-    }];
-}
-
-- (void)setupTomorrowDate
-{
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *todayComponents = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-    NSDate *today = [calendar dateFromComponents:todayComponents];
-    NSDateComponents *oneDay = [[NSDateComponents alloc] init];
-    oneDay.day = 1;
-    NSDate *tomorrow = [calendar dateByAddingComponents:oneDay toDate:today options:0];
-    NSTimer *timer = [[NSTimer alloc] initWithFireDate:tomorrow interval:0 target:self selector:@selector(tomorrowTimerDidFire:) userInfo:nil repeats:NO];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-}
-
-- (void)tomorrowTimerDidFire:(NSTimer *)timer
-{
-    [self timeChanged];
 }
 
 - (void)timeChanged
