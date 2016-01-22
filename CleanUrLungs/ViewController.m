@@ -78,7 +78,7 @@
     [self timeChanged];
 }
 
-- (void)timeChanged//:(NSNotification *)notification
+- (void)timeChanged
 {
     NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
     savedCigSmokedValue = @"0";
