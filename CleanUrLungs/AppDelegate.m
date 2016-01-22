@@ -24,6 +24,7 @@
     NSDate *openDate = [NSDate new];
     [[NSUserDefaults standardUserDefaults] setObject:openDate forKey:@"openDate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+
     return YES;
 }
 
@@ -52,18 +53,6 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
-- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
-    return YES;
-}
-
-- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:NSCalendarDayChangedNotification object:nil userInfo:nil];
-    completionHandler(UIBackgroundFetchResultNewData);
-}
-    
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

@@ -33,19 +33,15 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         [self savedValues];
-        NSDate *savedDate = [[NSDate alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:savedDate forKey:@"startDate"];
-        NSDate *today = [NSDate new];
-        if ([savedDate isEqualToDate:today]) {
-            [self timeChanged];
-        }
     }
+
     [self checkIfDayChanged];
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     } else {
         self.smokedLabel.textColor = [UIColor greenColor];
     }
+    
     [self weekLaterReduceDailyCig];
     [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
