@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *inspiringQuote;
 @property (strong, nonatomic) IBOutlet UILabel *dailyGoalLabel;
 @property (strong, nonatomic) UITextField *alertTextField;
+@property (nonatomic) BOOL isNewDay;
+@property (nonatomic) NSInteger counter;
 - (IBAction)cravingButton:(id)sender;
 - (IBAction)smokedButton:(id)sender;
 
@@ -67,6 +69,7 @@
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        self.isNewDay = YES;
     }
 }
 
@@ -83,6 +86,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:savedCravedValue forKey:@"cravedSaved"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.cravingLabel.text = savedCravedValue;
+  //  self.isNewDay = YES;
 }
 
 - (void)setupLabels
@@ -152,20 +156,21 @@
 
 - (void)weekLaterReduceDailyCig
 {
-    NSDate *currentDate = [NSDate date];
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    [dateComponents setDay:+7];
-    NSDate *beginningDate = [[NSDate alloc] init];
-    beginningDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"startDate"];
-    NSDate *afterSevenDays = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents
-                                                                           toDate:beginningDate
-                                                                          options:0];
-    if (afterSevenDays == currentDate) {
-      self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
-    }
-    
-    if ([self.dailyGoalLabel.text isEqualToString:@"0"]) {
-        self.dailyGoalLabel.text = @"0";
+    self.counter = 1;
+    if (self.isNewDay) {
+        self.counter += 1;
+        if (self.counter == 7) {
+            self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
+            NSString *newDailyGoalSaved = self.dailyGoalLabel.text;
+            [[NSUserDefaults standardUserDefaults] setObject:newDailyGoalSaved forKey:@"cigValueToSave"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        } else {
+            if ([self.dailyGoalLabel.text isEqualToString:@"0"]) {
+                NSString *dailyGoalLimit = self.dailyGoalLabel.text;
+                [[NSUserDefaults standardUserDefaults] setObject:dailyGoalLimit forKey:@"cigValueToSave"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+        }
     }
 }
 
