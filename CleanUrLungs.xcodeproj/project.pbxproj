@@ -17,6 +17,7 @@
 		9F1759661BFA67E400BAC8EE /* CleanUrLungsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1759651BFA67E400BAC8EE /* CleanUrLungsTests.m */; };
 		9F1759711BFA67E400BAC8EE /* CleanUrLungsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1759701BFA67E400BAC8EE /* CleanUrLungsUITests.m */; };
 		9F43251D1BFB82DF002418E6 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F43251C1BFB82DF002418E6 /* CalendarViewController.m */; };
+		9FDB2C181C56BF0D0056BBC7 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB2C171C56BF0D0056BBC7 /* Day.m */; };
 		E172AF1AF66A4A3A20D81C5D /* libPods-CleanUrLungs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F084A59427EABB1866A3F764 /* libPods-CleanUrLungs.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		9F1759721BFA67E400BAC8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F43251B1BFB82DF002418E6 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		9F43251C1BFB82DF002418E6 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		9FDB2C161C56BF0D0056BBC7 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
+		9FDB2C171C56BF0D0056BBC7 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		F084A59427EABB1866A3F764 /* libPods-CleanUrLungs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CleanUrLungs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +118,7 @@
 			children = (
 				9F17594B1BFA67E400BAC8EE /* AppDelegate.h */,
 				9F17594C1BFA67E400BAC8EE /* AppDelegate.m */,
+				9FDB2C191C56BF140056BBC7 /* Model */,
 				9F43251E1BFBAFF9002418E6 /* Controller */,
 				9F43251F1BFBB01F002418E6 /* View */,
 				9F1759481BFA67E400BAC8EE /* Supporting Files */,
@@ -169,6 +173,15 @@
 				9F1759571BFA67E400BAC8EE /* Assets.xcassets */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		9FDB2C191C56BF140056BBC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9FDB2C161C56BF0D0056BBC7 /* Day.h */,
+				9FDB2C171C56BF0D0056BBC7 /* Day.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		C7032AFAB487BF16903753A1 /* Pods */ = {
@@ -358,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FDB2C181C56BF0D0056BBC7 /* Day.m in Sources */,
 				9F1759561BFA67E400BAC8EE /* CleanUrLungs.xcdatamodeld in Sources */,
 				9F1759501BFA67E400BAC8EE /* ViewController.m in Sources */,
 				9F17594D1BFA67E400BAC8EE /* AppDelegate.m in Sources */,
