@@ -10,4 +10,14 @@
 
 @implementation Day
 
+- (void)saveDate
+{
+    //Save to core Data
+}
+
+- (void)retriveDate
+{   
+    //retrieve from core data
+}
+
 @end
