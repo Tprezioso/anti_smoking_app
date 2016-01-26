@@ -10,4 +10,9 @@
 
 @interface Day : NSObject
 
+@property (strong, nonatomic) NSString *date;
+@property (strong, nonatomic) NSString *smokeTotal;
+@property (strong, nonatomic) NSString *craveTotal;
+@property (strong, nonatomic) NSString *dailyGoal;
+
 @end
