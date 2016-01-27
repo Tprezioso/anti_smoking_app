@@ -86,7 +86,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:savedCravedValue forKey:@"cravedSaved"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.cravingLabel.text = savedCravedValue;
-  //  self.isNewDay = YES;
 }
 
 - (void)setupLabels
