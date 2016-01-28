@@ -2,9 +2,10 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
     <entity name="Date" syncable="YES">
         <attribute name="dailyGoal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateSaved" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="smokedNumber" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Date" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Date" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>
