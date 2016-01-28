@@ -12,12 +12,12 @@
 
 - (void)saveDate
 {
-    //Save to core Data
+    // Save to core Data
 }
 
 - (void)retriveDate
 {   
-    //retrieve from core data
+    // retrieve from core data
 }
 
 @end
