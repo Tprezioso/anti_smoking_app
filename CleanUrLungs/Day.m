@@ -10,14 +10,14 @@
 
 @implementation Day
 
+// Save to core Data
 - (void)saveDate
 {
-    // Save to core Data
 }
 
+// retrieve from core data
 - (void)retriveDate
 {   
-    // retrieve from core data
 }
 
 @end
