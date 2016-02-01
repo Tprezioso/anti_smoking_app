@@ -196,7 +196,6 @@
     if ([self.smokedLabel.text isEqualToString:self.dailyGoalLabel.text]) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
-   
     [UIApplication sharedApplication].applicationIconBadgeNumber = [self.smokedLabel.text intValue];
     NSString *smokedNumberToSave = self.smokedLabel.text;
     [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
