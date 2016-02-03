@@ -20,6 +20,7 @@
     UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
     [[NSNotificationCenter defaultCenter] postNotificationName:NSCalendarDayChangedNotification object:nil userInfo:nil];
+    
     NSDate *openDate = [NSDate new];
     [[NSUserDefaults standardUserDefaults] setObject:openDate forKey:@"openDate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
