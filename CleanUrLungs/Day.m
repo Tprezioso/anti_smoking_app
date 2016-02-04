@@ -8,6 +8,7 @@
 
 #import "Day.h"
 #import "AppDelegate.h"
+#import <CoreData/CoreData.h>
 
 @implementation Day
 
