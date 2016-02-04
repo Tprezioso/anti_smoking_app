@@ -7,6 +7,7 @@
 //
 
 #import "Day.h"
+#import "AppDelegate.h"
 
 @implementation Day
 
@@ -20,6 +21,16 @@
 - (void)retriveDate
 {   
 
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
 }
 
 @end
