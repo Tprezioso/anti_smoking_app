@@ -15,7 +15,7 @@
 // Save to core Data
 - (void)saveDate:(NSString *)dateToSave smokeSaved:(NSString *)smokeSaved dailyGoalSaved:(NSString *)dailyGoalSaved
 {
-
+    
 }
 
 // retrieve from core data
