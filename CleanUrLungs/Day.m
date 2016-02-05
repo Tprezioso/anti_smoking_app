@@ -12,7 +12,6 @@
 
 @implementation Day
 
-// Save to core Data
 - (void)saveDate:(NSString *)dateToSave smokeSaved:(NSString *)smokeSaved dailyGoalSaved:(NSString *)dailyGoalSaved
 {
     NSManagedObjectContext *context = [self managedObjectContext];
