@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSString *smokeTotal;
 @property (strong, nonatomic) NSString *craveTotal;
 @property (strong, nonatomic) NSString *dailyGoal;
-- (void)saveDate;
+- (void)saveDate:(NSString *)dateToSave smokeSaved:(NSString *)smokeSaved dailyGoalSaved:(NSString *)dailyGoalSaved;
 - (void)retriveDate;
 
 @end

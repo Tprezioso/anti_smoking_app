@@ -13,7 +13,7 @@
 @implementation Day
 
 // Save to core Data
-- (void)saveDate
+- (void)saveDate:(NSString *)dateToSave smokeSaved:(NSString *)smokeSaved dailyGoalSaved:(NSString *)dailyGoalSaved
 {
 
 }
