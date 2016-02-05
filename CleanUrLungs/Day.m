@@ -26,7 +26,6 @@
     }
 }
 
-// retrieve from core data
 - (void)retriveDate
 {   
 
