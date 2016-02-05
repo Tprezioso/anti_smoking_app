@@ -20,6 +20,7 @@
     [newDevice setValue:smokeSaved forKey:@"smokedNumber"];
     [newDevice setValue:dailyGoalSaved forKey:@"dailyGoal"];
     NSError *error = nil;
+
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
