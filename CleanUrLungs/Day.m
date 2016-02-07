@@ -49,7 +49,6 @@
     if ([delegate performSelector:@selector(managedObjectContext)]) {
         context = [delegate managedObjectContext];
     }
-
     return context;
 }
 
