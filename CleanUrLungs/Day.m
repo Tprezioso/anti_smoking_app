@@ -24,6 +24,7 @@
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
+   
     NSLog(@"DAY SAVED");
 }
 
