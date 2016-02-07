@@ -80,7 +80,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.smokedLabel.text = savedCigSmokedValue;
-
     NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
     savedCravedValue = @"0";
     [[NSUserDefaults standardUserDefaults] setObject:savedCravedValue forKey:@"cravedSaved"];
