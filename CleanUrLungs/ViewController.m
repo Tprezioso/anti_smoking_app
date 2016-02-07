@@ -99,7 +99,6 @@
 {
     NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
     self.dailyGoalLabel.text = savedCigValue;
-    
     NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
     self.smokedLabel.text = savedCigSmokedValue;
     
