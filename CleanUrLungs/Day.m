@@ -24,7 +24,6 @@
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-   
     NSLog(@"DAY SAVED");
 }
 
@@ -40,6 +39,7 @@
         savedDay.smokeTotal = [days[i] valueForKey:@"smokedNumber"];
         savedDay.dailyGoal = [days[i] valueForKey:@"dailyGoal"];
     }
+    NSLog(@"DAY RETRIVED");
 }
 
 - (NSManagedObjectContext *)managedObjectContext
