@@ -33,6 +33,7 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
     days = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+
     for (NSInteger i = 0; i < [days count]; i++) {
         Day *savedDay = [Day new];
         savedDay.date = [days[i] valueForKey:@"dateSaved"];
