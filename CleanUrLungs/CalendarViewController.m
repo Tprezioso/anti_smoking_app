@@ -38,6 +38,7 @@
     if ([date isEqualToDate:self.calendar.today]) {
         return YES;
     }
+
     return NO;
 }
 
