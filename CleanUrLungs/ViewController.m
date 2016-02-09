@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Day.h"
 
 @interface ViewController ()
 
