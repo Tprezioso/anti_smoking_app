@@ -132,7 +132,6 @@
     [dateFormat setDateFormat:@"MM-dd-yyyy"];
     NSString *dateString = [dateFormat stringFromDate:dateNow];
     Day *day = [[Day alloc] initWithDate:nil smokeValue:self.smokedLabel.text dailyGoal:self.dailyGoalLabel.text];
-    
     [day saveDate:day.date smokeSaved:day.smokeTotal dailyGoalSaved:day.dailyGoal];
 }
 
