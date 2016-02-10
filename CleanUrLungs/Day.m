@@ -12,6 +12,18 @@
 
 @implementation Day
 
+- (instancetype)initWithDate:(NSString *)date smokeValue:(NSString *)smokeValue dailyGoal:(NSString *)dailyGoal
+{
+    self = [super init];
+    if (self) {
+        _date = date;
+        _smokeTotal = smokeValue;
+        _dailyGoal = dailyGoal;
+    }
+    
+    return self;
+}
+
 - (void)saveDate:(NSString *)dateToSave smokeSaved:(NSString *)smokeSaved dailyGoalSaved:(NSString *)dailyGoalSaved
 {
     NSManagedObjectContext *context = [self managedObjectContext];
