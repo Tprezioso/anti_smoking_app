@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Day.h"
+#import <CoreData/CoreData.h>
 
 @interface ViewController ()
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) UITextField *alertTextField;
 @property (nonatomic) BOOL isNewDay;
 @property (nonatomic) NSInteger counter;
+@property (strong, nonatomic) Day *day;
 - (IBAction)cravingButton:(id)sender;
 - (IBAction)smokedButton:(id)sender;
 
@@ -47,6 +49,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         [self savedValues];
+        //[self saveDate];
     }
 }
 
@@ -119,6 +122,18 @@
         savedCravedValue = @"0";
         self.cravingLabel.text = savedCravedValue;
     }
+}
+
+#pragma mark TODO: Need to fix this up with save and retrieve of core data
+- (void)saveDate
+{
+    NSDate *dateNow = [NSDate new];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM-dd-yyyy"];
+    NSString *dateString = [dateFormat stringFromDate:dateNow];
+    Day *day = [[Day alloc] initWithDate:nil smokeValue:self.smokedLabel.text dailyGoal:self.dailyGoalLabel.text];
+    
+    [day saveDate:day.date smokeSaved:day.smokeTotal dailyGoalSaved:day.dailyGoal];
 }
 
 - (BOOL)isFirstTimeInApp
