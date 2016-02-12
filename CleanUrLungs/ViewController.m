@@ -131,8 +131,13 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MM-dd-yyyy"];
     NSString *dateString = [dateFormat stringFromDate:dateNow];
-    Day *day = [[Day alloc] initWithDate:nil smokeValue:self.smokedLabel.text dailyGoal:self.dailyGoalLabel.text];
-    [day saveDate:day.date smokeSaved:day.smokeTotal dailyGoalSaved:day.dailyGoal];
+    self.day = [[Day alloc] initWithDate:nil smokeValue:self.smokedLabel.text dailyGoal:self.dailyGoalLabel.text];
+    [self.day saveDate:self.day.date smokeSaved:self.day.smokeTotal dailyGoalSaved:self.day.dailyGoal];
+}
+
+- (void)retrieveDate
+{
+    [self.day retriveDate];
 }
 
 - (BOOL)isFirstTimeInApp
