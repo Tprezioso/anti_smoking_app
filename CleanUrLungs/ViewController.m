@@ -70,6 +70,7 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     NSString *openString = [dateFormat stringFromDate:open];
     NSString *closeString = [dateFormat stringFromDate:close];
+    
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
@@ -143,6 +144,7 @@
 - (BOOL)isFirstTimeInApp
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     if ([defaults objectForKey:@"isFirstRun"]) {
         return NO;
     }
@@ -176,11 +178,13 @@
 - (void)weekLaterReduceDailyCig
 {
     self.counter = 1;
+    
     if (self.isNewDay) {
         self.counter = [[NSUserDefaults standardUserDefaults] integerForKey:@"counter"];
         self.counter++;
         [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+    
         if (self.counter == 7) {
             self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
             NSString *newDailyGoalSaved = self.dailyGoalLabel.text;
@@ -190,6 +194,7 @@
             [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         } else {
+        
             if ([self.dailyGoalLabel.text isEqualToString:@"0"]) {
                 self.isNewDay = NO;
                 NSString *dailyGoalLimit = self.dailyGoalLabel.text;
@@ -211,10 +216,10 @@
 - (IBAction)smokedButton:(id)sender
 {
     self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue] +1];
+    
     if ([self.smokedLabel.text isEqualToString:self.dailyGoalLabel.text]) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
-
     [UIApplication sharedApplication].applicationIconBadgeNumber = [self.smokedLabel.text intValue];
     NSString *smokedNumberToSave = self.smokedLabel.text;
     [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
