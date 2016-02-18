@@ -143,11 +143,6 @@
     [self.day saveDate:self.day.date smokeSaved:self.day.smokeValue dailyGoalSaved:self.day.dailyGoal];
 }
 
-- (void)retrieveDate
-{
-    self.savedDatesArray = [self.day retriveDate];
-}
-
 - (void)setupLabelFromCoreData
 {
     Day *setdate = [[Day alloc] init];
