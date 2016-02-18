@@ -40,7 +40,7 @@
     NSLog(@"DAY SAVED");
 }
 
-- (void)retriveDate
+- (NSMutableArray *)retriveDate
 {
     NSMutableArray *days = [[NSMutableArray alloc] init];
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -53,8 +53,8 @@
         savedDay.smokeTotal = [days[i] valueForKey:@"smokedNumber"];
         savedDay.dailyGoal = [days[i] valueForKey:@"dailyGoal"];
     }
-
     NSLog(@"DAY RETRIVED");
+    return days;
 }
 
 - (NSManagedObjectContext *)managedObjectContext

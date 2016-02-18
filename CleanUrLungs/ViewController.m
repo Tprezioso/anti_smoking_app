@@ -20,6 +20,7 @@
 @property (nonatomic) BOOL isNewDay;
 @property (nonatomic) NSInteger counter;
 @property (strong, nonatomic) Day *day;
+@property (strong, nonatomic) NSMutableArray *savedDatesArray;
 - (IBAction)cravingButton:(id)sender;
 - (IBAction)smokedButton:(id)sender;
 
@@ -35,11 +36,16 @@
     [self checkIfDayChanged];
     [self checkIfOverDailyGoal];
     [self weekLaterReduceDailyCig];
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+    [self saveDate];
+}
 - (void)checkIfFirstTimeInApp
 {
     if ([self isFirstTimeInApp]) {
@@ -48,8 +54,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
-        [self savedValues];
-        //[self saveDate];
+       // [self savedValues];
+        [self setupLabelFromCoreData];
     }
 }
 
@@ -138,7 +144,16 @@
 
 - (void)retrieveDate
 {
-    [self.day retriveDate];
+    self.savedDatesArray = [self.day retriveDate];
+}
+
+- (void)setupLabelFromCoreData
+{
+    Day *savedDay = [[Day alloc]init];
+   self.savedDatesArray = [savedDay retriveDate];
+    Day *setdate = [self.savedDatesArray lastObject];
+    self.dailyGoalLabel.text = setdate.dailyGoal;
+    self.smokedLabel.text = setdate.smokeTotal;
 }
 
 - (BOOL)isFirstTimeInApp
