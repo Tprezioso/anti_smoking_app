@@ -20,7 +20,6 @@
 @property (nonatomic) BOOL isNewDay;
 @property (nonatomic) NSInteger counter;
 @property (strong, nonatomic) Day *day;
-@property (strong, nonatomic) NSMutableArray *savedDatesArray;
 - (IBAction)cravingButton:(id)sender;
 - (IBAction)smokedButton:(id)sender;
 
