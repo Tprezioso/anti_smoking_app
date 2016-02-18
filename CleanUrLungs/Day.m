@@ -58,6 +58,23 @@
     return returnDay;
 }
 
+- (NSMutableArray *)retriveDates
+{
+    NSMutableArray *days = [[NSMutableArray alloc] init];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
+    days = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    Day *savedDay = [Day new];
+    
+    for (NSInteger i = 0; i < [days count]; i++) {
+        savedDay.date = [days[i] valueForKey:@"dateSaved"];
+        savedDay.smokeValue = [days[i] valueForKey:@"smokedValue"];
+        savedDay.dailyGoal = [days[i] valueForKey:@"dailyGoal"];
+    }
+    NSLog(@"DAY RETRIVED");
+    return days;
+}
+
 
 - (NSManagedObjectContext *)managedObjectContext
 {

@@ -17,5 +17,6 @@
 - (instancetype)initWithDate:(NSString *)date smokeValue:(NSString *)smokeValue dailyGoal:(NSString *)dailyGoal;
 - (void)saveDate:(NSString *)dateToSave smokeSaved:(NSString *)smokeSaved dailyGoalSaved:(NSString *)dailyGoalSaved;
 - (Day *)retriveDate;
+- (NSMutableArray *)retriveDates;
 
 @end
