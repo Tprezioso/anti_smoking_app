@@ -17,7 +17,7 @@
     self = [super init];
     if (self) {
         _date = date;
-        _smokeTotal = smokeValue;
+        _smokeValue = smokeValue;
         _dailyGoal = dailyGoal;
     }
    
@@ -29,7 +29,7 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Date" inManagedObjectContext:context];
     [newDevice setValue:dateToSave forKey:@"dateSaved"];
-    [newDevice setValue:smokeSaved forKey:@"smokedNumber"];
+    [newDevice setValue:smokeSaved forKey:@"smokedValue"];
     [newDevice setValue:dailyGoalSaved forKey:@"dailyGoal"];
     NSError *error = nil;
 
@@ -40,22 +40,24 @@
     NSLog(@"DAY SAVED");
 }
 
-- (NSMutableArray *)retriveDate
+- (Day *)retriveDate
 {
     NSMutableArray *days = [[NSMutableArray alloc] init];
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
     days = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    Day *savedDay = [Day new];
 
     for (NSInteger i = 0; i < [days count]; i++) {
-        Day *savedDay = [Day new];
         savedDay.date = [days[i] valueForKey:@"dateSaved"];
-        savedDay.smokeTotal = [days[i] valueForKey:@"smokedNumber"];
+        savedDay.smokeValue = [days[i] valueForKey:@"smokedValue"];
         savedDay.dailyGoal = [days[i] valueForKey:@"dailyGoal"];
     }
     NSLog(@"DAY RETRIVED");
-    return days;
+    Day *returnDay = savedDay;
+    return returnDay;
 }
+
 
 - (NSManagedObjectContext *)managedObjectContext
 {

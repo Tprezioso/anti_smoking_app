@@ -41,11 +41,12 @@
     }];
 }
 
--(void)viewDidDisappear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:YES];
     [self saveDate];
 }
+
 - (void)checkIfFirstTimeInApp
 {
     if ([self isFirstTimeInApp]) {
@@ -79,6 +80,7 @@
     
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
+        [self saveDate];
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         self.isNewDay = YES;
     }
@@ -106,30 +108,30 @@
     self.dailyGoalLabel.text = @"0";
 }
 
-- (void)savedValues
-{
-    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-    self.dailyGoalLabel.text = savedCigValue;
-    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-    self.smokedLabel.text = savedCigSmokedValue;
-    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
-    self.cravingLabel.text = savedCravedValue;
-   
-    if (savedCigValue == nil) {
-        savedCigValue = @"0";
-        self.dailyGoalLabel.text = savedCigValue;
-    }
-   
-    if (savedCigSmokedValue == nil) {
-        savedCigSmokedValue = @"0";
-        self.smokedLabel.text = savedCigSmokedValue;
-    }
-    
-    if (savedCravedValue == nil) {
-        savedCravedValue = @"0";
-        self.cravingLabel.text = savedCravedValue;
-    }
-}
+//- (void)savedValues
+//{
+//    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+//    self.dailyGoalLabel.text = savedCigValue;
+//    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+//    self.smokedLabel.text = savedCigSmokedValue;
+//    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+//    self.cravingLabel.text = savedCravedValue;
+//   
+//    if (savedCigValue == nil) {
+//        savedCigValue = @"0";
+//        self.dailyGoalLabel.text = savedCigValue;
+//    }
+//   
+//    if (savedCigSmokedValue == nil) {
+//        savedCigSmokedValue = @"0";
+//        self.smokedLabel.text = savedCigSmokedValue;
+//    }
+//    
+//    if (savedCravedValue == nil) {
+//        savedCravedValue = @"0";
+//        self.cravingLabel.text = savedCravedValue;
+//    }
+//}
 
 #pragma mark TODO: Need to fix this up with save and retrieve of core data
 - (void)saveDate
@@ -139,7 +141,7 @@
     [dateFormat setDateFormat:@"MM-dd-yyyy"];
     NSString *dateString = [dateFormat stringFromDate:dateNow];
     self.day = [[Day alloc] initWithDate:dateString smokeValue:self.smokedLabel.text dailyGoal:self.dailyGoalLabel.text];
-    [self.day saveDate:self.day.date smokeSaved:self.day.smokeTotal dailyGoalSaved:self.day.dailyGoal];
+    [self.day saveDate:self.day.date smokeSaved:self.day.smokeValue dailyGoalSaved:self.day.dailyGoal];
 }
 
 - (void)retrieveDate
@@ -149,11 +151,10 @@
 
 - (void)setupLabelFromCoreData
 {
-    Day *savedDay = [[Day alloc]init];
-   self.savedDatesArray = [savedDay retriveDate];
-    Day *setdate = [self.savedDatesArray lastObject];
+    Day *setdate = [[Day alloc] init];
+    setdate = [setdate retriveDate];
     self.dailyGoalLabel.text = setdate.dailyGoal;
-    self.smokedLabel.text = setdate.smokeTotal;
+    self.smokedLabel.text = setdate.smokeValue;
 }
 
 - (BOOL)isFirstTimeInApp

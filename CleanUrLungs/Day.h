@@ -11,11 +11,11 @@
 @interface Day : NSObject
 
 @property (strong, nonatomic) NSString *date;
-@property (strong, nonatomic) NSString *smokeTotal;
+@property (strong, nonatomic) NSString *smokeValue;
 @property (strong, nonatomic) NSString *craveTotal;
 @property (strong, nonatomic) NSString *dailyGoal;
 - (instancetype)initWithDate:(NSString *)date smokeValue:(NSString *)smokeValue dailyGoal:(NSString *)dailyGoal;
 - (void)saveDate:(NSString *)dateToSave smokeSaved:(NSString *)smokeSaved dailyGoalSaved:(NSString *)dailyGoalSaved;
-- (NSMutableArray *)retriveDate;
+- (Day *)retriveDate;
 
 @end
