@@ -76,7 +76,7 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     NSString *openString = [dateFormat stringFromDate:open];
     NSString *closeString = [dateFormat stringFromDate:close];
-    
+
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
         [self saveDate];
@@ -92,7 +92,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.smokedLabel.text = savedCigSmokedValue;
-   
+
     NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
     savedCravedValue = @"0";
     [[NSUserDefaults standardUserDefaults] setObject:savedCravedValue forKey:@"cravedSaved"];
@@ -115,24 +115,23 @@
 //    self.smokedLabel.text = savedCigSmokedValue;
 //    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
 //    self.cravingLabel.text = savedCravedValue;
-//   
+//
 //    if (savedCigValue == nil) {
 //        savedCigValue = @"0";
 //        self.dailyGoalLabel.text = savedCigValue;
 //    }
-//   
+//
 //    if (savedCigSmokedValue == nil) {
 //        savedCigSmokedValue = @"0";
 //        self.smokedLabel.text = savedCigSmokedValue;
 //    }
-//    
+//
 //    if (savedCravedValue == nil) {
 //        savedCravedValue = @"0";
 //        self.cravingLabel.text = savedCravedValue;
 //    }
 //}
 
-#pragma mark TODO: Need to fix this up with save and retrieve of core data
 - (void)saveDate
 {
     NSDate *dateNow = [NSDate new];
@@ -154,7 +153,7 @@
 - (BOOL)isFirstTimeInApp
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+
     if ([defaults objectForKey:@"isFirstRun"]) {
         return NO;
     }
@@ -176,7 +175,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:cigValueToSave forKey:@"cigValueToSave"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }];
-    
+
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         self.alertTextField = textField;
         textField.keyboardType = UIKeyboardTypeNumberPad;
@@ -188,13 +187,13 @@
 - (void)weekLaterReduceDailyCig
 {
     self.counter = 1;
-    
+
     if (self.isNewDay) {
         self.counter = [[NSUserDefaults standardUserDefaults] integerForKey:@"counter"];
         self.counter++;
         [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-    
+
         if (self.counter == 7) {
             self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
             NSString *newDailyGoalSaved = self.dailyGoalLabel.text;
@@ -204,7 +203,7 @@
             [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         } else {
-        
+
             if ([self.dailyGoalLabel.text isEqualToString:@"0"]) {
                 self.isNewDay = NO;
                 NSString *dailyGoalLimit = self.dailyGoalLabel.text;
@@ -226,7 +225,7 @@
 - (IBAction)smokedButton:(id)sender
 {
     self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue] +1];
-    
+
     if ([self.smokedLabel.text isEqualToString:self.dailyGoalLabel.text]) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
