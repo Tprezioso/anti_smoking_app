@@ -87,17 +87,17 @@
 
 - (void)timeChanged
 {
-    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-    savedCigSmokedValue = @"0";
-    [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue forKey:@"cigSmokedValue"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    self.smokedLabel.text = savedCigSmokedValue;
+//    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+//    savedCigSmokedValue = @"0";
+//    [[NSUserDefaults standardUserDefaults] setObject:savedCigSmokedValue forKey:@"cigSmokedValue"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.smokedLabel.text = @"0";
 
-    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
-    savedCravedValue = @"0";
-    [[NSUserDefaults standardUserDefaults] setObject:savedCravedValue forKey:@"cravedSaved"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    self.cravingLabel.text = savedCravedValue;
+//    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+//    savedCravedValue = @"0";
+//    [[NSUserDefaults standardUserDefaults] setObject:savedCravedValue forKey:@"cravedSaved"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.cravingLabel.text = @"0";
 }
 
 - (void)setupLabels

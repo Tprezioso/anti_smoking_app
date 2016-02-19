@@ -36,10 +36,18 @@
 
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
 {
-    if ([date isEqualToDate:self.calendar.today]) {
+    Day *calenderDays = [Day new];
+    calenderDays = [calenderDays retriveDate];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    NSString *stringDate = [[NSString alloc] init];
+    stringDate = [dateFormatter stringFromDate:date];
+    if ([stringDate isEqualToString:calenderDays.date]) {
+        if (calenderDays.smokeValue >= calenderDays.dailyGoal) {
+            self.calendar.appearance.eventColor = [UIColor redColor];
+        }
         return YES;
     }
-
     return NO;
 }
 
