@@ -27,11 +27,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-    if (savedCigSmokedValue >= savedCigValue) {
-        self.calendar.appearance.eventColor = [UIColor redColor];
-    }
+//    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+//    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+//    if (savedCigSmokedValue >= savedCigValue) {
+//        self.calendar.appearance.eventColor = [UIColor redColor];
+//    }
 }
 
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
@@ -42,6 +42,7 @@
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
     NSString *stringDate = [[NSString alloc] init];
     stringDate = [dateFormatter stringFromDate:date];
+    
     if ([stringDate isEqualToString:calenderDays.date]) {
         if (calenderDays.smokeValue >= calenderDays.dailyGoal) {
             self.calendar.appearance.eventColor = [UIColor redColor];
