@@ -7,6 +7,7 @@
 //
 
 #import "CalendarViewController.h"
+#import "Day.h"
 
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate>
 
