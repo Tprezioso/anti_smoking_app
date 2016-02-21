@@ -44,6 +44,7 @@
     stringDate = [dateFormatter stringFromDate:date];
     
     if ([stringDate isEqualToString:calenderDays.date]) {
+       
         if (calenderDays.smokeValue >= calenderDays.dailyGoal) {
             self.calendar.appearance.eventColor = [UIColor redColor];
         }
