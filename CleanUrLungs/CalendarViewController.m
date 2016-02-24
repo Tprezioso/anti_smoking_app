@@ -23,6 +23,8 @@
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
     self.calendar.appearance.eventColor = [UIColor greenColor];
+    NSDate *today = [NSDate new];
+    [self calendar:self.calendar hasEventForDate:today];
 }
 
 - (void)viewWillAppear:(BOOL)animated
