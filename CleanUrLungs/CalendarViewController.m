@@ -59,14 +59,11 @@
         return YES;
     }
     return NO;
-//    if ([self.calendar.today isEqualToDate:date]) {
-//        return YES;
-//    }
-//    return NO; [calendarDate isEqualToString:calenderDays.date]
 }
 
-- (NSDate *)dateWithOutTime:(NSDate *)datDate{
-    if( datDate == nil ) {
+- (NSDate *)dateWithOutTime:(NSDate *)datDate
+{
+    if(datDate == nil) {
         datDate = [NSDate date];
     }
     NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:datDate];
