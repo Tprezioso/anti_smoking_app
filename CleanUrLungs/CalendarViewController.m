@@ -40,14 +40,8 @@
     calenderDays = [calenderDays retriveDate];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
-    NSString *stringDate = [[NSString alloc] init];
-    stringDate = [dateFormatter stringFromDate:date];
-
     NSDate *newdate = [[NSDate alloc] init];
-    newdate = [dateFormatter dateFromString:calenderDays.date].copy;
-    
-    NSString *calendarDate = @"";
-    calendarDate = [dateFormatter stringFromDate:self.calendar.today];
+    newdate = [dateFormatter dateFromString:calenderDays.date].copy;    
     NSDate *reworkedDate = [NSDate new];
     reworkedDate = [self dateWithOutTime:newdate];
     if ([reworkedDate isEqualToDate:date]) {
@@ -72,7 +66,7 @@
     [comps setMinute:00];
     [comps setSecond:00];
     [comps setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    
+
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
