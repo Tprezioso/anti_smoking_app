@@ -42,8 +42,15 @@
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
     NSString *stringDate = [[NSString alloc] init];
     stringDate = [dateFormatter stringFromDate:date];
+
+    NSDate *newdate = [[NSDate alloc] init];
+    newdate = [dateFormatter dateFromString:calenderDays.date].copy;
     
-    if ([stringDate isEqualToString:calenderDays.date]) {
+    NSString *calendarDate = @"";
+    calendarDate = [dateFormatter stringFromDate:self.calendar.today];
+    NSDate *reworkedDate = [NSDate new];
+    reworkedDate = [self dateWithOutTime:newdate];
+    if ([reworkedDate isEqualToDate:date]) {
         if (calenderDays.smokeValue >= calenderDays.dailyGoal) {
             self.calendar.appearance.eventColor = [UIColor redColor];
         } else {
@@ -52,6 +59,23 @@
         return YES;
     }
     return NO;
+//    if ([self.calendar.today isEqualToDate:date]) {
+//        return YES;
+//    }
+//    return NO; [calendarDate isEqualToString:calenderDays.date]
+}
+
+- (NSDate *)dateWithOutTime:(NSDate *)datDate{
+    if( datDate == nil ) {
+        datDate = [NSDate date];
+    }
+    NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:datDate];
+    [comps setHour:00];
+    [comps setMinute:00];
+    [comps setSecond:00];
+    [comps setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    
+    return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
 /*
