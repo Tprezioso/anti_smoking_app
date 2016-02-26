@@ -61,6 +61,7 @@
     return NO;
 }
 
+# pragma mark Helper Method(s)
 - (NSDate *)dateWithOutTime:(NSDate *)datDate
 {
     if(datDate == nil) {
