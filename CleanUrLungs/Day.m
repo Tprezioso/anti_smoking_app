@@ -31,11 +31,9 @@
     [newDevice setValue:smokeSaved forKey:@"smokedValue"];
     [newDevice setValue:dailyGoalSaved forKey:@"dailyGoal"];
     NSError *error = nil;
-
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-
     NSLog(@"DAY SAVED");
 }
 
@@ -46,7 +44,6 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
     days = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
     Day *savedDay = [Day new];
-
     for (NSInteger i = 0; i < [days count]; i++) {
         savedDay.date = [days[i] valueForKey:@"dateSaved"];
         savedDay.smokeValue = [days[i] valueForKey:@"smokedValue"];
@@ -64,7 +61,6 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
     days = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
     Day *savedDay = [Day new];
-
     for (NSInteger i = 0; i < [days count]; i++) {
         savedDay.date = [days[i] valueForKey:@"dateSaved"];
         savedDay.smokeValue = [days[i] valueForKey:@"smokedValue"];

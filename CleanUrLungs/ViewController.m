@@ -76,7 +76,6 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     NSString *openString = [dateFormat stringFromDate:open];
     NSString *closeString = [dateFormat stringFromDate:close];
-
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
         [self saveDate];
