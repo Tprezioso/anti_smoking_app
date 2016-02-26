@@ -20,7 +20,6 @@
         _smokeValue = smokeValue;
         _dailyGoal = dailyGoal;
     }
-
     return self;
 }
 

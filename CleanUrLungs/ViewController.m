@@ -35,7 +35,7 @@
     [self checkIfDayChanged];
     [self checkIfOverDailyGoal];
     [self weekLaterReduceDailyCig];
-        [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];
 }
@@ -153,7 +153,6 @@
 - (BOOL)isFirstTimeInApp
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
     if ([defaults objectForKey:@"isFirstRun"]) {
         return NO;
     }
@@ -187,13 +186,11 @@
 - (void)weekLaterReduceDailyCig
 {
     self.counter = 1;
-
     if (self.isNewDay) {
         self.counter = [[NSUserDefaults standardUserDefaults] integerForKey:@"counter"];
         self.counter++;
         [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-
         if (self.counter == 7) {
             self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
             NSString *newDailyGoalSaved = self.dailyGoalLabel.text;
@@ -203,7 +200,6 @@
             [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         } else {
-
             if ([self.dailyGoalLabel.text isEqualToString:@"0"]) {
                 self.isNewDay = NO;
                 NSString *dailyGoalLimit = self.dailyGoalLabel.text;
@@ -225,7 +221,6 @@
 - (IBAction)smokedButton:(id)sender
 {
     self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue] +1];
-
     if ([self.smokedLabel.text isEqualToString:self.dailyGoalLabel.text]) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
