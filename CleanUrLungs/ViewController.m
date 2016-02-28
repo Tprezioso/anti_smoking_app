@@ -173,7 +173,6 @@
         [[NSUserDefaults standardUserDefaults] setObject:cigValueToSave forKey:@"cigValueToSave"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }];
-
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         self.alertTextField = textField;
         textField.keyboardType = UIKeyboardTypeNumberPad;
