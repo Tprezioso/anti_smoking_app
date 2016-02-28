@@ -22,7 +22,6 @@
     [super viewDidLoad];
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
-//    self.calendar.appearance.eventColor = [UIColor greenColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
