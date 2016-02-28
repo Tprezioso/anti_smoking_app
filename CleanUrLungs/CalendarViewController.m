@@ -41,7 +41,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
     NSDate *newdate = [[NSDate alloc] init];
-    newdate = [dateFormatter dateFromString:calenderDays.date].copy;    
+    newdate = [dateFormatter dateFromString:calenderDays.date].copy;
     NSDate *reworkedDate = [NSDate new];
     reworkedDate = [self dateWithOutTime:newdate];
     if ([reworkedDate isEqualToDate:date]) {
@@ -58,7 +58,7 @@
 # pragma mark Helper Method(s)
 - (NSDate *)dateWithOutTime:(NSDate *)datDate
 {
-    if(datDate == nil) {
+    if (datDate == nil) {
         datDate = [NSDate date];
     }
     NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:datDate];
