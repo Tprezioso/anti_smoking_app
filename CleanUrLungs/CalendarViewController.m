@@ -66,7 +66,6 @@
     [comps setMinute:00];
     [comps setSecond:00];
     [comps setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
