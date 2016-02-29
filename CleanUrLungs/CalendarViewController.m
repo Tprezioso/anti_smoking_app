@@ -27,20 +27,28 @@
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
 {
     Day *calenderDays = [Day new];
-    calenderDays = [calenderDays retriveDate];
+    //calenderDays
+    NSMutableArray *daysSavedArray = [[NSMutableArray alloc] init];
+    daysSavedArray = [calenderDays retriveDates];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
-    NSDate *newdate = [[NSDate alloc] init];
-    newdate = [dateFormatter dateFromString:calenderDays.date].copy;
-    NSDate *reworkedDate = [NSDate new];
-    reworkedDate = [self dateWithOutTime:newdate];
-    if ([reworkedDate isEqualToDate:date]) {
-        if (calenderDays.smokeValue >= calenderDays.dailyGoal) {
-            self.calendar.appearance.eventColor = [UIColor redColor];
-        } else {
-            self.calendar.appearance.eventColor = [UIColor greenColor];
+    for (NSInteger i = 0; i < [daysSavedArray count]; i++) {
+        NSDate *newdate = [[NSDate alloc] init];
+        calenderDays.date = [daysSavedArray[i] valueForKey:@"dateSaved"];
+        calenderDays.smokeValue = [daysSavedArray[i] valueForKey:@"smokedValue"];
+        calenderDays.dailyGoal = [daysSavedArray[i] valueForKey:@"dailyGoal"];
+        newdate = [dateFormatter dateFromString:calenderDays.date];
+        NSDate *reworkedDate = [NSDate new];
+        reworkedDate = [self dateWithOutTime:newdate];
+        if ([reworkedDate isEqualToDate:date]) {
+            if (calenderDays.smokeValue >= calenderDays.dailyGoal) {
+                self.calendar.appearance.eventColor = [UIColor redColor];
+            } else {
+                self.calendar.appearance.eventColor = [UIColor greenColor];
+            }
+            return YES;
         }
-        return YES;
+
     }
     return NO;
 }
