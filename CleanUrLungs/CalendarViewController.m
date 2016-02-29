@@ -27,7 +27,6 @@
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
 {
     Day *calenderDays = [Day new];
-    //calenderDays
     NSMutableArray *daysSavedArray = [[NSMutableArray alloc] init];
     daysSavedArray = [calenderDays retriveDates];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
