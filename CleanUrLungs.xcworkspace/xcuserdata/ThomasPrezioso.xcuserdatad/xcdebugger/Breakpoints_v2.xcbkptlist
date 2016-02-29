@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleanUrLungs/ViewController.m"
-            timestampString = "477524566.678199"
+            timestampString = "478473714.150692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleanUrLungs/CalendarViewController.m"
-            timestampString = "478467861.254144"
+            timestampString = "478474781.861618"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-dateWithOutTime:"
             landmarkType = "5">
          </BreakpointContent>
@@ -70,16 +70,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleanUrLungs/CalendarViewController.m"
-            timestampString = "478467433.453965"
+            filePath = "CleanUrLungs/ViewController.m"
+            timestampString = "478473806.399316"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "-calendar:hasEventForDate:"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-setupLabelFromCoreData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

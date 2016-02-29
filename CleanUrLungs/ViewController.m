@@ -54,8 +54,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:startDate forKey:@"startDate"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
-       // [self savedValues];
-        [self setupLabelFromCoreData];
+        [self savedValues];
+       // [self setupLabelFromCoreData];
     }
 }
 
@@ -106,30 +106,30 @@
     self.dailyGoalLabel.text = @"0";
 }
 
-//- (void)savedValues
-//{
-//    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-//    self.dailyGoalLabel.text = savedCigValue;
-//    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-//    self.smokedLabel.text = savedCigSmokedValue;
-//    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
-//    self.cravingLabel.text = savedCravedValue;
-//
-//    if (savedCigValue == nil) {
-//        savedCigValue = @"0";
-//        self.dailyGoalLabel.text = savedCigValue;
-//    }
-//
-//    if (savedCigSmokedValue == nil) {
-//        savedCigSmokedValue = @"0";
-//        self.smokedLabel.text = savedCigSmokedValue;
-//    }
-//
-//    if (savedCravedValue == nil) {
-//        savedCravedValue = @"0";
-//        self.cravingLabel.text = savedCravedValue;
-//    }
-//}
+- (void)savedValues
+{
+    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+    self.dailyGoalLabel.text = savedCigValue;
+    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    self.smokedLabel.text = savedCigSmokedValue;
+    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+    self.cravingLabel.text = savedCravedValue;
+
+    if (savedCigValue == nil) {
+        savedCigValue = @"0";
+        self.dailyGoalLabel.text = savedCigValue;
+    }
+
+    if (savedCigSmokedValue == nil) {
+        savedCigSmokedValue = @"0";
+        self.smokedLabel.text = savedCigSmokedValue;
+    }
+
+    if (savedCravedValue == nil) {
+        savedCravedValue = @"0";
+        self.cravingLabel.text = savedCravedValue;
+    }
+}
 
 - (void)saveDate
 {
@@ -219,9 +219,6 @@
 - (IBAction)smokedButton:(id)sender
 {
     self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue] +1];
-    if ([self.smokedLabel.text isEqualToString:self.dailyGoalLabel.text]) {
-        self.smokedLabel.textColor = [UIColor redColor];
-    }
     [UIApplication sharedApplication].applicationIconBadgeNumber = [self.smokedLabel.text intValue];
     NSString *smokedNumberToSave = self.smokedLabel.text;
     [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
