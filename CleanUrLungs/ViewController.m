@@ -61,7 +61,7 @@
 
 - (void)checkIfOverDailyGoal
 {
-    if (self.smokedLabel.text >= self.dailyGoalLabel.text) {
+    if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     } else {
         self.smokedLabel.textColor = [UIColor greenColor];

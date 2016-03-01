@@ -30,8 +30,11 @@
     [super viewWillAppear:animated];
     NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
     NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-    if (savedCigSmokedValue >= savedCigValue) {
+    if (savedCigSmokedValue > savedCigValue) {
         self.calendar.appearance.eventColor = [UIColor redColor];
+    }
+    if (savedCigSmokedValue == nil) {
+        self.calendar.appearance.eventColor = [UIColor greenColor];
     }
 }
 
@@ -53,7 +56,7 @@
         NSDate *currentCalendarDate = [NSDate new];
         currentCalendarDate = [self dateWithOutTime:currentCalendarDate];
         if ([reworkedDate isEqualToDate:date]) {
-            if (calenderDays.smokeValue >= calenderDays.dailyGoal) {
+            if (calenderDays.smokeValue > calenderDays.dailyGoal) {
                 self.calendar.appearance.eventColor = [UIColor redColor];
             } else {
                 self.calendar.appearance.eventColor = [UIColor greenColor];
