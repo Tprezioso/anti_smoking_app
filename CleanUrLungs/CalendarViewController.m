@@ -44,7 +44,9 @@
         newdate = [dateFormatter dateFromString:calenderDays.date];
         NSDate *reworkedDate = [NSDate new];
         reworkedDate = [self dateWithOutTime:newdate];
-        if ([date isEqualToDate:self.calendar.today]) {
+        NSDate *currentCalendarDate = [NSDate new];
+        currentCalendarDate = [self dateWithOutTime:currentCalendarDate];
+        if ([currentCalendarDate isEqualToDate:date]) {
             NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
             NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
             if (savedCigSmokedValue >= savedCigValue) {
