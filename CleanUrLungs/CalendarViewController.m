@@ -25,10 +25,6 @@
     self.calendar.appearance.eventColor = [UIColor greenColor];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-}
-
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
 {
     Day *calenderDays = [Day new];
