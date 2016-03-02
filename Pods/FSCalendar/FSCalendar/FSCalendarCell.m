@@ -31,35 +31,38 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.font = [UIFont systemFontOfSize:14];
-        titleLabel.textColor = [UIColor darkTextColor];
-        [self.contentView addSubview:titleLabel];
-        self.titleLabel = titleLabel;
+        _needsAdjustingViewFrame = YES;
         
-        UILabel *subtitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        subtitleLabel.textAlignment = NSTextAlignmentCenter;
-        subtitleLabel.font = [UIFont systemFontOfSize:10];
-        subtitleLabel.textColor = [UIColor lightGrayColor];
-        [self.contentView addSubview:subtitleLabel];
-        self.subtitleLabel = subtitleLabel;
+        UILabel *label;
+        CAShapeLayer *shapeLayer;
+        UIImageView *imageView;
+        FSCalendarEventIndicator *eventIndicator;
         
-        CAShapeLayer *backgroundLayer = [CAShapeLayer layer];
-        backgroundLayer.backgroundColor = [UIColor clearColor].CGColor;
-        backgroundLayer.hidden = YES;
-        [self.contentView.layer insertSublayer:backgroundLayer below:_titleLabel.layer];
-        self.backgroundLayer = backgroundLayer;
+        label = [[UILabel alloc] initWithFrame:CGRectZero];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor blackColor];
+        [self.contentView addSubview:label];
+        self.titleLabel = label;
         
-        CAShapeLayer *eventLayer = [CAShapeLayer layer];
-        eventLayer.backgroundColor = [UIColor clearColor].CGColor;
-        eventLayer.fillColor = [UIColor cyanColor].CGColor;
-        eventLayer.path = [UIBezierPath bezierPathWithOvalInRect:eventLayer.bounds].CGPath;
-        eventLayer.hidden = YES;
-        [self.contentView.layer addSublayer:eventLayer];
-        self.eventLayer = eventLayer;
+        label = [[UILabel alloc] initWithFrame:CGRectZero];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:label];
+        self.subtitleLabel = label;
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        shapeLayer = [CAShapeLayer layer];
+        shapeLayer.backgroundColor = [UIColor clearColor].CGColor;
+        shapeLayer.hidden = YES;
+        [self.contentView.layer insertSublayer:shapeLayer below:_titleLabel.layer];
+        self.backgroundLayer = shapeLayer;
+        
+        eventIndicator = [[FSCalendarEventIndicator alloc] initWithFrame:CGRectZero];
+        eventIndicator.backgroundColor = [UIColor clearColor];
+        eventIndicator.hidden = YES;
+        [self.contentView addSubview:eventIndicator];
+        self.eventIndicator = eventIndicator;
+        
+        imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         imageView.contentMode = UIViewContentModeBottom|UIViewContentModeCenter;
         [self.contentView addSubview:imageView];
         self.imageView = imageView;
@@ -85,8 +88,7 @@
     _backgroundLayer.borderColor = [UIColor clearColor].CGColor;
     
     CGFloat eventSize = _backgroundLayer.frame.size.height/6.0;
-    _eventLayer.frame = CGRectMake((_backgroundLayer.frame.size.width-eventSize)/2+_backgroundLayer.frame.origin.x, CGRectGetMaxY(_backgroundLayer.frame)+eventSize*0.17, eventSize*0.83, eventSize*0.83);
-    _eventLayer.path = [UIBezierPath bezierPathWithOvalInRect:_eventLayer.bounds].CGPath;
+    _eventIndicator.frame = CGRectMake(0, CGRectGetMaxY(_backgroundLayer.frame)+eventSize*0.17, bounds.size.width, eventSize*0.83);
     _imageView.frame = self.contentView.bounds;
 }
 
@@ -101,6 +103,7 @@
     [super prepareForReuse];
     [CATransaction setDisableActions:YES];
     _backgroundLayer.hidden = YES;
+    [self.contentView.layer removeAnimationForKey:@"opacity"];
 }
 
 #pragma mark - Public
@@ -108,8 +111,6 @@
 - (void)performSelecting
 {
     _backgroundLayer.hidden = NO;
-    _backgroundLayer.path = [UIBezierPath bezierPathWithOvalInRect:_backgroundLayer.bounds].CGPath;
-    _backgroundLayer.fillColor = self.colorForBackgroundLayer.CGColor;
     
 #define kAnimationDuration FSCalendarDefaultBounceAnimationDuration
     
@@ -133,77 +134,92 @@
 
 - (void)configureCell
 {
-    _titleLabel.font = [UIFont systemFontOfSize:_appearance.titleTextSize];
     _titleLabel.text = [NSString stringWithFormat:@"%@",@([_calendar dayOfDate:_date])];
-    
-    __block CGFloat titleHeight = 0;
-    __block CGFloat subtitleHeight = 0;
-    
     if (_subtitle) {
-        _subtitleLabel.font = [UIFont systemFontOfSize:_appearance.subtitleTextSize];
-    }
-    
-#define m_calculateTitleHeight \
-    if (_subtitle) { \
-        titleHeight = [@"1" sizeWithAttributes:@{NSFontAttributeName:_titleLabel.font}].height; \
-        subtitleHeight = [@"1" sizeWithAttributes:@{NSFontAttributeName:_subtitleLabel.font}].height;\
-    }
-
-#define m_adjustLabelFrame \
-    if (_subtitle) { \
-        _subtitleLabel.hidden = NO; \
-        _subtitleLabel.text = _subtitle; \
-        CGFloat height = titleHeight + subtitleHeight; \
-        _titleLabel.frame = CGRectMake(0, \
-                                       (self.contentView.fs_height*5.0/6.0-height)*0.5, \
-                                       self.fs_width, \
-                                       titleHeight); \
-    \
-        _subtitleLabel.frame = CGRectMake(0, \
-                                          _titleLabel.fs_bottom - (_titleLabel.fs_height-_titleLabel.font.pointSize),\
-                                          self.fs_width,\
-                                          subtitleHeight);\
-        _subtitleLabel.textColor = self.colorForSubtitleLabel; \
-    } else { \
-        _titleLabel.frame = CGRectMake(0, 0, self.fs_width, floor(self.contentView.fs_height*5.0/6.0)); \
-        _subtitleLabel.hidden = YES; \
-    }
-    
-    if (self.calendar.ibEditing) {
-        m_calculateTitleHeight
-        m_adjustLabelFrame
+        _subtitleLabel.text = _subtitle;
+        if (_subtitleLabel.hidden) {
+            _subtitleLabel.hidden = NO;
+        }
     } else {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            m_calculateTitleHeight
-            dispatch_async(dispatch_get_main_queue(), ^{
-                m_adjustLabelFrame
-            });
-        });
+        if (!_subtitleLabel.hidden) {
+            _subtitleLabel.hidden = YES;
+        }
+    }
+    if (_needsAdjustingViewFrame || CGSizeEqualToSize(_titleLabel.frame.size, CGSizeZero)) {
+        _needsAdjustingViewFrame = NO;
+        
+        if (_subtitle) {
+            CGFloat titleHeight = [@"1" sizeWithAttributes:@{NSFontAttributeName:_titleLabel.font}].height;
+            CGFloat subtitleHeight = [@"1" sizeWithAttributes:@{NSFontAttributeName:_subtitleLabel.font}].height;
+
+            CGFloat height = titleHeight + subtitleHeight;
+            _titleLabel.frame = CGRectMake(0,
+                                           (self.contentView.fs_height*5.0/6.0-height)*0.5+_appearance.titleVerticalOffset,
+                                           self.fs_width,
+                                           titleHeight);
+            
+            _subtitleLabel.frame = CGRectMake(0,
+                                              _titleLabel.fs_bottom - (_titleLabel.fs_height-_titleLabel.font.pointSize)+_appearance.subtitleVerticalOffset,
+                                              self.fs_width,
+                                              subtitleHeight);
+        } else {
+            _titleLabel.frame = CGRectMake(0, _appearance.titleVerticalOffset, self.contentView.fs_width, floor(self.contentView.fs_height*5.0/6.0));
+        }
+        
     }
     
-    _titleLabel.textColor = self.colorForTitleLabel;
+    UIColor *textColor = self.colorForTitleLabel;
+    if (![textColor isEqual:_titleLabel.textColor]) {
+        _titleLabel.textColor = textColor;
+    }
+    if (_subtitle) {
+        textColor = self.colorForSubtitleLabel;
+        if (![textColor isEqual:_subtitleLabel.textColor]) {
+            _subtitleLabel.textColor = textColor;
+        }
+    }
     
     UIColor *borderColor = self.colorForCellBorder;
-    _backgroundLayer.hidden = !self.selected && !self.dateIsToday && !self.dateIsSelected && !borderColor;
-    if (!_backgroundLayer.hidden) {
-        _backgroundLayer.path = self.cellShape == FSCalendarCellShapeCircle ?
+    BOOL shouldHiddenBackgroundLayer = !self.selected && !self.dateIsToday && !self.dateIsSelected && !borderColor;
+    
+    if (_backgroundLayer.hidden != shouldHiddenBackgroundLayer) {
+        _backgroundLayer.hidden = shouldHiddenBackgroundLayer;
+    }
+    if (!shouldHiddenBackgroundLayer) {
+        
+        CGPathRef path = self.cellShape == FSCalendarCellShapeCircle ?
         [UIBezierPath bezierPathWithOvalInRect:_backgroundLayer.bounds].CGPath :
         [UIBezierPath bezierPathWithRect:_backgroundLayer.bounds].CGPath;
-        _backgroundLayer.fillColor = self.colorForBackgroundLayer.CGColor;
-        _backgroundLayer.strokeColor = self.colorForCellBorder.CGColor;
+        if (!CGPathEqualToPath(_backgroundLayer.path,path)) {
+            _backgroundLayer.path = path;
+        }
+        
+        CGColorRef backgroundColor = self.colorForBackgroundLayer.CGColor;
+        if (!CGColorEqualToColor(_backgroundLayer.fillColor, backgroundColor)) {
+            _backgroundLayer.fillColor = backgroundColor;
+        }
+        
+        CGColorRef borderColor = self.colorForCellBorder.CGColor;
+        if (!CGColorEqualToColor(_backgroundLayer.strokeColor, borderColor)) {
+            _backgroundLayer.strokeColor = borderColor;
+        }
+        
     }
-    _imageView.image = _image;
-    _imageView.hidden = !_image;
     
-    _eventLayer.hidden = !_hasEvent;
-    if (!_eventLayer.hidden) {
-        _eventLayer.fillColor = self.preferedEventColor.CGColor ?: _appearance.eventColor.CGColor;
+    if (![_image isEqual:_imageView.image]) {
+        [self invalidateImage];
     }
+    
+    if (_eventIndicator.hidden == (_numberOfEvents > 0)) {
+        _eventIndicator.hidden = !_numberOfEvents;
+    }
+    _eventIndicator.numberOfEvents = self.numberOfEvents;
+    _eventIndicator.color = self.preferredEventColor ?: _appearance.eventColor;
 }
 
 - (BOOL)isWeekend
 {
-    return [_calendar weekdayOfDate:_date] == 1 || [_calendar weekdayOfDate:_date] == 7;
+    return _date && ([_calendar weekdayOfDate:_date] == 1 || [_calendar weekdayOfDate:_date] == 7);
 }
 
 - (UIColor *)colorForCurrentStateInDictionary:(NSDictionary *)dictionary
@@ -226,12 +242,61 @@
     return dictionary[@(FSCalendarCellStateNormal)];
 }
 
+- (void)invalidateTitleFont
+{
+    _titleLabel.font = self.appearance.preferredTitleFont;
+}
+
+- (void)invalidateTitleTextColor
+{
+    _titleLabel.textColor = self.colorForTitleLabel;
+}
+
+- (void)invalidateSubtitleFont
+{
+    _subtitleLabel.font = self.appearance.preferredSubtitleFont;
+}
+
+- (void)invalidateSubtitleTextColor
+{
+    _subtitleLabel.textColor = self.colorForSubtitleLabel;
+}
+
+- (void)invalidateBorderColors
+{
+    _backgroundLayer.strokeColor = self.colorForCellBorder.CGColor;
+}
+
+- (void)invalidateBackgroundColors
+{
+    _backgroundLayer.fillColor = self.colorForBackgroundLayer.CGColor;
+}
+
+- (void)invalidateEventColors
+{
+    _eventIndicator.color = self.preferredEventColor ?: _appearance.eventColor;
+}
+
+- (void)invalidateCellShapes
+{
+    CGPathRef path = self.cellShape == FSCalendarCellShapeCircle ?
+    [UIBezierPath bezierPathWithOvalInRect:_backgroundLayer.bounds].CGPath :
+    [UIBezierPath bezierPathWithRect:_backgroundLayer.bounds].CGPath;
+    _backgroundLayer.path = path;
+}
+
+- (void)invalidateImage
+{
+    _imageView.image = _image;
+    _imageView.hidden = !_image;
+}
+
 #pragma mark - Properties
 
 - (UIColor *)colorForBackgroundLayer
 {
     if (self.dateIsSelected || self.isSelected) {
-        return self.preferedSelectionColor ?: [self colorForCurrentStateInDictionary:_appearance.backgroundColors];
+        return self.preferredSelectionColor ?: [self colorForCurrentStateInDictionary:_appearance.backgroundColors];
     }
     return [self colorForCurrentStateInDictionary:_appearance.backgroundColors];
 }
@@ -239,37 +304,55 @@
 - (UIColor *)colorForTitleLabel
 {
     if (self.dateIsSelected || self.isSelected) {
-        return self.preferedTitleSelectionColor ?: [self colorForCurrentStateInDictionary:_appearance.titleColors];
+        return self.preferredTitleSelectionColor ?: [self colorForCurrentStateInDictionary:_appearance.titleColors];
     }
-    return self.preferedTitleDefaultColor ?: [self colorForCurrentStateInDictionary:_appearance.titleColors];
+    return self.preferredTitleDefaultColor ?: [self colorForCurrentStateInDictionary:_appearance.titleColors];
 }
 
 - (UIColor *)colorForSubtitleLabel
 {
     if (self.dateIsSelected || self.isSelected) {
-        return self.preferedSubtitleSelectionColor ?: [self colorForCurrentStateInDictionary:_appearance.subtitleColors];
+        return self.preferredSubtitleSelectionColor ?: [self colorForCurrentStateInDictionary:_appearance.subtitleColors];
     }
-    return self.preferedSubtitleDefaultColor ?: [self colorForCurrentStateInDictionary:_appearance.subtitleColors];
+    return self.preferredSubtitleDefaultColor ?: [self colorForCurrentStateInDictionary:_appearance.subtitleColors];
 }
 
 - (UIColor *)colorForCellBorder
 {
     if (self.dateIsSelected || self.isSelected) {
-        return _preferedBorderSelectionColor ?: _appearance.borderSelectionColor;
+        return _preferredBorderSelectionColor ?: _appearance.borderSelectionColor;
     }
-    return _preferedBorderDefaultColor ?: _appearance.borderDefaultColor;
+    return _preferredBorderDefaultColor ?: _appearance.borderDefaultColor;
 }
 
 - (FSCalendarCellShape)cellShape
 {
-    return _preferedCellShape ?: _appearance.cellShape;
+    return _preferredCellShape ?: _appearance.cellShape;
 }
 
 - (void)setCalendar:(FSCalendar *)calendar
 {
     if (![_calendar isEqual:calendar]) {
         _calendar = calendar;
+    }
+    if (![_appearance isEqual:calendar.appearance]) {
         _appearance = calendar.appearance;
+        [self invalidateTitleFont];
+        [self invalidateSubtitleFont];
+        [self invalidateTitleTextColor];
+        [self invalidateSubtitleTextColor];
+        [self invalidateEventColors];
+    }
+}
+
+- (void)setSubtitle:(NSString *)subtitle
+{
+    if (![_subtitle isEqualToString:subtitle]) {
+        _needsAdjustingViewFrame = !(_subtitle.length && subtitle.length);
+        _subtitle = subtitle;
+        if (_needsAdjustingViewFrame) {
+            [self setNeedsLayout];
+        }
     }
 }
 

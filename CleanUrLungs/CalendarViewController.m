@@ -45,6 +45,8 @@
     daysSavedArray = [calenderDays retriveDates];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    NSDate *setCalendarDate = [NSDate new];
+    self.calendar.today = setCalendarDate;
     for (NSInteger i = 0; i < [daysSavedArray count]; i++) {
         NSDate *newdate = [[NSDate alloc] init];
         calenderDays.date = [daysSavedArray[i] valueForKey:@"dateSaved"];
@@ -56,13 +58,16 @@
         NSDate *currentCalendarDate = [NSDate new];
         currentCalendarDate = [self dateWithOutTime:currentCalendarDate];
         if ([reworkedDate isEqualToDate:date]) {
-            if (calenderDays.smokeValue > calenderDays.dailyGoal) {
+            if (calenderDays.smokeValue >= calenderDays.dailyGoal) {
                 self.calendar.appearance.eventColor = [UIColor redColor];
             } else {
                 self.calendar.appearance.eventColor = [UIColor greenColor];
             }
             return YES;
         }
+    }
+    if ([date isEqualToDate:self.calendar.today]) {
+        return YES;
     }
     return NO;
 }

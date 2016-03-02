@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## FSCalendar
 
-Copyright (c) 2013-2015 FSCalendar (https://github.com/WenchaoIOS/FSCalendar)
+Copyright (c) 2013-2016 FSCalendar (https://github.com/WenchaoIOS/FSCalendar)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
