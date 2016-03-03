@@ -45,7 +45,7 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:YES];
-   // [self saveDate];
+//   [self saveDate];
 }
 
 - (void)checkIfFirstTimeInApp
@@ -137,6 +137,7 @@
     NSString *dateString = [dateFormat stringFromDate:dateNow];
     self.day = [[Day alloc] initWithDate:dateString smokeValue:self.smokedLabel.text dailyGoal:self.dailyGoalLabel.text];
     [self.day saveDate:self.day.date smokeSaved:self.day.smokeValue dailyGoalSaved:self.day.dailyGoal];
+    NSLog(@"saved");
 }
 
 - (void)setupLabelFromCoreData

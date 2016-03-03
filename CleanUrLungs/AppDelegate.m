@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -33,6 +34,8 @@
     NSDate *closeDate = [NSDate new];
     [[NSUserDefaults standardUserDefaults] setObject:closeDate forKey:@"closeDate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    ViewController *mainVC = [[ViewController alloc] init];
+    [mainVC saveDate];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
