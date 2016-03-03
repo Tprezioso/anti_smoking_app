@@ -55,7 +55,6 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         [self savedValues];
-       // [self setupLabelFromCoreData];
     }
 }
 
