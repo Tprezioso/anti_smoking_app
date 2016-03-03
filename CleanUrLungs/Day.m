@@ -49,6 +49,10 @@
         savedDay.smokeValue = [days[i] valueForKey:@"smokedValue"];
         savedDay.dailyGoal = [days[i] valueForKey:@"dailyGoal"];
     }
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
     NSLog(@"DAY RETRIVED");
     Day *returnDay = savedDay;
     return returnDay;
@@ -66,8 +70,27 @@
         savedDay.smokeValue = [days[i] valueForKey:@"smokedValue"];
         savedDay.dailyGoal = [days[i] valueForKey:@"dailyGoal"];
     }
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
     NSLog(@"DAY RETRIVED");
     return days;
+}
+
+- (void)deleteAllDatesFromCoreData
+{
+    NSMutableArray *removedDaysArray = [[NSMutableArray alloc] init];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
+    removedDaysArray = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    for (NSInteger i = 0; i < [removedDaysArray count]; i++) {
+        [context deleteObject:removedDaysArray[i]];
+    }
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
 }
 
 - (NSManagedObjectContext *)managedObjectContext

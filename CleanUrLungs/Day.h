@@ -18,5 +18,6 @@
 - (void)saveDate:(NSString *)dateToSave smokeSaved:(NSString *)smokeSaved dailyGoalSaved:(NSString *)dailyGoalSaved;
 - (Day *)retriveDate;
 - (NSMutableArray *)retriveDates;
+- (void)deleteAllDatesFromCoreData;
 
 @end

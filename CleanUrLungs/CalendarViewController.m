@@ -22,20 +22,13 @@
     [super viewDidLoad];
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
-    self.calendar.appearance.eventColor = [UIColor greenColor];
+//self.calendar.appearance.eventColor = [UIColor greenColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-    if (savedCigSmokedValue > savedCigValue) {
-        self.calendar.appearance.eventColor = [UIColor redColor];
-    }
-    if ([savedCigSmokedValue isEqualToString:@"0"]) {
-        self.calendar.appearance.eventColor = [UIColor greenColor];
-    }
+
 }
 
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
@@ -46,7 +39,6 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
     NSDate *setCalendarDate = [NSDate new];
-    self.calendar.today = setCalendarDate;
     for (NSInteger i = 0; i < [daysSavedArray count]; i++) {
         NSDate *newdate = [[NSDate alloc] init];
         calenderDays.date = [daysSavedArray[i] valueForKey:@"dateSaved"];
@@ -57,17 +49,31 @@
         reworkedDate = [self dateWithOutTime:newdate];
         NSDate *currentCalendarDate = [NSDate new];
         currentCalendarDate = [self dateWithOutTime:date];
-        if ([reworkedDate isEqualToDate:currentCalendarDate]) {
-            if (calenderDays.smokeValue >= calenderDays.dailyGoal && !nil) {
-                self.calendar.appearance.eventColor = [UIColor redColor];
-            } else {
-                self.calendar.appearance.eventColor = [UIColor greenColor];
+        setCalendarDate = [self dateWithOutTime:self.calendar.today];
+        if (![setCalendarDate isEqualToDate:date]) {
+            if ([reworkedDate isEqualToDate:currentCalendarDate]) {
+                if (calenderDays.smokeValue > calenderDays.dailyGoal && !nil) {
+                    self.calendar.appearance.eventColor = [UIColor redColor];
+                } else {
+                    self.calendar.appearance.eventColor = [UIColor greenColor];
+                }
+                return YES;
             }
-            return YES;
+//                    if ([date isEqualToDate:self.calendar.today]) {
+//                        return YES;
+//                    }
         }
-        if ([date isEqualToDate:self.calendar.today]) {
-            return YES;
+    }
+    if ([date isEqualToDate:setCalendarDate]) {
+        NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+        NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+        if (savedCigSmokedValue > savedCigValue) {
+            self.calendar.appearance.eventColor = [UIColor redColor];
         }
+        if ([savedCigSmokedValue isEqualToString:@"0"]) {
+            self.calendar.appearance.eventColor = [UIColor greenColor];
+        }
+        return YES;
     }
     return NO;
 }
