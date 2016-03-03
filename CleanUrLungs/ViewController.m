@@ -113,17 +113,14 @@
     self.smokedLabel.text = savedCigSmokedValue;
     NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
     self.cravingLabel.text = savedCravedValue;
-
     if (savedCigValue == nil) {
         savedCigValue = @"0";
         self.dailyGoalLabel.text = savedCigValue;
     }
-
     if (savedCigSmokedValue == nil) {
         savedCigSmokedValue = @"0";
         self.smokedLabel.text = savedCigSmokedValue;
     }
-
     if (savedCravedValue == nil) {
         savedCravedValue = @"0";
         self.cravingLabel.text = savedCravedValue;
