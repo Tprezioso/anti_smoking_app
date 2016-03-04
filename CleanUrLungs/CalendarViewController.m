@@ -22,59 +22,37 @@
     [super viewDidLoad];
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
+    //[self calendar:self.calendar hasEventForDate:[NSDate new]];
 //  self.calendar.appearance.eventColor = [UIColor greenColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-    if (savedCigSmokedValue > savedCigValue) {
-        self.calendar.appearance.eventColor = [UIColor redColor];
-    }
-    if ([savedCigSmokedValue isEqualToString:@"0"]) {
-        self.calendar.appearance.eventColor = [UIColor greenColor];
-    }
+//    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+//    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+//    if (savedCigSmokedValue > savedCigValue) {
+//        self.calendar.appearance.eventColor = [UIColor redColor];
+//    }
+//    if ([savedCigSmokedValue isEqualToString:@"0"]) {
+//        self.calendar.appearance.eventColor = [UIColor greenColor];
+//    }
 }
 
-- (void)setUpCalendarWithDates
+- (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date
 {
-    Day *calenderDays = [Day new];
-    NSMutableArray *daysSavedArray = [[NSMutableArray alloc] init];
-    daysSavedArray = [calenderDays retriveDates];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
-    NSDate *setCalendarDate = [NSDate new];
+        Day *calenderDays = [Day new];
+        NSMutableArray *daysSavedArray = [[NSMutableArray alloc] init];
+        daysSavedArray = [calenderDays retriveDates];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    NSMutableArray *savedDatesArray = [NSMutableArray new];
     for (NSInteger i = 0; i < [daysSavedArray count]; i++) {
-        NSDate *newdate = [[NSDate alloc] init];
-        calenderDays.date = [daysSavedArray[i] valueForKey:@"dateSaved"];
-        calenderDays.smokeValue = [daysSavedArray[i] valueForKey:@"smokedValue"];
-        calenderDays.dailyGoal = [daysSavedArray[i] valueForKey:@"dailyGoal"];
-        if (![calenderDays.dailyGoal isEqualToString:@"0"]) {
-            newdate = [dateFormatter dateFromString:calenderDays.date];
-            NSDate *reworkedDate = [NSDate new];
-            reworkedDate = [self dateWithOutTime:newdate];
-            NSDate *currentCalendarDate = [NSDate new];
-            setCalendarDate = [self dateWithOutTime:self.calendar.today];
-            if ([reworkedDate isEqualToDate:currentCalendarDate]) {
-                if (calenderDays.smokeValue > calenderDays.dailyGoal) {
-                    self.calendar.appearance.eventColor = [UIColor redColor];
-                } else {
-                    self.calendar.appearance.eventColor = [UIColor greenColor];
-                }
-            }
+             calenderDays.date = [daysSavedArray[i] valueForKey:@"dateSaved"];
+        [savedDatesArray addObject:calenderDays.date];
         }
-    }
+    return [savedDatesArray containsObject:[self.calendar stringFromDate:date format:@"MM-dd-yyyy"]];
 }
-
-- (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
-{
-    //Need to refactor this back return YES and then use code below for setting up date events
-//    return NO;
-    return YES;
-}
-
 # pragma mark Helper Method(s)
 - (NSDate *)dateWithOutTime:(NSDate *)datDate
 {

@@ -77,7 +77,7 @@
     NSString *closeString = [dateFormat stringFromDate:close];
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
-        [self saveDate];
+        //[self saveDate];
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         self.isNewDay = YES;
     }
