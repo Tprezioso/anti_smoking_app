@@ -51,7 +51,7 @@
         calenderDays.date = [daysSavedArray[i] valueForKey:@"dateSaved"];
         calenderDays.smokeValue = [daysSavedArray[i] valueForKey:@"smokedValue"];
         calenderDays.dailyGoal = [daysSavedArray[i] valueForKey:@"dailyGoal"];
-        if (![calenderDays.dailyGoal isEqualToString:@"0"] && !nil) {
+        if (![calenderDays.dailyGoal isEqualToString:@"0"] && calenderDays.dailyGoal != nil) {
             newdate = [dateFormatter dateFromString:calenderDays.date];
             NSDate *reworkedDate = [NSDate new];
             reworkedDate = [self dateWithOutTime:newdate];
@@ -74,10 +74,6 @@
             }
         }
     }
-//    if ([date isEqualToDate:setCalendarDate]) {
-
-//        return YES;
-//    }
     return NO;
 }
 
