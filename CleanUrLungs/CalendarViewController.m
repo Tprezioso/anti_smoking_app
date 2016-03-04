@@ -22,8 +22,6 @@
     [super viewDidLoad];
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
-    //[self calendar:self.calendar hasEventForDate:[NSDate new]];
-//  self.calendar.appearance.eventColor = [UIColor greenColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -53,6 +51,7 @@
         }
     return [savedDatesArray containsObject:[self.calendar stringFromDate:date format:@"MM-dd-yyyy"]];
 }
+
 # pragma mark Helper Method(s)
 - (NSDate *)dateWithOutTime:(NSDate *)datDate
 {
