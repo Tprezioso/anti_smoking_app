@@ -40,6 +40,7 @@
 
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
 {
+    //Need to refactor this back return YES and then use code below for setting up date events
     Day *calenderDays = [Day new];
     NSMutableArray *daysSavedArray = [[NSMutableArray alloc] init];
     daysSavedArray = [calenderDays retriveDates];
