@@ -30,8 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    Day *rem = [Day new];
-//    [rem deleteAllDatesFromCoreData];
     [self setupLabels];
     [self checkIfFirstTimeInApp];
     [self checkIfDayChanged];
