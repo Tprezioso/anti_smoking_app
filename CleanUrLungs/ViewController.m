@@ -135,6 +135,15 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MM-dd-yyyy"];
     NSString *dateString = [dateFormat stringFromDate:dateNow];
+    if (self.smokedLabel.text == nil) {
+        self.smokedLabel.text = @"0";
+    }
+    if (self.cravingLabel.text == nil) {
+        self.cravingLabel.text = @"0";
+    }
+    if (self.dailyGoalLabel.text == nil) {
+        self.dailyGoalLabel.text = self.alertTextField.text;
+    }
     self.day = [[Day alloc] initWithDate:dateString smokeValue:self.smokedLabel.text dailyGoal:self.dailyGoalLabel.text];
     [self.day saveDate:self.day.date smokeSaved:self.day.smokeValue dailyGoalSaved:self.day.dailyGoal];
     NSLog(@"saved");

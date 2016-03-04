@@ -28,14 +28,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-        NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-        NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-        if (savedCigSmokedValue > savedCigValue) {
-            self.calendar.appearance.eventColor = [UIColor redColor];
-        }
-        if ([savedCigSmokedValue isEqualToString:@"0"]) {
-            self.calendar.appearance.eventColor = [UIColor greenColor];
-        }
+    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    if (savedCigSmokedValue > savedCigValue) {
+        self.calendar.appearance.eventColor = [UIColor redColor];
+    }
+    if ([savedCigSmokedValue isEqualToString:@"0"]) {
+        self.calendar.appearance.eventColor = [UIColor greenColor];
+    }
 }
 
 - (BOOL)calendar:(FSCalendar *)calendar hasEventForDate:(NSDate *)date
@@ -51,7 +51,7 @@
         calenderDays.date = [daysSavedArray[i] valueForKey:@"dateSaved"];
         calenderDays.smokeValue = [daysSavedArray[i] valueForKey:@"smokedValue"];
         calenderDays.dailyGoal = [daysSavedArray[i] valueForKey:@"dailyGoal"];
-        if (![calenderDays.dailyGoal isEqualToString:@"0"] && calenderDays.dailyGoal != nil) {
+        if (![calenderDays.dailyGoal isEqualToString:@"0"]) {
             newdate = [dateFormatter dateFromString:calenderDays.date];
             NSDate *reworkedDate = [NSDate new];
             reworkedDate = [self dateWithOutTime:newdate];
@@ -60,7 +60,7 @@
             setCalendarDate = [self dateWithOutTime:self.calendar.today];
             if (![setCalendarDate isEqualToDate:date]) {
                 if ([reworkedDate isEqualToDate:currentCalendarDate]) {
-                    if (calenderDays.smokeValue > calenderDays.dailyGoal && !nil) {
+                    if (calenderDays.smokeValue > calenderDays.dailyGoal) {
                         self.calendar.appearance.eventColor = [UIColor redColor];
                     } else {
                         self.calendar.appearance.eventColor = [UIColor greenColor];
