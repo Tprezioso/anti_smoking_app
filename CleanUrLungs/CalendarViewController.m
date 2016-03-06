@@ -39,17 +39,16 @@
 
 - (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date
 {
-        Day *calenderDays = [Day new];
-        NSMutableArray *daysSavedArray = [[NSMutableArray alloc] init];
-        daysSavedArray = [calenderDays retriveDates];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    Day *calenderDays = [Day new];
+    NSMutableArray *daysSavedArray = [[NSMutableArray alloc] init];
+    daysSavedArray = [calenderDays retriveDates];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
     NSMutableArray *savedDatesArray = [NSMutableArray new];
     for (NSInteger i = 0; i < [daysSavedArray count]; i++) {
         calenderDays.date = [daysSavedArray[i] valueForKey:@"dateSaved"];
         calenderDays.smokeValue = [daysSavedArray[i] valueForKey:@"smokedValue"];
         calenderDays.dailyGoal = [daysSavedArray[i] valueForKey:@"dailyGoal"];
-
         [savedDatesArray addObject:calenderDays.date];
         if (calenderDays.smokeValue > calenderDays.dailyGoal) {
             self.calendar.appearance.eventColor = [UIColor redColor];
