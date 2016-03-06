@@ -19,5 +19,6 @@
 - (Day *)retriveDate;
 - (NSMutableArray *)retriveDates;
 - (void)deleteAllDatesFromCoreData;
+- (void)checkToSeeIfDateIsSaved:(NSString *)dateInData;
 
 @end

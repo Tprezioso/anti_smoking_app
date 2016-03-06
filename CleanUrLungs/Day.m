@@ -93,6 +93,26 @@
     }
 }
 
+- (void)checkToSeeIfDateIsSaved:(NSString *)dateInData
+{
+    NSMutableArray *daysArray = [[NSMutableArray alloc] init];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
+    daysArray = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    for (NSInteger i = 0; i < [daysArray count]; i++) {
+        Day *savedDay = [Day new];
+        savedDay.date = [daysArray[i] valueForKey:@"dateSaved"];
+        if ([dateInData isEqualToString:savedDay.date]) {
+            [context deleteObject:daysArray[i]];
+        }
+    }
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+   
+}
+
 - (NSManagedObjectContext *)managedObjectContext
 {
     NSManagedObjectContext *context = nil;

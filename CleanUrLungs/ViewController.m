@@ -144,7 +144,9 @@
     }
     NSString *dailyGoal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
     NSString *cigsSmoked = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    
     self.day = [[Day alloc] initWithDate:dateString smokeValue:cigsSmoked dailyGoal:dailyGoal];
+    [self.day checkToSeeIfDateIsSaved:self.day.date];
     [self.day saveDate:self.day.date smokeSaved:self.day.smokeValue dailyGoalSaved:self.day.dailyGoal];
     NSLog(@"saved");
 }
