@@ -142,7 +142,9 @@
     if (self.dailyGoalLabel.text == nil) {
         self.dailyGoalLabel.text = self.alertTextField.text;
     }
-    self.day = [[Day alloc] initWithDate:dateString smokeValue:self.smokedLabel.text dailyGoal:self.dailyGoalLabel.text];
+    NSString *dailyGoal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+    NSString *cigsSmoked = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    self.day = [[Day alloc] initWithDate:dateString smokeValue:cigsSmoked dailyGoal:dailyGoal];
     [self.day saveDate:self.day.date smokeSaved:self.day.smokeValue dailyGoalSaved:self.day.dailyGoal];
     NSLog(@"saved");
 }
