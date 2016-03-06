@@ -171,7 +171,7 @@
     UIAlertController *firstTimeAlert = [UIAlertController alertControllerWithTitle:@"Welcome to CleanUrLungs"
                                                                             message:@"Lets get started by Finding out how many Cigarttees you smoke"
                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"Ok"
+    UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"OK"
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * _Nonnull action) {
         self.dailyGoalLabel.text = self.alertTextField.text;
