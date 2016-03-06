@@ -48,7 +48,12 @@
     for (NSInteger i = 0; i < [daysSavedArray count]; i++) {
              calenderDays.date = [daysSavedArray[i] valueForKey:@"dateSaved"];
         [savedDatesArray addObject:calenderDays.date];
-        }
+    }
+    if ([savedDatesArray containsObject:[self.calendar stringFromDate:date format:@"MM-dd-yyyy"]] && calenderDays.smokeValue > calenderDays.dailyGoal) {
+        self.calendar.appearance.eventColor = [UIColor redColor];
+    } else {
+        self.calendar.appearance.eventColor = [UIColor greenColor];
+    }
     return [savedDatesArray containsObject:[self.calendar stringFromDate:date format:@"MM-dd-yyyy"]];
 }
 
