@@ -56,7 +56,6 @@
             self.calendar.appearance.eventColor = [UIColor greenColor];
         }
     }
-
     return [savedDatesArray containsObject:[self.calendar stringFromDate:date format:@"MM-dd-yyyy"]];
 }
 
