@@ -50,11 +50,6 @@
         calenderDays.smokeValue = [daysSavedArray[i] valueForKey:@"smokedValue"];
         calenderDays.dailyGoal = [daysSavedArray[i] valueForKey:@"dailyGoal"];
         [savedDatesArray addObject:calenderDays.date];
-        // if (calenderDays.smokeValue > calenderDays.dailyGoal) {
-        //     self.calendar.appearance.eventColor = [UIColor redColor];
-        // } else {
-        //     self.calendar.appearance.eventColor = [UIColor greenColor];
-        // }
     }
     return [savedDatesArray containsObject:[self.calendar stringFromDate:date format:@"MM-dd-yyyy"]];
 }
