@@ -151,14 +151,6 @@
     NSLog(@"saved");
 }
 
-- (void)setupLabelFromCoreData
-{
-    Day *setdate = [[Day alloc] init];
-    setdate = [setdate retriveDate];
-    self.dailyGoalLabel.text = setdate.dailyGoal;
-    self.smokedLabel.text = setdate.smokeValue;
-}
-
 - (BOOL)isFirstTimeInApp
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
