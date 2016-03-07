@@ -40,12 +40,6 @@
     }];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:YES];
-//   [self saveDate];
-}
-
 - (void)checkIfFirstTimeInApp
 {
     if ([self isFirstTimeInApp]) {
