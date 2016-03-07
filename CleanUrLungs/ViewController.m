@@ -71,7 +71,6 @@
     NSString *closeString = [dateFormat stringFromDate:close];
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
-        //[self saveDate];
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         self.isNewDay = YES;
     }
@@ -137,7 +136,7 @@
         self.dailyGoalLabel.text = self.alertTextField.text;
     }
     NSString *dailyGoal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-    NSString *cigsSmoked = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];    
+    NSString *cigsSmoked = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
     self.day = [[Day alloc] initWithDate:dateString smokeValue:cigsSmoked dailyGoal:dailyGoal];
     [self.day checkToSeeIfDateIsSaved:self.day.date];
     [self.day saveDate:self.day.date smokeSaved:self.day.smokeValue dailyGoalSaved:self.day.dailyGoal];
