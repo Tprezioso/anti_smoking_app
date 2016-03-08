@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kw7-o5-KCH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NNL-uu-926">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -163,7 +163,67 @@
                     <view key="view" contentMode="scaleToFill" id="1O9-ap-9Kc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPQ-qF-67E">
+                                <rect key="frame" x="20" y="28" width="560" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaZ-hw-0hY">
+                                <rect key="frame" x="20" y="257" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="5lv-ep-NYn"/>
+                                    <constraint firstAttribute="height" constant="100" id="ows-ij-eCr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Craved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCk-4N-MEF">
+                                <rect key="frame" x="43" y="199" width="55" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="fix-qY-LeN"/>
+                                    <constraint firstAttribute="height" constant="21" id="sT3-aF-a6A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vm4-xS-V9Y">
+                                <rect key="frame" x="480" y="256.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Eey-Ur-WaQ"/>
+                                    <constraint firstAttribute="height" constant="100" id="U1K-Fn-esG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smoked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ap-LU-Ik9">
+                                <rect key="frame" x="480" y="199" width="100" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="b4e-WJ-L5D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="KaZ-hw-0hY" secondAttribute="leading" id="0dy-lI-ecl"/>
+                            <constraint firstItem="tPQ-qF-67E" firstAttribute="top" secondItem="gXB-d6-kT7" secondAttribute="bottom" constant="8" id="1Pn-4R-iDg"/>
+                            <constraint firstItem="0ap-LU-Ik9" firstAttribute="top" secondItem="tPQ-qF-67E" secondAttribute="bottom" constant="151" id="DEr-Xh-qvz"/>
+                            <constraint firstItem="Vm4-xS-V9Y" firstAttribute="centerY" secondItem="KaZ-hw-0hY" secondAttribute="centerY" id="H2x-aH-x3V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0ap-LU-Ik9" secondAttribute="trailing" id="OnP-1H-1mO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vm4-xS-V9Y" secondAttribute="trailing" id="VbS-Sa-2qi"/>
+                            <constraint firstItem="KaZ-hw-0hY" firstAttribute="top" secondItem="dCk-4N-MEF" secondAttribute="bottom" constant="37" id="fQU-c1-a30"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tPQ-qF-67E" secondAttribute="leading" id="jAF-KM-g8d"/>
+                            <constraint firstItem="dCk-4N-MEF" firstAttribute="top" secondItem="tPQ-qF-67E" secondAttribute="bottom" constant="150.5" id="sB6-v8-HC7"/>
+                            <constraint firstItem="dCk-4N-MEF" firstAttribute="leading" secondItem="1O9-ap-9Kc" secondAttribute="leadingMargin" constant="23" id="t6G-gf-F1T"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tPQ-qF-67E" secondAttribute="trailing" id="twZ-Aa-w0B"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDM-Wh-pOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
