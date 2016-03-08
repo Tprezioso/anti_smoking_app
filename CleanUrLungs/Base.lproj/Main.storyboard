@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="1867" y="1002"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Calendar View Controller-->
         <scene sceneID="C3g-Jj-Qta">
             <objects>
-                <viewController id="NNL-uu-926" sceneMemberID="viewController">
+                <viewController id="NNL-uu-926" customClass="DetailCalendarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gXB-d6-kT7"/>
                         <viewControllerLayoutGuide type="bottom" id="WW2-39-rt3"/>
