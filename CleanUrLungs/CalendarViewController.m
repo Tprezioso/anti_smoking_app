@@ -8,6 +8,7 @@
 
 #import "CalendarViewController.h"
 #import "Day.h"
+#import "DetailCalendarViewController.h"
 
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate>
 
@@ -73,5 +74,10 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"detailCalendarVC"]) {
+        DetailCalendarViewController *detailVC = segue.destinationViewController;
+       // detailVC.detailDay = day thats selected;
+    }
+
 }
 @end

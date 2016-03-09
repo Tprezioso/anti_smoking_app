@@ -146,6 +146,7 @@
                     <navigationItem key="navigationItem" id="dDQ-fM-yYU"/>
                     <connections>
                         <outlet property="calendar" destination="vfV-Jp-NkF" id="3XF-Sm-AwR"/>
+                        <segue destination="NNL-uu-926" kind="show" identifier="detailCalendarVC" id="z8N-e4-l0I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K92-Cm-o69" userLabel="First Responder" sceneMemberID="firstResponder"/>

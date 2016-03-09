@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Day.h"
 
 @interface DetailCalendarViewController : UIViewController
+
+@property (strong, nonatomic)Day *detailDay;
 
 @end
