@@ -13,7 +13,7 @@
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate>
 
 @property (strong, nonatomic) IBOutlet FSCalendar *calendar;
-
+@property (nonatomic)BOOL hasEvent;
 @end
 
 @implementation CalendarViewController
@@ -51,8 +51,33 @@
         calenderDays.smokeValue = [daysSavedArray[i] valueForKey:@"smokedValue"];
         calenderDays.dailyGoal = [daysSavedArray[i] valueForKey:@"dailyGoal"];
         [savedDatesArray addObject:calenderDays.date];
+        self.hasEvent = YES;
     }
     return [savedDatesArray containsObject:[self.calendar stringFromDate:date format:@"MM-dd-yyyy"]];
+}
+
+- (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date
+{
+    NSLog(@"DID SELECT DAY %@",date);
+    Day *calenderDays = [Day new];
+    NSMutableArray *daysToCheckArray = [[NSMutableArray alloc] init];
+    daysToCheckArray = [calenderDays retriveDates];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    NSMutableArray *savedDatesArray = [NSMutableArray new];
+    for (NSInteger i = 0; i < [daysToCheckArray count]; i++) {
+        calenderDays.date = [daysToCheckArray[i] valueForKey:@"dateSaved"];
+        calenderDays.smokeValue = [daysToCheckArray[i] valueForKey:@"smokedValue"];
+        calenderDays.dailyGoal = [daysToCheckArray[i] valueForKey:@"dailyGoal"];
+        [savedDatesArray addObject:calenderDays.date];
+        NSDate *newDate = [NSDate new];
+        newDate = [dateFormatter dateFromString:calenderDays.date];
+        if ([newDate isEqualToDate:date]) {
+            [self performSegueWithIdentifier:@"detailCalendarVC" sender:self];
+            DetailCalendarViewController *detailVC = [[DetailCalendarViewController alloc] init];
+            detailVC.detailDay = calenderDays;
+        }
+    }
 }
 
 # pragma mark Helper Method(s)
@@ -75,9 +100,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"detailCalendarVC"]) {
-        DetailCalendarViewController *detailVC = segue.destinationViewController;
-       // detailVC.detailDay = day thats selected;
-    }
-
+            }
 }
 @end
