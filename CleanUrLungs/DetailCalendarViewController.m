@@ -10,14 +10,19 @@
 #import "Day.h"
 
 @interface DetailCalendarViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *detailedDate;
+@property (strong, nonatomic) IBOutlet UILabel *detailCrave;
+@property (strong, nonatomic) IBOutlet UILabel *detailSmoke;
 
 @end
 
 @implementation DetailCalendarViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.detailedDate.text = self.detailDay.date;
+    self.detailSmoke.text = self.detailDay.smokeValue;
 }
 
 /*

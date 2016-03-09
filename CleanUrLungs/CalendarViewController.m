@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet FSCalendar *calendar;
 @property (nonatomic)BOOL hasEvent;
+
 @end
 
 @implementation CalendarViewController
@@ -74,8 +75,7 @@
         newDate = [dateFormatter dateFromString:calenderDays.date];
         if ([newDate isEqualToDate:date]) {
             [self performSegueWithIdentifier:@"detailCalendarVC" sender:self];
-            DetailCalendarViewController *detailVC = [[DetailCalendarViewController alloc] init];
-            detailVC.detailDay = calenderDays;
+           
         }
     }
 }
@@ -100,6 +100,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"detailCalendarVC"]) {
-            }
+        DetailCalendarViewController *detailVC = [[DetailCalendarViewController alloc] init];
+        detailVC.detailDay = ;
+    }
 }
 @end

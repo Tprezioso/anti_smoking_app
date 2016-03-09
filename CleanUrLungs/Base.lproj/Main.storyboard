@@ -226,6 +226,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="tPQ-qF-67E" secondAttribute="trailing" id="twZ-Aa-w0B"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailCrave" destination="KaZ-hw-0hY" id="4pa-UC-7at"/>
+                        <outlet property="detailSmoke" destination="Vm4-xS-V9Y" id="v8W-jK-lKR"/>
+                        <outlet property="detailedDate" destination="tPQ-qF-67E" id="PIm-QQ-rkJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDM-Wh-pOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
