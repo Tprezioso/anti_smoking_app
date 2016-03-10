@@ -23,7 +23,11 @@
 {
     [super viewDidLoad];
     self.detailedDate.text = self.detailDay.date;
+    self.detailCrave.text = self.detailDay.craveTotal;
     self.detailSmoke.text = self.detailDay.smokeValue;
+    if (self.detailDay.craveTotal == nil) {
+        self.detailCrave.text = @"0";
+    }
 }
 
 /*
