@@ -21,6 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //self.detailDay = [[Day alloc] init];
     self.detailedDate.text = self.detailDay.date;
     self.detailSmoke.text = self.detailDay.smokeValue;
 }

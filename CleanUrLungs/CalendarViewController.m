@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet FSCalendar *calendar;
 @property (nonatomic)BOOL hasEvent;
+@property (strong, nonatomic)Day *calendarDay;
 
 @end
 
@@ -65,19 +66,21 @@
     daysToCheckArray = [calenderDays retriveDates];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
-    NSMutableArray *savedDatesArray = [NSMutableArray new];
+    NSDate *newDate = [NSDate new];
     for (NSInteger i = 0; i < [daysToCheckArray count]; i++) {
         calenderDays.date = [daysToCheckArray[i] valueForKey:@"dateSaved"];
         calenderDays.smokeValue = [daysToCheckArray[i] valueForKey:@"smokedValue"];
         calenderDays.dailyGoal = [daysToCheckArray[i] valueForKey:@"dailyGoal"];
-        [savedDatesArray addObject:calenderDays.date];
-        NSDate *newDate = [NSDate new];
+        NSDate *coolDate = [self dateWithOutTime:date];
         newDate = [dateFormatter dateFromString:calenderDays.date];
-        if ([newDate isEqualToDate:date]) {
-            [self performSegueWithIdentifier:@"detailCalendarVC" sender:self];
-           
+        newDate = [self dateWithOutTime:newDate];
+        if ([newDate isEqualToDate:coolDate]) {
+            self.calendarDay = [[Day alloc] init];
+            self.calendarDay = calenderDays;
+            break;
         }
     }
+    [self performSegueWithIdentifier:@"detailCalendarVC" sender:self];
 }
 
 # pragma mark Helper Method(s)
@@ -100,8 +103,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"detailCalendarVC"]) {
-        DetailCalendarViewController *detailVC = [[DetailCalendarViewController alloc] init];
-        detailVC.detailDay = ;
+        DetailCalendarViewController *detailVC = segue.destinationViewController;
+        detailVC.detailDay = self.calendarDay;
     }
 }
 @end
