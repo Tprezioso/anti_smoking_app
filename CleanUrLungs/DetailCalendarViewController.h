@@ -11,6 +11,6 @@
 
 @interface DetailCalendarViewController : UIViewController
 
-@property (strong, nonatomic)Day *detailDay;
+@property (strong, nonatomic) Day *detailDay;
 
 @end

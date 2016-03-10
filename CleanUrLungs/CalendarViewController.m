@@ -100,8 +100,6 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"detailCalendarVC"]) {
         DetailCalendarViewController *detailVC = segue.destinationViewController;
         detailVC.detailDay = self.calendarDay;
