@@ -27,19 +27,6 @@
     self.calendar.delegate = self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-//    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-//    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-//    if (savedCigSmokedValue > savedCigValue) {
-//        self.calendar.appearance.eventColor = [UIColor redColor];
-//    }
-//    if ([savedCigSmokedValue isEqualToString:@"0"]) {
-//        self.calendar.appearance.eventColor = [UIColor greenColor];
-//    }
-}
-
 - (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date
 {
     Day *calenderDays = [Day new];
