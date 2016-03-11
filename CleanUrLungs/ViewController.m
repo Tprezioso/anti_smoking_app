@@ -175,6 +175,7 @@
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
 }
 
+#pragma mark FIX IT: Need to fix the count down of daily goals
 - (void)weekLaterReduceDailyCig
 {
     self.counter = 1;
