@@ -29,7 +29,6 @@
         self.detailCrave.text = @"0";
     }
 }
-
 /*
 #pragma mark - Navigation
 
