@@ -77,6 +77,15 @@
         if ([newDate isEqualToDate:coolDate]) {
             self.calendarDay = [[Day alloc] init];
             self.calendarDay = calenderDays;
+            NSDate *calendarToday = [NSDate new];
+            calendarToday = [self dateWithOutTime:self.calendar.today];
+            if ([newDate isEqualToDate:calendarToday]) {
+                Day *currentDay = [Day new];
+                currentDay.dailyGoal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+                currentDay.smokeValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+                currentDay.craveTotal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+                self.calendarDay = currentDay;
+            }
             break;
         }
     }
