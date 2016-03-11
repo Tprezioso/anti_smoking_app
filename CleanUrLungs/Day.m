@@ -106,8 +106,7 @@
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-   
+    }   
 }
 
 - (NSManagedObjectContext *)managedObjectContext
