@@ -75,20 +75,20 @@
     return days;
 }
 
-- (void)deleteAllDatesFromCoreData
-{
-    NSMutableArray *removedDaysArray = [[NSMutableArray alloc] init];
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
-    removedDaysArray = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    for (NSInteger i = 0; i < [removedDaysArray count]; i++) {
-        [context deleteObject:removedDaysArray[i]];
-    }
-    NSError *error = nil;
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-}
+// - (void)deleteAllDatesFromCoreData
+// {
+//     NSMutableArray *removedDaysArray = [[NSMutableArray alloc] init];
+//     NSManagedObjectContext *context = [self managedObjectContext];
+//     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
+//     removedDaysArray = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//     for (NSInteger i = 0; i < [removedDaysArray count]; i++) {
+//         [context deleteObject:removedDaysArray[i]];
+//     }
+//     NSError *error = nil;
+//     if (![context save:&error]) {
+//         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//     }
+// }
 
 - (void)checkToSeeIfDateIsSaved:(NSString *)dateInData
 {
@@ -106,7 +106,7 @@
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }   
+    }
 }
 
 - (NSManagedObjectContext *)managedObjectContext
