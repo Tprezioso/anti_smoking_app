@@ -75,6 +75,7 @@
     return days;
 }
 
+// Used for removal of coreData dates 
 // - (void)deleteAllDatesFromCoreData
 // {
 //     NSMutableArray *removedDaysArray = [[NSMutableArray alloc] init];
