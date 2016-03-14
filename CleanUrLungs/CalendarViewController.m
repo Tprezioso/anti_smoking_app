@@ -49,6 +49,7 @@
 {
     NSLog(@"DID SELECT DAY %@",date);
     Day *calenderDays = [Day new];
+    Day *currentDay = [Day new];
     NSMutableArray *daysToCheckArray = [[NSMutableArray alloc] init];
     daysToCheckArray = [calenderDays retriveDates];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -67,7 +68,6 @@
             NSDate *calendarToday = [NSDate new];
             calendarToday = [self dateWithOutTime:self.calendar.today];
             if ([newDate isEqualToDate:calendarToday]) {
-                Day *currentDay = [Day new];
                 currentDay.dailyGoal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
                 currentDay.smokeValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
                 currentDay.craveTotal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];

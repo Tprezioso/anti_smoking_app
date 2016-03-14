@@ -28,6 +28,12 @@
     if (self.detailDay.craveTotal == nil) {
         self.detailCrave.text = @"0";
     }
+    if (self.detailDay.smokeValue == nil) {
+        self.detailSmoke.text = @"0";
+    }
+//    if (self.detailDay.date == nil) {
+//        self.detailedDate.text = ;
+//    }
 }
 /*
 #pragma mark - Navigation
