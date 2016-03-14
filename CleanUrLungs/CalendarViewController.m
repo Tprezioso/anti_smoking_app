@@ -75,6 +75,12 @@
             }
             break;
         }
+        if (currentDay.date == nil) {
+            NSString *dateString = [dateFormatter stringFromDate:date];
+            currentDay.date = dateString;
+            self.calendarDay = currentDay;
+        }
+
     }
     [self performSegueWithIdentifier:@"detailCalendarVC" sender:self];
 }
