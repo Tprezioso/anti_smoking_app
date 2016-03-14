@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *detailedDate;
 @property (strong, nonatomic) IBOutlet UILabel *detailCrave;
 @property (strong, nonatomic) IBOutlet UILabel *detailSmoke;
+@property (strong, nonatomic) IBOutlet UILabel *detailDailyGoal;
 
 @end
 
@@ -25,15 +26,16 @@
     self.detailedDate.text = self.detailDay.date;
     self.detailCrave.text = self.detailDay.craveTotal;
     self.detailSmoke.text = self.detailDay.smokeValue;
+    self.detailDailyGoal.text = self.detailDay.dailyGoal;
     if (self.detailDay.craveTotal == nil) {
         self.detailCrave.text = @"0";
     }
     if (self.detailDay.smokeValue == nil) {
         self.detailSmoke.text = @"0";
     }
-//    if (self.detailDay.date == nil) {
-//        self.detailedDate.text = ;
-//    }
+    if (self.detailDay.dailyGoal == nil) {
+        self.detailDailyGoal.text =  @"0";
+    }
 }
 /*
 #pragma mark - Navigation

@@ -252,6 +252,7 @@
                     </view>
                     <connections>
                         <outlet property="detailCrave" destination="KaZ-hw-0hY" id="4pa-UC-7at"/>
+                        <outlet property="detailDailyGoal" destination="xho-yD-EP2" id="xOK-TX-Dan"/>
                         <outlet property="detailSmoke" destination="Vm4-xS-V9Y" id="v8W-jK-lKR"/>
                         <outlet property="detailedDate" destination="tPQ-qF-67E" id="PIm-QQ-rkJ"/>
                     </connections>
