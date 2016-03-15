@@ -20,5 +20,6 @@
 - (NSMutableArray *)retriveDates;
 //- (void)deleteAllDatesFromCoreData;
 - (void)checkToSeeIfDateIsSaved:(NSString *)dateInData;
+- (BOOL)checkForGoalsMet;
 
 @end

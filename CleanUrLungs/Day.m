@@ -110,6 +110,32 @@
     }
 }
 
+- (BOOL)checkForGoalsMet
+{
+    NSMutableArray *daysToCheckArray = [[NSMutableArray alloc] init];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
+    daysToCheckArray = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    Day *savedDay = [Day new];
+    NSInteger counter = 1;
+    for (NSInteger i = 0; i < [daysToCheckArray count]; i++) {
+        savedDay.date = [daysToCheckArray[i] valueForKey:@"dateSaved"];
+        savedDay.smokeValue = [daysToCheckArray[i] valueForKey:@"smokedValue"];
+        savedDay.dailyGoal = [daysToCheckArray[i] valueForKey:@"dailyGoal"];
+        if (savedDay.smokeValue < savedDay.dailyGoal) {
+            counter++;
+            if (counter == 7) {
+                return YES;
+            }
+        }
+    }
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    return NO;
+}
+
 - (NSManagedObjectContext *)managedObjectContext
 {
     NSManagedObjectContext *context = nil;
