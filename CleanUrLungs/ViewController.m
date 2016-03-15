@@ -165,31 +165,14 @@
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
 }
 
-#pragma mark FIX IT: Need to fix the count down of daily goals
+#pragma mark TEST THIS: needs to be tested if this actually work in reducing dailyGoal 
 - (void)weekLaterReduceDailyCig
 {
-    self.counter = 1;
-    if (self.isNewDay) {
-        self.counter = [[NSUserDefaults standardUserDefaults] integerForKey:@"counter"];
-        self.counter++;
-        [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
+    if ([self.day checkForGoalsMet]) {
+        self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
+        NSString *newDailyGoalSaved = self.dailyGoalLabel.text;
+        [[NSUserDefaults standardUserDefaults] setObject:newDailyGoalSaved forKey:@"cigValueToSave"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        if (self.counter == 7) {
-            self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
-            NSString *newDailyGoalSaved = self.dailyGoalLabel.text;
-            [[NSUserDefaults standardUserDefaults] setObject:newDailyGoalSaved forKey:@"cigValueToSave"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            self.counter = 0;
-            [[NSUserDefaults standardUserDefaults] setInteger:self.counter forKey:@"counter"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        } else {
-            if ([self.dailyGoalLabel.text isEqualToString:@"0"]) {
-                self.isNewDay = NO;
-                NSString *dailyGoalLimit = self.dailyGoalLabel.text;
-                [[NSUserDefaults standardUserDefaults] setObject:dailyGoalLimit forKey:@"cigValueToSave"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-            }
-        }
     }
 }
 
