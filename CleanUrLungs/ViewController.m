@@ -165,7 +165,7 @@
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
 }
 
-#pragma mark TEST THIS: needs to be tested if this actually work in reducing dailyGoal 
+#pragma mark TEST THIS: needs to be tested if this actually work in reducing dailyGoal
 - (void)weekLaterReduceDailyCig
 {
     if ([self.day checkForGoalsMet]) {
