@@ -13,8 +13,8 @@
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate>
 
 @property (strong, nonatomic) IBOutlet FSCalendar *calendar;
-@property (nonatomic)BOOL hasEvent;
-@property (strong, nonatomic)Day *calendarDay;
+@property (nonatomic) BOOL hasEvent;
+@property (strong, nonatomic) Day *calendarDay;
 
 @end
 
