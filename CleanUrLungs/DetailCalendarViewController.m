@@ -23,7 +23,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.detailedDate.text = self.detailDay.date;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateStyle:NSDateFormatterFullStyle];
+    NSString *dateString = [dateFormat stringFromDate:self.seletedDate];
+    self.detailedDate.text = dateString;
     self.detailCrave.text = self.detailDay.craveTotal;
     self.detailSmoke.text = self.detailDay.smokeValue;
     self.detailDailyGoal.text = self.detailDay.dailyGoal;

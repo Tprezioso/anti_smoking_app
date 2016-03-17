@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet FSCalendar *calendar;
 @property (nonatomic) BOOL hasEvent;
 @property (strong, nonatomic) Day *calendarDay;
+@property (strong, nonatomic) NSDate *dateToPass;
 
 @end
 
@@ -50,6 +51,8 @@
     NSLog(@"DID SELECT DAY %@",date);
     Day *calenderDays = [Day new];
     Day *currentDay = [Day new];
+    self.dateToPass = [NSDate new];
+    self.dateToPass = date;
     NSMutableArray *daysToCheckArray = [[NSMutableArray alloc] init];
     daysToCheckArray = [calenderDays retriveDates];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -105,6 +108,7 @@
     if ([segue.identifier isEqualToString:@"detailCalendarVC"]) {
         DetailCalendarViewController *detailVC = segue.destinationViewController;
         detailVC.detailDay = self.calendarDay;
+        detailVC.seletedDate = self.dateToPass;
     }
 }
 
