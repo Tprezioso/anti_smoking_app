@@ -122,7 +122,7 @@
         savedDay.date = [daysToCheckArray[i] valueForKey:@"dateSaved"];
         savedDay.smokeValue = [daysToCheckArray[i] valueForKey:@"smokedValue"];
         savedDay.dailyGoal = [daysToCheckArray[i] valueForKey:@"dailyGoal"];
-        if (savedDay.smokeValue < savedDay.dailyGoal) {
+        if (savedDay.smokeValue <= savedDay.dailyGoal) {
             counter++;
             if (counter == 7) {
                 return YES;
