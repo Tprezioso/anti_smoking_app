@@ -117,12 +117,18 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Date"];
     daysToCheckArray = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
     Day *savedDay = [Day new];
+    NSDate *open = [[NSUserDefaults standardUserDefaults] objectForKey:@"openDate"];
+    NSDate *close = [[NSUserDefaults standardUserDefaults] objectForKey:@"closeDate"];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString *openString = [dateFormat stringFromDate:open];
+    NSString *closeString = [dateFormat stringFromDate:close];
     NSInteger counter = 1;
     for (NSInteger i = 0; i < [daysToCheckArray count]; i++) {
         savedDay.date = [daysToCheckArray[i] valueForKey:@"dateSaved"];
         savedDay.smokeValue = [daysToCheckArray[i] valueForKey:@"smokedValue"];
         savedDay.dailyGoal = [daysToCheckArray[i] valueForKey:@"dailyGoal"];
-        if (savedDay.smokeValue <= savedDay.dailyGoal) {
+        if (savedDay.smokeValue <= savedDay.dailyGoal && ![openString isEqualToString:closeString]) {
             counter++;
             if (counter == 7) {
                 return YES;
