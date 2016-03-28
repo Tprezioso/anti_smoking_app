@@ -39,6 +39,7 @@
         [self timeChanged];
     }];
     [self setupUIElements];
+    [self setDateTimeLabel];
 }
 
 - (void)setupUIElements
@@ -47,6 +48,15 @@
     self.cravingLabel.backgroundColor = [UIColor whiteColor];
     self.cravingLabel.textColor = [UIColor orangeColor];
     self.smokedLabel.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)setDateTimeLabel
+{
+    NSDate *thisDay = [NSDate new];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateStyle:NSDateFormatterFullStyle];
+    NSString *dateString = [dateFormat stringFromDate:thisDay];
+    self.inspiringQuote.text = dateString;
 }
 
 - (void)checkIfFirstTimeInApp
