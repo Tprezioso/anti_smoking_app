@@ -38,6 +38,15 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];
+    [self setupUIElements];
+}
+
+- (void)setupUIElements
+{
+    self.view.backgroundColor = [UIColor orangeColor];
+    self.cravingLabel.backgroundColor = [UIColor whiteColor];
+    self.cravingLabel.textColor = [UIColor orangeColor];
+    self.smokedLabel.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)checkIfFirstTimeInApp
