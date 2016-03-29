@@ -35,11 +35,11 @@
     [self checkIfDayChanged];
     [self checkIfOverDailyGoal];
     [self weekLaterReduceDailyCig];
+    [self setupUIElements];
+    [self setDateTimeLabel];
     [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];
-    [self setupUIElements];
-    [self setDateTimeLabel];
 }
 
 - (void)setupUIElements
