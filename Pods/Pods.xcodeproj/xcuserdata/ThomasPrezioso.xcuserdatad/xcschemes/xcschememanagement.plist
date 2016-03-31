@@ -14,15 +14,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIView+Shake.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>631D09A90D89494BC728B669EDF29A5B</key>
+		<key>90A444F1DDEFFEEC787FA823F95F6A48</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D6F8DFCCE6569FC5292FBAF45265CAA3</key>
+		<key>E69270D06915D1CBDDC24E147E982806</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F01E5789272306B87C45631D588E2F51</key>
 		<dict>
 			<key>primary</key>
 			<true/>

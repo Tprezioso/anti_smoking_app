@@ -1,10 +1,13 @@
 PODS:
   - FSCalendar (1.8.2)
+  - UIView+Shake (1.1.5)
 
 DEPENDENCIES:
   - FSCalendar (~> 1.7)
+  - UIView+Shake
 
 SPEC CHECKSUMS:
   FSCalendar: 5e348e1352f7513096812e4023e39b64b856bb7e
+  UIView+Shake: 2d2185006d38ee5daed07f14c0989f703f86682f
 
 COCOAPODS: 0.38.2

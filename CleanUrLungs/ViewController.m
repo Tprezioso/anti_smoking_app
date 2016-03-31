@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Day.h"
 #import <CoreData/CoreData.h>
+#import <UIView+Shake.h>
 
 @interface ViewController ()
 
@@ -205,6 +206,7 @@
 
 - (IBAction)smokedButton:(id)sender
 {
+    [self.view shake];
     self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue] +1];
     [UIApplication sharedApplication].applicationIconBadgeNumber = [self.smokedLabel.text intValue];
     NSString *smokedNumberToSave = self.smokedLabel.text;
