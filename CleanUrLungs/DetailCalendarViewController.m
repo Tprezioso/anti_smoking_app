@@ -30,15 +30,20 @@
     self.detailCrave.text = self.detailDay.craveTotal;
     self.detailSmoke.text = self.detailDay.smokeValue;
     self.detailDailyGoal.text = self.detailDay.dailyGoal;
-    if (self.detailDay.craveTotal == nil) {
-        self.detailCrave.text = @"0";
-    }
-    if (self.detailDay.smokeValue == nil) {
-        self.detailSmoke.text = @"0";
-    }
-    if (self.detailDay.dailyGoal == nil) {
-        self.detailDailyGoal.text =  @"0";
-    }
+    [self checkIfValuesAreNil];
+}
+
+- (void)checkIfValuesAreNil
+{
+  if (self.detailDay.craveTotal == nil) {
+      self.detailCrave.text = @"0";
+  }
+  if (self.detailDay.smokeValue == nil) {
+      self.detailSmoke.text = @"0";
+  }
+  if (self.detailDay.dailyGoal == nil) {
+      self.detailDailyGoal.text =  @"0";
+  }
 }
 /*
 #pragma mark - Navigation
