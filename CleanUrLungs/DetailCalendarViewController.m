@@ -45,6 +45,7 @@
       self.detailDailyGoal.text =  @"0";
   }
 }
+
 /*
 #pragma mark - Navigation
 
