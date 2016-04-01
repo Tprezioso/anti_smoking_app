@@ -177,7 +177,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="CleanUrLungs" id="ARk-vH-Vqj"/>
+                    <navigationItem key="navigationItem" title="CleanUrLungs" id="ARk-vH-Vqj">
+                        <barButtonItem key="rightBarButtonItem" image="calendar-7.png" id="4hP-w8-7c2">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cravingLabel" destination="5xx-IY-7bS" id="AjX-eL-VFn"/>
                         <outlet property="dailyGoalLabel" destination="o2k-EY-bmh" id="B4c-6c-fhf"/>
@@ -389,4 +393,7 @@
             <point key="canvasLocation" x="1055" y="1002"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar-7.png" width="30" height="30"/>
+    </resources>
 </document>
