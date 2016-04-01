@@ -45,7 +45,6 @@
 
 - (void)setupUIElements
 {
-    //self.view.backgroundColor = [UIColor blackColor];
     self.cravingLabel.backgroundColor = [UIColor whiteColor];
     self.cravingLabel.textColor = [UIColor orangeColor];
     self.smokedLabel.backgroundColor = [UIColor whiteColor];
