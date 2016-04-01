@@ -127,6 +127,7 @@
 				9F43251E1BFBAFF9002418E6 /* Controller */,
 				9F43251F1BFBB01F002418E6 /* View */,
 				9F1759481BFA67E400BAC8EE /* Supporting Files */,
+				9F2B92691CAF21A8009CDBA9 /* Images */,
 			);
 			path = CleanUrLungs;
 			sourceTree = "<group>";
@@ -159,6 +160,14 @@
 			path = CleanUrLungsUITests;
 			sourceTree = "<group>";
 		};
+		9F2B92691CAF21A8009CDBA9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9F2B92671CAF2111009CDBA9 /* calendar-7.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		9F43251E1BFBAFF9002418E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +186,6 @@
 			children = (
 				9F1759511BFA67E400BAC8EE /* Main.storyboard */,
 				9F1759591BFA67E400BAC8EE /* LaunchScreen.storyboard */,
-				9F2B92671CAF2111009CDBA9 /* calendar-7.png */,
 				9F1759571BFA67E400BAC8EE /* Assets.xcassets */,
 			);
 			name = View;
