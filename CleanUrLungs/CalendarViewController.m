@@ -26,6 +26,17 @@
     [super viewDidLoad];
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
+    [self setupCalendar];
+}
+
+- (void)setupCalendar
+{
+    self.calendar.scrollDirection = FSCalendarScrollDirectionVertical;
+    self.calendar.appearance.weekdayTextColor = [UIColor orangeColor];
+    self.calendar.appearance.headerTitleColor = [UIColor orangeColor];
+    self.calendar.appearance.todayColor = [UIColor orangeColor];
+//    self.calendar.backgroundColor = [UIColor orangeColor];
+    
 }
 
 - (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date
