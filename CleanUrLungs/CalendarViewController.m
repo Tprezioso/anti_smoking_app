@@ -101,7 +101,7 @@
         }
     }
     [self setupDetailLabel];
-    [self performSegueWithIdentifier:@"detailCalendarVC" sender:self];
+    //[self performSegueWithIdentifier:@"detailCalendarVC" sender:self];
 }
 
 - (void)checkIfValuesAreNil
