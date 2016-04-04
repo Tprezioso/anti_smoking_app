@@ -13,6 +13,10 @@
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate>
 
 @property (strong, nonatomic) IBOutlet FSCalendar *calendar;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dailyGoalLabel;
+@property (strong, nonatomic) IBOutlet UILabel *cravedLabel;
+@property (strong, nonatomic) IBOutlet UILabel *smokedLabel;
 @property (nonatomic) BOOL hasEvent;
 @property (strong, nonatomic) Day *calendarDay;
 @property (strong, nonatomic) NSDate *dateToPass;
@@ -86,6 +90,7 @@
                 currentDay.smokeValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
                 currentDay.craveTotal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
                 self.calendarDay = currentDay;
+                
             }
             break;
         }
@@ -94,9 +99,32 @@
             currentDay.date = dateString;
             self.calendarDay = currentDay;
         }
-
     }
+    [self setupDetailLabel];
     [self performSegueWithIdentifier:@"detailCalendarVC" sender:self];
+}
+
+- (void)checkIfValuesAreNil
+{
+    if (self.calendarDay.craveTotal == nil) {
+        self.cravedLabel.text = @"Craved     0";
+    }
+    if (self.calendarDay.smokeValue == nil) {
+        self.smokedLabel.text = @"Smoked     0";
+    }
+    if (self.calendarDay.dailyGoal == nil) {
+        self.dailyGoalLabel.text =  @"Daily Goal     0";
+    }
+}
+
+
+- (void)setupDetailLabel
+{
+    self.dateLabel.text = [self convertDate];
+    self.dailyGoalLabel.text = [NSString stringWithFormat:@"Daily Goal     %@", self.calendarDay.dailyGoal];
+    self.cravedLabel.text = [NSString stringWithFormat:@"Craved     %@", self.calendarDay.craveTotal];
+    self.smokedLabel.text = [NSString stringWithFormat:@"Smoked     %@", self.calendarDay.smokeValue];
+    [self checkIfValuesAreNil];
 }
 
 # pragma mark Helper Method(s)
@@ -111,6 +139,14 @@
     [comps setSecond:00];
     [comps setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
+}
+
+- (NSString *)convertDate
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+    NSString *dateString = [dateFormat stringFromDate:self.dateToPass];
+    return dateString;
 }
 
 #pragma mark - Navigation
