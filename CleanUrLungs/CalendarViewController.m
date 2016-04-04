@@ -7,7 +7,6 @@
 //
 
 #import "CalendarViewController.h"
-#import "Day.h"
 #import "DetailCalendarViewController.h"
 
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate>
@@ -31,6 +30,9 @@
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
     [self setupCalendar];
+    [self setupLabelsForCurrentDay];
+    self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor orangeColor];
 }
 
 - (void)setupCalendar
@@ -106,6 +108,19 @@
 
 - (void)checkIfValuesAreNil
 {
+    if (self.currentDayData.craveTotal == nil) {
+        self.cravedLabel.text = @"Craved     0";
+    }
+    if (self.currentDayData.smokeValue == nil) {
+        self.smokedLabel.text = @"Smoked     0";
+    }
+    if (self.currentDayData.dailyGoal == nil) {
+        self.dailyGoalLabel.text =  @"Daily Goal     0";
+    }
+}
+
+- (void)checkIfValuesAreNilSelectedDay
+{
     if (self.calendarDay.craveTotal == nil) {
         self.cravedLabel.text = @"Craved     0";
     }
@@ -117,6 +132,19 @@
     }
 }
 
+- (void)setupLabelsForCurrentDay
+{
+    NSDate *anotherDate = [NSDate new];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+    NSString *dateString = [dateFormat stringFromDate:anotherDate];
+    self.dateLabel.text = dateString;
+    self.dailyGoalLabel.text = [NSString stringWithFormat:@"Daily Goal     %@", self.currentDayData.dailyGoal];
+    self.cravedLabel.text = [NSString stringWithFormat:@"Craved     %@", self.currentDayData.craveTotal];
+    self.smokedLabel.text = [NSString stringWithFormat:@"Smoked     %@", self.currentDayData.smokeValue];
+    [self checkIfValuesAreNil];
+
+}
 
 - (void)setupDetailLabel
 {
@@ -124,7 +152,7 @@
     self.dailyGoalLabel.text = [NSString stringWithFormat:@"Daily Goal     %@", self.calendarDay.dailyGoal];
     self.cravedLabel.text = [NSString stringWithFormat:@"Craved     %@", self.calendarDay.craveTotal];
     self.smokedLabel.text = [NSString stringWithFormat:@"Smoked     %@", self.calendarDay.smokeValue];
-    [self checkIfValuesAreNil];
+    [self checkIfValuesAreNilSelectedDay];
 }
 
 # pragma mark Helper Method(s)

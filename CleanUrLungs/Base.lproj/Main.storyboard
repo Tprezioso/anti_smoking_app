@@ -179,9 +179,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="CleanUrLungs" id="ARk-vH-Vqj">
                         <barButtonItem key="rightBarButtonItem" image="calendar-7.png" id="4hP-w8-7c2">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="2tR-VI-vOp" kind="show" id="LBp-0t-0xf"/>
+                                <segue destination="2tR-VI-vOp" kind="show" identifier="calendar" id="LBp-0t-0xf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

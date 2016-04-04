@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Day.h"
+#import "CalendarViewController.h"
 #import <CoreData/CoreData.h>
 #import <UIView+Shake.h>
 
@@ -184,6 +185,14 @@
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
 }
 
+- (void)dayToSegue
+{
+    self.day = [[Day alloc] init];
+    self.day.craveTotal = self.cravingLabel.text;
+    self.day.smokeValue = self.smokedLabel.text;
+    self.day.dailyGoal = self.dailyGoalLabel.text;
+}
+
 #pragma mark TEST THIS: needs to be tested if this actually work in reducing dailyGoal
 - (void)weekLaterReduceDailyCig
 {
@@ -216,4 +225,13 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self dayToSegue];
+    if ([segue.identifier isEqualToString:@"calendar"]) {
+        CalendarViewController *detailVC = segue.destinationViewController;
+        detailVC.currentDayData = self.day;
+    }
+}
 @end
