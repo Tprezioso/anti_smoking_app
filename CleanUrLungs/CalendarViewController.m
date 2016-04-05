@@ -36,7 +36,6 @@
 
 - (void)setNavigationController
 {
-   // self.navigationController.navigationBar.topItem.title = @"";
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor orangeColor];
 }
