@@ -178,6 +178,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="CleanUrLungs" id="ARk-vH-Vqj">
+                        <barButtonItem key="backBarButtonItem" title=" " id="wX0-SW-Yfc"/>
                         <barButtonItem key="rightBarButtonItem" image="calendar-7.png" id="4hP-w8-7c2">
                             <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -196,7 +197,7 @@
             </objects>
             <point key="canvasLocation" x="1869" y="339"/>
         </scene>
-        <!--Calendar View Controller-->
+        <!--Calendar-->
         <scene sceneID="sob-zx-pQe">
             <objects>
                 <viewController id="2tR-VI-vOp" customClass="CalendarViewController" sceneMemberID="viewController">
@@ -347,7 +348,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="OYe-wg-DDg" secondAttribute="trailing" constant="8" id="nBb-55-3da"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dDQ-fM-yYU"/>
+                    <navigationItem key="navigationItem" title="Calendar" id="dDQ-fM-yYU"/>
                     <connections>
                         <outlet property="calendar" destination="vfV-Jp-NkF" id="3XF-Sm-AwR"/>
                         <outlet property="cravedLabel" destination="awf-Ci-LtC" id="Nqb-V9-iNm"/>
