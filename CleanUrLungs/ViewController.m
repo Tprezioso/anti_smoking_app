@@ -167,7 +167,7 @@
 - (void)setUpAlert
 {
     UIAlertController *firstTimeAlert = [UIAlertController alertControllerWithTitle:@"Welcome to CleanUrLungs"
-                                                                            message:@"Lets get started by Finding out how many Cigarttees you smoke"
+                                                                            message:@"Lets get started by Finding out how many Cigarttees you smoke a Day"
                                                                      preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"OK"
                                                               style:UIAlertActionStyleDefault
