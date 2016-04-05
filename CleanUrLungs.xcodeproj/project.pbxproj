@@ -18,6 +18,8 @@
 		9F1759711BFA67E400BAC8EE /* CleanUrLungsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1759701BFA67E400BAC8EE /* CleanUrLungsUITests.m */; };
 		9F2B92681CAF2111009CDBA9 /* calendar-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B92671CAF2111009CDBA9 /* calendar-7.png */; };
 		9F43251D1BFB82DF002418E6 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F43251C1BFB82DF002418E6 /* CalendarViewController.m */; };
+		9F6624B51CB451CD00581DA1 /* spanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6624B41CB451CD00581DA1 /* spanner.png */; };
+		9F6624BE1CB4544200581DA1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6624BD1CB4544200581DA1 /* SettingsViewController.m */; };
 		9FC8EF761C8F7CFE00E6E89B /* DetailCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8EF751C8F7CFE00E6E89B /* DetailCalendarViewController.m */; };
 		9FDB2C181C56BF0D0056BBC7 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB2C171C56BF0D0056BBC7 /* Day.m */; };
 		E172AF1AF66A4A3A20D81C5D /* libPods-CleanUrLungs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F084A59427EABB1866A3F764 /* libPods-CleanUrLungs.a */; };
@@ -63,6 +65,9 @@
 		9F2B92671CAF2111009CDBA9 /* calendar-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-7.png"; sourceTree = "<group>"; };
 		9F43251B1BFB82DF002418E6 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		9F43251C1BFB82DF002418E6 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		9F6624B41CB451CD00581DA1 /* spanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spanner.png; sourceTree = "<group>"; };
+		9F6624BC1CB4544200581DA1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		9F6624BD1CB4544200581DA1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		9FC8EF741C8F7CFE00E6E89B /* DetailCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCalendarViewController.h; sourceTree = "<group>"; };
 		9FC8EF751C8F7CFE00E6E89B /* DetailCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCalendarViewController.m; sourceTree = "<group>"; };
 		9FDB2C161C56BF0D0056BBC7 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
@@ -163,6 +168,7 @@
 		9F2B92691CAF21A8009CDBA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9F6624B41CB451CD00581DA1 /* spanner.png */,
 				9F2B92671CAF2111009CDBA9 /* calendar-7.png */,
 			);
 			name = Images;
@@ -177,6 +183,8 @@
 				9F43251C1BFB82DF002418E6 /* CalendarViewController.m */,
 				9FC8EF741C8F7CFE00E6E89B /* DetailCalendarViewController.h */,
 				9FC8EF751C8F7CFE00E6E89B /* DetailCalendarViewController.m */,
+				9F6624BC1CB4544200581DA1 /* SettingsViewController.h */,
+				9F6624BD1CB4544200581DA1 /* SettingsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F17595B1BFA67E400BAC8EE /* LaunchScreen.storyboard in Resources */,
+				9F6624B51CB451CD00581DA1 /* spanner.png in Resources */,
 				9F1759581BFA67E400BAC8EE /* Assets.xcassets in Resources */,
 				9F1759531BFA67E400BAC8EE /* Main.storyboard in Resources */,
 				9F2B92681CAF2111009CDBA9 /* calendar-7.png in Resources */,
@@ -391,6 +400,7 @@
 				9FDB2C181C56BF0D0056BBC7 /* Day.m in Sources */,
 				9F1759561BFA67E400BAC8EE /* CleanUrLungs.xcdatamodeld in Sources */,
 				9F1759501BFA67E400BAC8EE /* ViewController.m in Sources */,
+				9F6624BE1CB4544200581DA1 /* SettingsViewController.m in Sources */,
 				9F17594D1BFA67E400BAC8EE /* AppDelegate.m in Sources */,
 				9F43251D1BFB82DF002418E6 /* CalendarViewController.m in Sources */,
 				9FC8EF761C8F7CFE00E6E89B /* DetailCalendarViewController.m in Sources */,

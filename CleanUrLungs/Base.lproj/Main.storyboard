@@ -6,6 +6,76 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="lpA-Af-1Co">
+            <objects>
+                <viewController id="AdD-kT-WLp" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZiV-o2-HVy"/>
+                        <viewControllerLayoutGuide type="bottom" id="B20-vh-oXa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DwK-Cz-ugM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTE-89-D0i">
+                                <rect key="frame" x="20" y="72" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7h4-l3-J6C"/>
+                                    <constraint firstAttribute="width" constant="288" id="XFf-ej-IGs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-mR-vse">
+                                <rect key="frame" x="20" y="152" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="dMK-mp-zDg"/>
+                                    <constraint firstAttribute="height" constant="30" id="rgk-5N-bT8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9A-kd-v6E">
+                                <rect key="frame" x="20" y="190" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="USN-tp-9XG"/>
+                                    <constraint firstAttribute="width" constant="288" id="kzF-Sh-2zo"/>
+                                </constraints>
+                                <state key="normal" title="Clear All Data"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NP4-eX-QyU">
+                                <rect key="frame" x="20" y="101" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="odN-7I-uum"/>
+                                    <constraint firstAttribute="height" constant="30" id="xx5-DZ-wde"/>
+                                </constraints>
+                                <state key="normal" title="Monday First Day Of The Week"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EsV-mR-vse" firstAttribute="top" secondItem="NP4-eX-QyU" secondAttribute="bottom" constant="21" id="1SI-hi-4hS"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="yTE-89-D0i" secondAttribute="leading" id="E3L-i3-LO9"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="s9A-kd-v6E" secondAttribute="leading" id="P6O-a0-5xS"/>
+                            <constraint firstItem="yTE-89-D0i" firstAttribute="top" secondItem="ZiV-o2-HVy" secondAttribute="bottom" constant="8" id="SBP-cl-gxg"/>
+                            <constraint firstItem="s9A-kd-v6E" firstAttribute="top" secondItem="EsV-mR-vse" secondAttribute="bottom" constant="8" id="X5n-fU-zrL"/>
+                            <constraint firstItem="NP4-eX-QyU" firstAttribute="top" secondItem="yTE-89-D0i" secondAttribute="bottom" constant="8" id="asb-1T-IM5"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="NP4-eX-QyU" secondAttribute="leading" id="ehY-Nz-KB6"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="EsV-mR-vse" secondAttribute="leading" id="hwU-A2-lV2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clearAllData" destination="s9A-kd-v6E" id="0tG-BM-Gd5"/>
+                        <outlet property="mondayButton" destination="NP4-eX-QyU" id="Y3X-KR-TBp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wd4-Lh-8ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870" y="-348"/>
+        </scene>
         <!--CleanUrLungs-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -179,6 +249,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="CleanUrLungs" id="ARk-vH-Vqj">
                         <barButtonItem key="backBarButtonItem" title=" " id="wX0-SW-Yfc"/>
+                        <barButtonItem key="leftBarButtonItem" image="spanner.png" id="Gf3-U4-qrN">
+                            <color key="tintColor" red="1" green="0.55147512340000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="AdD-kT-WLp" kind="show" id="rCb-2Q-j1o"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="calendar-7.png" id="4hP-w8-7c2">
                             <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -525,5 +601,6 @@
     </scenes>
     <resources>
         <image name="calendar-7.png" width="30" height="30"/>
+        <image name="spanner.png" width="30" height="30"/>
     </resources>
 </document>
