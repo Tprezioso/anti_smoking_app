@@ -92,7 +92,6 @@
                 currentDay.smokeValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
                 currentDay.craveTotal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
                 self.calendarDay = currentDay;
-                
             }
             break;
         }
