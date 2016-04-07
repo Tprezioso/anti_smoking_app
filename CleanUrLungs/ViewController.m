@@ -39,7 +39,7 @@
     [self weekLaterReduceDailyCig];
     [self setupUIElements];
     [self setDateTimeLabel];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChanged) name:@"clearLabels" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetLabel) name:@"clearLabels" object:nil];
     [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];
@@ -101,6 +101,14 @@
 {
     self.smokedLabel.text = @"0";
     self.cravingLabel.text = @"0";
+}
+
+- (void)resetLabel
+{
+    self.smokedLabel.text = @"0";
+    self.cravingLabel.text = @"0";
+    [[NSUserDefaults standardUserDefaults] setObject:self.smokedLabel.text forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.cravingLabel.text forKey:@"cravedSaved"];
 }
 
 - (void)setupLabels
