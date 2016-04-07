@@ -45,6 +45,9 @@
                                     <constraint firstAttribute="width" constant="288" id="kzF-Sh-2zo"/>
                                 </constraints>
                                 <state key="normal" title="Clear All Data"/>
+                                <connections>
+                                    <action selector="clearAllDataButton:" destination="AdD-kT-WLp" eventType="touchUpInside" id="qYc-0E-Thv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NP4-eX-QyU">
                                 <rect key="frame" x="20" y="101" width="288" height="30"/>
@@ -53,6 +56,9 @@
                                     <constraint firstAttribute="height" constant="30" id="xx5-DZ-wde"/>
                                 </constraints>
                                 <state key="normal" title="Monday First Day Of The Week"/>
+                                <connections>
+                                    <action selector="modayButton:" destination="AdD-kT-WLp" eventType="touchUpInside" id="5OV-rK-EKa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,6 +73,12 @@
                             <constraint firstAttribute="leadingMargin" secondItem="EsV-mR-vse" secondAttribute="leading" id="hwU-A2-lV2"/>
                         </constraints>
                     </view>
+<<<<<<< HEAD
+=======
+                    <connections>
+                        <outlet property="clearAllData" destination="s9A-kd-v6E" id="0tG-BM-Gd5"/>
+                    </connections>
+>>>>>>> refs/remotes/origin/master
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wd4-Lh-8ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -248,7 +260,7 @@
                         <barButtonItem key="leftBarButtonItem" image="spanner.png" id="Gf3-U4-qrN">
                             <color key="tintColor" red="1" green="0.55147512340000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="AdD-kT-WLp" kind="show" id="rCb-2Q-j1o"/>
+                                <segue destination="AdD-kT-WLp" kind="show" id="V4W-fa-mhC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="calendar-7.png" id="4hP-w8-7c2">

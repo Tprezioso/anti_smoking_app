@@ -9,21 +9,18 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
-@property (strong, nonatomic) IBOutlet UIButton *mondayButton;
-@property (strong, nonatomic) IBOutlet UIButton *clearAllData;
+
+- (IBAction)modayButton:(id)sender;
+- (IBAction)clearAllDataButton:(id)sender;
 
 @end
 
 @implementation SettingsViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.title = @"Settings";
 }
 
 /*
@@ -35,5 +32,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)modayButton:(id)sender
+{
+
+}
+
+- (IBAction)clearAllDataButton:(id)sender
+{
+
+}
 
 @end
