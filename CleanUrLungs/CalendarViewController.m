@@ -7,7 +7,6 @@
 //
 
 #import "CalendarViewController.h"
-#import "DetailCalendarViewController.h"
 
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate>
 
@@ -183,9 +182,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"detailCalendarVC"]) {
-        DetailCalendarViewController *detailVC = segue.destinationViewController;
-        detailVC.detailDay = self.calendarDay;
-        detailVC.seletedDate = self.dateToPass;
+//        DetailCalendarViewController *detailVC = segue.destinationViewController;
+//        detailVC.detailDay = self.calendarDay;
+//        detailVC.seletedDate = self.dateToPass;
     }
 }
 
