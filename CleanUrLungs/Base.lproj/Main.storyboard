@@ -25,9 +25,47 @@
                                     <constraint firstAttribute="width" constant="288" id="XFf-ej-IGs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NP4-eX-QyU">
+                                <rect key="frame" x="20" y="101" width="288" height="43"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="odN-7I-uum"/>
+                                    <constraint firstAttribute="height" constant="43" id="xx5-DZ-wde"/>
+                                </constraints>
+                                <state key="normal" title="Monday First Day Of The Week">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="mondayButton:" destination="AdD-kT-WLp" eventType="touchUpInside" id="KOP-UP-yVg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgn-Nu-mVr">
+                                <rect key="frame" x="20" y="190" width="288" height="43"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="iml-Wc-jkI"/>
+                                    <constraint firstAttribute="width" constant="288" id="xDu-ac-i1c"/>
+                                </constraints>
+                                <state key="normal" title="Clear All Data">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dataClearButton:" destination="AdD-kT-WLp" eventType="touchUpInside" id="VJe-zV-Cio"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-mR-vse">
                                 <rect key="frame" x="20" y="152" width="288" height="30"/>
                                 <constraints>
@@ -35,35 +73,13 @@
                                     <constraint firstAttribute="height" constant="30" id="rgk-5N-bT8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NP4-eX-QyU">
-                                <rect key="frame" x="20" y="101" width="288" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="odN-7I-uum"/>
-                                    <constraint firstAttribute="height" constant="30" id="xx5-DZ-wde"/>
-                                </constraints>
-                                <state key="normal" title="Monday First Day Of The Week"/>
-                                <connections>
-                                    <action selector="mondayButton:" destination="AdD-kT-WLp" eventType="touchUpInside" id="KOP-UP-yVg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgn-Nu-mVr">
-                                <rect key="frame" x="20" y="190" width="288" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="iml-Wc-jkI"/>
-                                    <constraint firstAttribute="width" constant="288" id="xDu-ac-i1c"/>
-                                </constraints>
-                                <state key="normal" title="Clear All Data"/>
-                                <connections>
-                                    <action selector="dataClearButton:" destination="AdD-kT-WLp" eventType="touchUpInside" id="VJe-zV-Cio"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.89915012670000005" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="EsV-mR-vse" firstAttribute="top" secondItem="NP4-eX-QyU" secondAttribute="bottom" constant="21" id="1SI-hi-4hS"/>
+                            <constraint firstItem="EsV-mR-vse" firstAttribute="top" secondItem="NP4-eX-QyU" secondAttribute="bottom" constant="8" id="1SI-hi-4hS"/>
                             <constraint firstAttribute="leadingMargin" secondItem="yTE-89-D0i" secondAttribute="leading" id="E3L-i3-LO9"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Hgn-Nu-mVr" secondAttribute="leading" id="Fy9-Kh-XQZ"/>
                             <constraint firstItem="yTE-89-D0i" firstAttribute="top" secondItem="ZiV-o2-HVy" secondAttribute="bottom" constant="8" id="SBP-cl-gxg"/>
