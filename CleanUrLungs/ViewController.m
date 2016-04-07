@@ -109,6 +109,7 @@
     self.cravingLabel.text = @"0";
     [[NSUserDefaults standardUserDefaults] setObject:self.smokedLabel.text forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] setObject:self.cravingLabel.text forKey:@"cravedSaved"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)setupLabels
@@ -176,8 +177,7 @@
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * _Nonnull action) {
         self.dailyGoalLabel.text = self.alertTextField.text;
-        NSString *cigValueToSave = self.dailyGoalLabel.text;
-        [[NSUserDefaults standardUserDefaults] setObject:cigValueToSave forKey:@"cigValueToSave"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.dailyGoalLabel.text forKey:@"cigValueToSave"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }];
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
@@ -201,8 +201,7 @@
 {
     if ([self.day checkForGoalsMet]) {
         self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
-        NSString *newDailyGoalSaved = self.dailyGoalLabel.text;
-        [[NSUserDefaults standardUserDefaults] setObject:newDailyGoalSaved forKey:@"cigValueToSave"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.dailyGoalLabel.text forKey:@"cigValueToSave"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
@@ -210,8 +209,7 @@
 - (IBAction)cravingButton:(id)sender
 {
     self.cravingLabel.text = [NSString stringWithFormat:@"%d", [self.cravingLabel.text intValue] +1];
-    NSString *cavedNumberToSave = self.cravingLabel.text;
-    [[NSUserDefaults standardUserDefaults] setObject:cavedNumberToSave forKey:@"cravedSaved"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.cravingLabel.text forKey:@"cravedSaved"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -220,11 +218,10 @@
     [self.view shake];
     self.smokedLabel.text = [NSString stringWithFormat:@"%d", [self.smokedLabel.text intValue] +1];
     [UIApplication sharedApplication].applicationIconBadgeNumber = [self.smokedLabel.text intValue];
-    NSString *smokedNumberToSave = self.smokedLabel.text;
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
-    [[NSUserDefaults standardUserDefaults] setObject:smokedNumberToSave forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.smokedLabel.text forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
