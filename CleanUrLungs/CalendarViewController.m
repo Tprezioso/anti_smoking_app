@@ -28,9 +28,20 @@
     [super viewDidLoad];
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
+    [self changeCalenderToStartOnMonday];
     [self setupCalendar];
     [self setupLabelsForCurrentDay];
     [self setNavigationController];
+}
+
+- (void)changeCalenderToStartOnMonday
+{
+    BOOL isSwitchedOn= [[NSUserDefaults standardUserDefaults] boolForKey:@"switch"];
+    if (isSwitchedOn) {
+        self.calendar.firstWeekday = 2;
+    } else {
+        self.calendar.firstWeekday = 1;
+    }
 }
 
 - (void)setNavigationController

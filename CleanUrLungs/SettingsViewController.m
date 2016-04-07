@@ -12,6 +12,8 @@
 
 - (IBAction)dataClearButton:(id)sender;
 - (IBAction)mondaySwitch:(id)sender;
+@property (strong, nonatomic) IBOutlet UISwitch *switchControl;
+@property (nonatomic) BOOL isSwitchON;
 
 @end
 
@@ -20,6 +22,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupSettings];
+}
+
+- (void)setupSettings
+{
+    BOOL isSwitchOnOrOff= [[NSUserDefaults standardUserDefaults] boolForKey:@"switch"];
+    if (isSwitchOnOrOff) {
+        [self.switchControl setOn:isSwitchOnOrOff animated:YES];
+    }
     self.title = @"Settings";
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
 }
@@ -42,7 +53,16 @@
 
 - (IBAction)mondaySwitch:(id)sender
 {
-
+    UISwitch *mySwitch = (UISwitch *)sender;
+    if ([mySwitch isOn]) {
+        self.isSwitchON = YES;
+        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        self.isSwitchON = NO;
+        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 @end

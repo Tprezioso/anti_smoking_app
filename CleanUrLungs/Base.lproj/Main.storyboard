@@ -74,14 +74,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3HZ-rP-cEm">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3HZ-rP-cEm">
                                 <rect key="frame" x="531" y="107" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="sy5-9q-aAL"/>
                                     <constraint firstAttribute="height" constant="31" id="vgO-8i-1Rr"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="mondaySwitch:" destination="AdD-kT-WLp" eventType="valueChanged" id="gsE-Ah-rDl"/>
+                                    <action selector="mondaySwitch:" destination="AdD-kT-WLp" eventType="valueChanged" id="PIW-cV-dbs"/>
                                 </connections>
                             </switch>
                         </subviews>
@@ -109,6 +109,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="switchControl" destination="3HZ-rP-cEm" id="HLa-ea-4JR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wd4-Lh-8ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
