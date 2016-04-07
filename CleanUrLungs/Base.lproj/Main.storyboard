@@ -449,120 +449,11 @@
                         <outlet property="dailyGoalLabel" destination="KQC-dt-BQs" id="5Sq-8U-pm6"/>
                         <outlet property="dateLabel" destination="1ky-rK-oXk" id="dYG-G7-3Fo"/>
                         <outlet property="smokedLabel" destination="OYe-wg-DDg" id="Oad-HL-VAa"/>
-                        <segue destination="NNL-uu-926" kind="show" identifier="detailCalendarVC" id="NW7-yV-K9n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K92-Cm-o69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2557" y="339"/>
-        </scene>
-        <!--Detail Calendar View Controller-->
-        <scene sceneID="C3g-Jj-Qta">
-            <objects>
-                <viewController id="NNL-uu-926" customClass="DetailCalendarViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gXB-d6-kT7"/>
-                        <viewControllerLayoutGuide type="bottom" id="WW2-39-rt3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1O9-ap-9Kc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPQ-qF-67E">
-                                <rect key="frame" x="20" y="72" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaZ-hw-0hY">
-                                <rect key="frame" x="20" y="301" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="5lv-ep-NYn"/>
-                                    <constraint firstAttribute="height" constant="100" id="ows-ij-eCr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Craved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCk-4N-MEF">
-                                <rect key="frame" x="43" y="243" width="55" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="fix-qY-LeN"/>
-                                    <constraint firstAttribute="height" constant="21" id="sT3-aF-a6A"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vm4-xS-V9Y">
-                                <rect key="frame" x="480" y="301" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Eey-Ur-WaQ"/>
-                                    <constraint firstAttribute="height" constant="100" id="U1K-Fn-esG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Smoked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ap-LU-Ik9">
-                                <rect key="frame" x="480" y="243" width="100" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="b4e-WJ-L5D"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxo-yd-xIX">
-                                <rect key="frame" x="262" y="127" width="77" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="0ac-2t-u6i"/>
-                                    <constraint firstAttribute="width" constant="77" id="DYG-Ol-4WB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xho-yD-EP2">
-                                <rect key="frame" x="279" y="192" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="4Ju-jY-VJj"/>
-                                    <constraint firstAttribute="width" constant="42" id="ATS-Lr-nj4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="xho-yD-EP2" firstAttribute="top" secondItem="sxo-yd-xIX" secondAttribute="bottom" constant="44" id="0cl-f6-uuI"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="KaZ-hw-0hY" secondAttribute="leading" id="0dy-lI-ecl"/>
-                            <constraint firstItem="tPQ-qF-67E" firstAttribute="top" secondItem="gXB-d6-kT7" secondAttribute="bottom" constant="8" id="1Pn-4R-iDg"/>
-                            <constraint firstItem="sxo-yd-xIX" firstAttribute="top" secondItem="tPQ-qF-67E" secondAttribute="bottom" constant="34.5" id="28A-6C-a1A"/>
-                            <constraint firstItem="0ap-LU-Ik9" firstAttribute="top" secondItem="tPQ-qF-67E" secondAttribute="bottom" constant="151" id="DEr-Xh-qvz"/>
-                            <constraint firstItem="Vm4-xS-V9Y" firstAttribute="centerY" secondItem="KaZ-hw-0hY" secondAttribute="centerY" id="H2x-aH-x3V"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0ap-LU-Ik9" secondAttribute="trailing" id="OnP-1H-1mO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vm4-xS-V9Y" secondAttribute="trailing" id="VbS-Sa-2qi"/>
-                            <constraint firstItem="sxo-yd-xIX" firstAttribute="centerX" secondItem="1O9-ap-9Kc" secondAttribute="centerX" id="b8S-gQ-VNl"/>
-                            <constraint firstItem="KaZ-hw-0hY" firstAttribute="top" secondItem="dCk-4N-MEF" secondAttribute="bottom" constant="37" id="fQU-c1-a30"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="tPQ-qF-67E" secondAttribute="leading" id="jAF-KM-g8d"/>
-                            <constraint firstItem="dCk-4N-MEF" firstAttribute="top" secondItem="tPQ-qF-67E" secondAttribute="bottom" constant="150.5" id="sB6-v8-HC7"/>
-                            <constraint firstItem="dCk-4N-MEF" firstAttribute="leading" secondItem="1O9-ap-9Kc" secondAttribute="leadingMargin" constant="23" id="t6G-gf-F1T"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tPQ-qF-67E" secondAttribute="trailing" id="twZ-Aa-w0B"/>
-                            <constraint firstItem="xho-yD-EP2" firstAttribute="centerX" secondItem="sxo-yd-xIX" secondAttribute="centerX" id="uyC-ah-sFV"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="detailCrave" destination="KaZ-hw-0hY" id="4pa-UC-7at"/>
-                        <outlet property="detailDailyGoal" destination="xho-yD-EP2" id="xOK-TX-Dan"/>
-                        <outlet property="detailSmoke" destination="Vm4-xS-V9Y" id="v8W-jK-lKR"/>
-                        <outlet property="detailedDate" destination="tPQ-qF-67E" id="PIm-QQ-rkJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cDM-Wh-pOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3217" y="1002"/>
         </scene>
         <!--Tracker-->
         <scene sceneID="hwc-Zu-6Gr">
@@ -582,39 +473,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdo-yn-9hU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="339"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="2Jj-dG-ovd">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kw7-o5-KCH" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="hP1-Ud-AZ2">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="13I-RF-3v0" kind="relationship" relationship="viewControllers" id="bqU-lb-a5t"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nek-Je-StO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="245" y="339"/>
-        </scene>
-        <!--Calendar-->
-        <scene sceneID="CQX-Mp-V5T">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="13I-RF-3v0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" id="Nq8-GY-uvN"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EU8-IE-Gnx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G7X-fS-BQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1055" y="1002"/>
         </scene>
     </scenes>
     <resources>
