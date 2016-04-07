@@ -73,12 +73,6 @@
                             <constraint firstAttribute="leadingMargin" secondItem="EsV-mR-vse" secondAttribute="leading" id="hwU-A2-lV2"/>
                         </constraints>
                     </view>
-<<<<<<< HEAD
-=======
-                    <connections>
-                        <outlet property="clearAllData" destination="s9A-kd-v6E" id="0tG-BM-Gd5"/>
-                    </connections>
->>>>>>> refs/remotes/origin/master
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wd4-Lh-8ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
