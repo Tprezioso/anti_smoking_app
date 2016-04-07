@@ -35,9 +35,14 @@
 */
 
 
-- (IBAction)mondayButton:(id)sender {
+- (IBAction)mondayButton:(id)sender
+{
+
 }
 
-- (IBAction)dataClearButton:(id)sender {
+- (IBAction)dataClearButton:(id)sender
+{
+
 }
+
 @end
