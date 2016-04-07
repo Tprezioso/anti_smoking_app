@@ -21,6 +21,7 @@
 {
     [super viewDidLoad];
     self.title = @"Settings";
+    self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
 }
 
 /*
