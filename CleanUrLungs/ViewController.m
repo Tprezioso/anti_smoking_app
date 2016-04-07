@@ -120,23 +120,17 @@
 
 - (void)savedValues
 {
-    NSString *savedCigValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-    self.dailyGoalLabel.text = savedCigValue;
-    NSString *savedCigSmokedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-    self.smokedLabel.text = savedCigSmokedValue;
-    NSString *savedCravedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
-    self.cravingLabel.text = savedCravedValue;
-    if (savedCigValue == nil) {
-        savedCigValue = @"0";
-        self.dailyGoalLabel.text = savedCigValue;
+    self.dailyGoalLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+    self.smokedLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    self.cravingLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+    if (self.dailyGoalLabel.text == nil) {
+        self.dailyGoalLabel.text = @"0";
     }
-    if (savedCigSmokedValue == nil) {
-        savedCigSmokedValue = @"0";
-        self.smokedLabel.text = savedCigSmokedValue;
+    if (self.smokedLabel.text == nil) {
+        self.smokedLabel.text = @"0";
     }
-    if (savedCravedValue == nil) {
-        savedCravedValue = @"0";
-        self.cravingLabel.text = savedCravedValue;
+    if (self.cravingLabel.text == nil) {
+        self.cravingLabel.text = @"0";
     }
 }
 
