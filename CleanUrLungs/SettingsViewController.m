@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "Day.h"
 
 @interface SettingsViewController ()
 
@@ -45,10 +46,10 @@
 }
 */
 
-
 - (IBAction)dataClearButton:(id)sender
 {
-
+    Day *clearDays = [[Day alloc] init];
+    [clearDays deleteAllDatesFromCoreData];
 }
 
 - (IBAction)mondaySwitch:(id)sender
