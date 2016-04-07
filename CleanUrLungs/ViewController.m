@@ -39,6 +39,7 @@
     [self weekLaterReduceDailyCig];
     [self setupUIElements];
     [self setDateTimeLabel];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChanged) name:@"clearLabels" object:nil];
     [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];

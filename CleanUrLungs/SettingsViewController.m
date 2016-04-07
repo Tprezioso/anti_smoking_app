@@ -48,6 +48,7 @@
 
 - (IBAction)dataClearButton:(id)sender
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
     Day *clearDays = [[Day alloc] init];
     [clearDays deleteAllDatesFromCoreData];
 }
