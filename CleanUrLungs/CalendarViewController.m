@@ -178,14 +178,4 @@
     return dateString;
 }
 
-#pragma mark - Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"detailCalendarVC"]) {
-//        DetailCalendarViewController *detailVC = segue.destinationViewController;
-//        detailVC.detailDay = self.calendarDay;
-//        detailVC.seletedDate = self.dateToPass;
-    }
-}
-
 @end
