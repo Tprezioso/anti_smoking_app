@@ -10,8 +10,8 @@
 
 @interface SettingsViewController ()
 
-- (IBAction)mondayButton:(id)sender;
 - (IBAction)dataClearButton:(id)sender;
+- (IBAction)mondaySwitch:(id)sender;
 
 @end
 
@@ -35,12 +35,12 @@
 */
 
 
-- (IBAction)mondayButton:(id)sender
+- (IBAction)dataClearButton:(id)sender
 {
 
 }
 
-- (IBAction)dataClearButton:(id)sender
+- (IBAction)mondaySwitch:(id)sender
 {
 
 }
