@@ -36,35 +36,30 @@
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
 }
 
-- (void)checkSwitchToggle
-{
-//  UISwitch *mySwitch = (UISwitch *)sender;
-//    if ([mySwitch isOn]) {
-//        self.isSwitchON = YES;
-//        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//    } else {
-//        self.isSwitchON = NO;
-//        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//    }
-}
-
 - (void)clearAllData
 {
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
-  Day *clearDays = [[Day alloc] init];
-  [clearDays deleteAllDatesFromCoreData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
+    Day *clearDays = [[Day alloc] init];
+    [clearDays deleteAllDatesFromCoreData];
 }
 
 - (IBAction)dataClearButton:(id)sender
 {
-  [self clearAllData];
+    [self clearAllData];
 }
 
 - (IBAction)mondaySwitch:(id)sender
 {
-  [self checkSwitchToggle];
+    UISwitch *mySwitch = (UISwitch *)sender;
+    if ([mySwitch isOn]) {
+        self.isSwitchON = YES;
+        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        self.isSwitchON = NO;
+        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 /*
  #pragma mark - Navigation
