@@ -38,16 +38,16 @@
 
 - (void)checkSwitchToggle
 {
-  UISwitch *mySwitch = (UISwitch *)sender;
-    if ([mySwitch isOn]) {
-        self.isSwitchON = YES;
-        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    } else {
-        self.isSwitchON = NO;
-        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
+//  UISwitch *mySwitch = (UISwitch *)sender;
+//    if ([mySwitch isOn]) {
+//        self.isSwitchON = YES;
+//        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    } else {
+//        self.isSwitchON = NO;
+//        [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    }
 }
 
 - (void)clearAllData
