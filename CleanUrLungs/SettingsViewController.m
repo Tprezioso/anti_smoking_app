@@ -36,7 +36,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
 }
 
--(void)checkSwitchToggle
+- (void)checkSwitchToggle
 {
   UISwitch *mySwitch = (UISwitch *)sender;
     if ([mySwitch isOn]) {
