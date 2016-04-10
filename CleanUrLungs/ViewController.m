@@ -40,6 +40,7 @@
     [self setupUIElements];
     [self setDateTimeLabel];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetLabel) name:@"clearLabels" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(savedValues) name:@"updateDaily" object:nil];
     [[NSNotificationCenter defaultCenter] addObserverForName:NSCalendarDayChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [self timeChanged];
     }];

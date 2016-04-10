@@ -13,8 +13,10 @@
 
 - (IBAction)dataClearButton:(id)sender;
 - (IBAction)mondaySwitch:(id)sender;
+- (IBAction)changeDailyGoalButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UISwitch *switchControl;
 @property (nonatomic) BOOL isSwitchON;
+@property (strong, nonatomic) UITextField *alertTextField;
 
 @end
 
@@ -84,6 +86,26 @@
         [[NSUserDefaults standardUserDefaults] setBool:self.isSwitchON forKey:@"switch"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+}
+
+- (IBAction)changeDailyGoalButton:(id)sender
+{
+    UIAlertController *firstTimeAlert = [UIAlertController alertControllerWithTitle:@"Edit Daily Goal"
+                                                                            message:@"Lets Change That Daily Goal. Enter In The Textfield Below What You Want You New Goal To Be"
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"OK"
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                [[NSUserDefaults standardUserDefaults] setObject:self.alertTextField.text forKey:@"cigValueToSave"];
+                                                                [[NSUserDefaults standardUserDefaults] synchronize];
+                                                                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateDaily" object:nil];
+                                                            }];
+    [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        self.alertTextField = textField;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+    }];
+    [firstTimeAlert addAction:firstTimeAction];
+    [self presentViewController:firstTimeAlert animated:YES completion:nil];
 }
 /*
  #pragma mark - Navigation
