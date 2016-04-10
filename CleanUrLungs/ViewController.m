@@ -234,4 +234,5 @@
         detailVC.currentDayData = self.day;
     }
 }
+ 
 @end
