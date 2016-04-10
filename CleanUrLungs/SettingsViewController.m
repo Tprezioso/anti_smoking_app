@@ -45,7 +45,31 @@
 
 - (IBAction)dataClearButton:(id)sender
 {
-    [self clearAllData];
+    NSString *alertTitle = @"Clear All Data";
+    NSString *alertMessage = @"Are You Sure You Want To Clear All Data";
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:alertTitle
+                                          message:alertMessage
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"Cancel action");
+                                   }];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   [self clearAllData];
+                               }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)mondaySwitch:(id)sender
