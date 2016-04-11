@@ -96,16 +96,33 @@
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"OK"
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * _Nonnull action) {
-                                                                [[NSUserDefaults standardUserDefaults] setObject:self.alertTextField.text forKey:@"cigValueToSave"];
-                                                                [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateDaily" object:nil];
+                                                                if ([self.alertTextField.text isEqualToString:@""] || [self.alertTextField.text isEqualToString:@"0"]) {
+                                                                    UIAlertController *alertController = [UIAlertController
+                                                                                                          alertControllerWithTitle:@"Error"
+                                                                                                          message:@"This Is An Invaild Input, Please Try Again"
+                                                                                                          preferredStyle:UIAlertControllerStyleAlert];
+                                                                    UIAlertAction *okAction = [UIAlertAction
+                                                                                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                                                                               style:UIAlertActionStyleDefault
+                                                                                               handler:^(UIAlertAction *action)
+                                                                                               {
+                                                                                                   NSLog(@"OK action");
+                                                                                               }];
+                                                                    [alertController addAction:okAction];
+                                                                    [self presentViewController:alertController animated:YES completion:nil];
+                                                                } else {
+                                                                    [[NSUserDefaults standardUserDefaults] setObject:self.alertTextField.text forKey:@"cigValueToSave"];
+                                                                    [[NSUserDefaults standardUserDefaults] synchronize];
+                                                                    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateDaily" object:nil];
+                                                                }
                                                             }];
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        self.alertTextField = textField;
-        textField.keyboardType = UIKeyboardTypeNumberPad;
+                    self.alertTextField = textField;
+            textField.keyboardType = UIKeyboardTypeNumberPad;
     }];
     [firstTimeAlert addAction:firstTimeAction];
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
+
 }
 /*
  #pragma mark - Navigation
