@@ -91,7 +91,6 @@
                                {
                                    [self clearAllData];
                                }];
-    
     [alertController addAction:cancelAction];
     [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:nil];
