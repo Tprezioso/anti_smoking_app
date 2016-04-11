@@ -127,7 +127,6 @@
     }];
     [firstTimeAlert addAction:firstTimeAction];
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
-
 }
 /*
  #pragma mark - Navigation
