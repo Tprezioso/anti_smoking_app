@@ -36,7 +36,7 @@
 
 - (void)changeCalenderToStartOnMonday
 {
-    BOOL isSwitchedOn= [[NSUserDefaults standardUserDefaults] boolForKey:@"switch"];
+    BOOL isSwitchedOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"switch"];
     if (isSwitchedOn) {
         self.calendar.firstWeekday = 2;
     } else {

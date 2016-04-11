@@ -12,6 +12,6 @@
 
 @interface CalendarViewController : UIViewController 
 
-@property (strong, nonatomic)Day *currentDayData;
+@property (strong, nonatomic) Day *currentDayData;
 
 @end

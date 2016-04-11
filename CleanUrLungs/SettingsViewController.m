@@ -11,12 +11,12 @@
 
 @interface SettingsViewController ()
 
-- (IBAction)dataClearButton:(id)sender;
-- (IBAction)mondaySwitch:(id)sender;
-- (IBAction)changeDailyGoalButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UISwitch *switchControl;
 @property (nonatomic) BOOL isSwitchON;
 @property (strong, nonatomic) UITextField *alertTextField;
+- (IBAction)dataClearButton:(id)sender;
+- (IBAction)mondaySwitch:(id)sender;
+- (IBAction)changeDailyGoalButton:(id)sender;
 
 @end
 
