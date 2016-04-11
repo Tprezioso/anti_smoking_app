@@ -45,6 +45,29 @@
     [clearDays deleteAllDatesFromCoreData];
 }
 
+- (void)changeDailyGoalCheck
+{
+    if ([self.alertTextField.text isEqualToString:@"0"]) {
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:@"Error"
+                                              message:@"This Is An Invaild Input, Please Try Again"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"OK action");
+                                   }];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:self.alertTextField.text forKey:@"cigValueToSave"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateDaily" object:nil];
+    }
+}
+
 - (IBAction)dataClearButton:(id)sender
 {
     NSString *alertTitle = @"Clear All Data";
@@ -96,25 +119,7 @@
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"OK"
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * _Nonnull action) {
-                                                                if ([self.alertTextField.text isEqualToString:@""] || [self.alertTextField.text isEqualToString:@"0"]) {
-                                                                    UIAlertController *alertController = [UIAlertController
-                                                                                                          alertControllerWithTitle:@"Error"
-                                                                                                          message:@"This Is An Invaild Input, Please Try Again"
-                                                                                                          preferredStyle:UIAlertControllerStyleAlert];
-                                                                    UIAlertAction *okAction = [UIAlertAction
-                                                                                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                                                                                               style:UIAlertActionStyleDefault
-                                                                                               handler:^(UIAlertAction *action)
-                                                                                               {
-                                                                                                   NSLog(@"OK action");
-                                                                                               }];
-                                                                    [alertController addAction:okAction];
-                                                                    [self presentViewController:alertController animated:YES completion:nil];
-                                                                } else {
-                                                                    [[NSUserDefaults standardUserDefaults] setObject:self.alertTextField.text forKey:@"cigValueToSave"];
-                                                                    [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateDaily" object:nil];
-                                                                }
+                                                                [self changeDailyGoalCheck];
                                                             }];
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
                     self.alertTextField = textField;
