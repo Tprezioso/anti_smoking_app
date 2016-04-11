@@ -30,7 +30,7 @@
 
 - (void)setupSettings
 {
-    BOOL isSwitchOnOrOff= [[NSUserDefaults standardUserDefaults] boolForKey:@"switch"];
+    BOOL isSwitchOnOrOff = [[NSUserDefaults standardUserDefaults] boolForKey:@"switch"];
     if (isSwitchOnOrOff) {
         [self.switchControl setOn:isSwitchOnOrOff animated:YES];
     }
