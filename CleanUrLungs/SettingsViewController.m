@@ -1,9 +1,9 @@
 //
 //  SettingsViewController.m
-//  CleanUrLungs
+//
 //
 //  Created by Thomas Prezioso on 4/5/16.
-//  Copyright © 2015 Thomas Prezioso. All rights reserved.
+//
 //
 
 #import "SettingsViewController.h"
