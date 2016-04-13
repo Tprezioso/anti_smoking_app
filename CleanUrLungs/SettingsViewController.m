@@ -83,7 +83,6 @@
                                    {
                                        NSLog(@"Cancel action");
                                    }];
-    
     UIAlertAction *okAction = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"OK", @"OK action")
                                style:UIAlertActionStyleDefault
