@@ -154,7 +154,6 @@
     self.cravedLabel.text = [NSString stringWithFormat:@"Craved     %@", self.currentDayData.craveTotal];
     self.smokedLabel.text = [NSString stringWithFormat:@"Smoked     %@", self.currentDayData.smokeValue];
     [self checkIfValuesAreNil];
-
 }
 
 - (void)setupDetailLabel
