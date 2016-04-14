@@ -134,6 +134,7 @@
     if (self.cravingLabel.text == nil) {
         self.cravingLabel.text = @"0";
     }
+    [self checkIfOverDailyGoal];
 }
 
 - (void)saveDate
