@@ -170,7 +170,7 @@
     return YES;
 }
 
-- (void)changeDailyGoalCheck
+- (void)dailyGoalCheck
 {
     if ([self.alertTextField.text isEqualToString:@"0"]) {
         UIAlertController *alertController = [UIAlertController
@@ -202,7 +202,7 @@
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"OK"
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * _Nonnull action) {
-                                                                [self changeDailyGoalCheck];
+                                                                [self dailyGoalCheck];
                                                             }];
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         self.alertTextField = textField;
