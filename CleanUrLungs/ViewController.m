@@ -203,10 +203,7 @@
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * _Nonnull action) {
                                                                 [self changeDailyGoalCheck];
-                                                                //        self.dailyGoalLabel.text = self.alertTextField.text;
-//        [[NSUserDefaults standardUserDefaults] setObject:self.dailyGoalLabel.text forKey:@"cigValueToSave"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-    }];
+                                                            }];
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         self.alertTextField = textField;
         textField.keyboardType = UIKeyboardTypeNumberPad;
