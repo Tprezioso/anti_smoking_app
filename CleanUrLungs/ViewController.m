@@ -120,11 +120,8 @@
     self.dailyGoalLabel.text = @"0";
 }
 
-- (void)savedValues
+- (void)checkIfValuesAreNil
 {
-    self.dailyGoalLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
-    self.smokedLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
-    self.cravingLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
     if (self.dailyGoalLabel.text == nil) {
         self.dailyGoalLabel.text = @"0";
     }
@@ -134,6 +131,14 @@
     if (self.cravingLabel.text == nil) {
         self.cravingLabel.text = @"0";
     }
+}
+
+- (void)savedValues
+{
+    self.dailyGoalLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigValueToSave"];
+    self.smokedLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
+    self.cravingLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
+    [self checkIfValuesAreNil];
     [self checkIfOverDailyGoal];
 }
 
