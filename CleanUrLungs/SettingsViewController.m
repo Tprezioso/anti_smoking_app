@@ -57,7 +57,6 @@
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction *action)
                                    {
-                                       NSLog(@"OK action");
                                    }];
         [alertController addAction:okAction];
         [self presentViewController:alertController animated:YES completion:nil];
