@@ -78,7 +78,6 @@
 
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date
 {
-    NSLog(@"DID SELECT DAY %@",date);
     Day *calenderDays = [Day new];
     Day *currentDay = [Day new];
     self.dateToPass = [NSDate new];
