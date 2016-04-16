@@ -226,7 +226,6 @@
     self.day.dailyGoal = self.dailyGoalLabel.text;
 }
 
-#pragma mark TEST THIS: needs to be tested if this actually work in reducing dailyGoal
 - (void)weekLaterReduceDailyCig
 {
     if ([self.day checkForGoalsMet]) {
@@ -264,5 +263,5 @@
         detailVC.currentDayData = self.day;
     }
 }
- 
+
 @end
