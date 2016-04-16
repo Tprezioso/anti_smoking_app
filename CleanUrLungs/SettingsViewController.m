@@ -114,7 +114,8 @@
                                                                      preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *firstTimeAction = [UIAlertAction actionWithTitle:@"OK"
                                                               style:UIAlertActionStyleDefault
-                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                            handler:^(UIAlertAction * _Nonnull action)
+                                                            {
                                                                 [self changeDailyGoalCheck];
                                                             }];
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
