@@ -129,7 +129,8 @@
         savedDay.dailyGoal = [daysToCheckArray[i] valueForKey:@"dailyGoal"];
         if (savedDay.smokeValue <= savedDay.dailyGoal && ![openString isEqualToString:closeString]) {
             counter++;
-            if (counter == 7) {
+            //switch counter back to 7
+            if (counter == 1) {
                 return YES;
             }
         }

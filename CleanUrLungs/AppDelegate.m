@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "Day.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +24,9 @@
     NSDate *openDate = [NSDate new];
     [[NSUserDefaults standardUserDefaults] setObject:openDate forKey:@"openDate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-
+    Day *checkDay = [[Day alloc] init];
+    [checkDay checkForGoalsMet];
+    
     return YES;
 }
 
@@ -47,6 +50,9 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    Day *checkDay = [[Day alloc] init];
+    [checkDay checkForGoalsMet];
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
