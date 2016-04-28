@@ -123,15 +123,27 @@
     NSString *openString = [dateFormat stringFromDate:open];
     NSString *closeString = [dateFormat stringFromDate:close];
     NSInteger counter = 1;
+    NSMutableArray *lastSevenDays = [[NSMutableArray alloc] init];
+    NSMutableArray *daysArrayForLastSeven = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < [daysToCheckArray count]; i++) {
         savedDay.date = [daysToCheckArray[i] valueForKey:@"dateSaved"];
         savedDay.smokeValue = [daysToCheckArray[i] valueForKey:@"smokedValue"];
         savedDay.dailyGoal = [daysToCheckArray[i] valueForKey:@"dailyGoal"];
-        if (savedDay.smokeValue <= savedDay.dailyGoal && ![openString isEqualToString:closeString]) {
-            counter++;
-            //switch counter back to 7
-            if (counter == 1) {
-                return YES;
+        [daysArrayForLastSeven addObject:savedDay];
+    }
+    if (daysArrayForLastSeven != nil) {
+        for (NSInteger i = 0; i < 8; i++) {
+            Day *lastDay = [Day new];
+            lastDay = [daysArrayForLastSeven lastObject];
+            [lastSevenDays addObject:lastDay];
+            NSLog(@"%@", lastSevenDays);
+        }
+        for (Day *checkingDay in lastSevenDays) {
+            if (checkingDay.smokeValue <= checkingDay.dailyGoal && ![openString isEqualToString:closeString]) {
+                counter++;
+                if (counter == 7) {
+                    return YES;
+                }
             }
         }
     }

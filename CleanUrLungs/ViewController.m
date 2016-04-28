@@ -36,7 +36,7 @@
     [self checkIfFirstTimeInApp];
     [self checkIfDayChanged];
     [self checkIfOverDailyGoal];
-    [self weekLaterReduceDailyCig];
+    //[self weekLaterReduceDailyCig];
     [self setupUIElements];
     [self setDateTimeLabel];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetLabel) name:@"clearLabels" object:nil];
@@ -91,10 +91,21 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     NSString *openString = [dateFormat stringFromDate:open];
     NSString *closeString = [dateFormat stringFromDate:close];
+    NSInteger counter = 1;
+    
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         self.isNewDay = YES;
+    }
+    if (self.isNewDay) {
+        counter++;
+        [[NSUserDefaults standardUserDefaults] setInteger:counter forKey:@"counter"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    NSInteger savedCounter = [[NSUserDefaults standardUserDefaults] integerForKey:@"counter"];
+    if (savedCounter == 7) {
+        [self weekLaterReduceDailyCig];
     }
 }
 
@@ -228,6 +239,7 @@
 
 - (void)weekLaterReduceDailyCig
 {
+    self.day = [[Day alloc] init];
     if ([self.day checkForGoalsMet]) {
         self.dailyGoalLabel.text = [NSString stringWithFormat:@"%d", [self.dailyGoalLabel.text intValue] -2];
         [[NSUserDefaults standardUserDefaults] setObject:self.dailyGoalLabel.text forKey:@"cigValueToSave"];

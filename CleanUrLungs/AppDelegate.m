@@ -24,8 +24,6 @@
     NSDate *openDate = [NSDate new];
     [[NSUserDefaults standardUserDefaults] setObject:openDate forKey:@"openDate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    Day *checkDay = [[Day alloc] init];
-    [checkDay checkForGoalsMet];
     
     return YES;
 }
