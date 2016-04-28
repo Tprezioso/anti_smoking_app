@@ -12,11 +12,14 @@
 @interface SettingsViewController ()
 
 @property (strong, nonatomic) IBOutlet UISwitch *switchControl;
+@property (strong, nonatomic) IBOutlet UISwitch *dailyGoalSwitch;
 @property (nonatomic) BOOL isSwitchON;
+@property (nonatomic) BOOL isDailyGoalSwitchON;
 @property (strong, nonatomic) UITextField *alertTextField;
 - (IBAction)dataClearButton:(id)sender;
 - (IBAction)mondaySwitch:(id)sender;
 - (IBAction)changeDailyGoalButton:(id)sender;
+- (IBAction)dailyGoalSwitchAction:(id)sender;
 
 @end
 
@@ -33,6 +36,10 @@
     BOOL isSwitchOnOrOff = [[NSUserDefaults standardUserDefaults] boolForKey:@"switch"];
     if (isSwitchOnOrOff) {
         [self.switchControl setOn:isSwitchOnOrOff animated:YES];
+    }
+    BOOL isDGSwitchOnorOFF = [[NSUserDefaults standardUserDefaults] boolForKey:@"DGswitch"];
+    if (isDGSwitchOnorOFF) {
+        [self.dailyGoalSwitch setOn:isDGSwitchOnorOFF animated:YES];
     }
     self.title = @"Settings";
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
@@ -120,6 +127,20 @@
     }];
     [firstTimeAlert addAction:firstTimeAction];
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
+}
+
+- (IBAction)dailyGoalSwitchAction:(id)sender
+{
+    UISwitch *mySwitch = (UISwitch *)sender;
+    if ([mySwitch isOn]) {
+        self.isDailyGoalSwitchON = YES;
+        [[NSUserDefaults standardUserDefaults] setBool:self.isDailyGoalSwitchON forKey:@"DGswitch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        self.isDailyGoalSwitchON = NO;
+        [[NSUserDefaults standardUserDefaults] setBool:self.isDailyGoalSwitchON forKey:@"DGswitch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 /*
  #pragma mark - Navigation

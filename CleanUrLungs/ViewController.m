@@ -104,8 +104,14 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     NSInteger savedCounter = [[NSUserDefaults standardUserDefaults] integerForKey:@"counter"];
-    if (savedCounter == 7) {
-        [self weekLaterReduceDailyCig];
+    BOOL isDGswitchON = [[NSUserDefaults standardUserDefaults] boolForKey:@"DGswitch"];
+    if (isDGswitchON) {
+        if (savedCounter == 7) {
+            [self weekLaterReduceDailyCig];
+            counter = 0;
+            [[NSUserDefaults standardUserDefaults] setInteger:counter forKey:@"counter"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     }
 }
 
