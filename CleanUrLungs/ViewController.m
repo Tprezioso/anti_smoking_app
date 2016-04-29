@@ -36,7 +36,6 @@
     [self checkIfFirstTimeInApp];
     [self checkIfDayChanged];
     [self checkIfOverDailyGoal];
-    //[self weekLaterReduceDailyCig];
     [self setupUIElements];
     [self setDateTimeLabel];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetLabel) name:@"clearLabels" object:nil];
