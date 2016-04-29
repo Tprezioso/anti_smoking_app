@@ -136,7 +136,6 @@
             Day *lastDay = [Day new];
             lastDay = [daysArrayForLastSeven lastObject];
             [lastSevenDays addObject:lastDay];
-            NSLog(@"%@", lastSevenDays);
         }
         for (Day *checkingDay in lastSevenDays) {
             if (checkingDay.smokeValue <= checkingDay.dailyGoal && ![openString isEqualToString:closeString]) {
