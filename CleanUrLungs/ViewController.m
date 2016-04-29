@@ -91,7 +91,6 @@
     NSString *openString = [dateFormat stringFromDate:open];
     NSString *closeString = [dateFormat stringFromDate:close];
     NSInteger counter = 1;
-    
     if (![openString isEqualToString:closeString]) {
         [self timeChanged];
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
