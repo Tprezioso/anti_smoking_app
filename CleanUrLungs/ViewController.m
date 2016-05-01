@@ -233,6 +233,14 @@
     [self presentViewController:firstTimeAlert animated:YES completion:nil];
 }
 
+- (void)saveToUserDefault
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.dailyGoalLabel.text forKey:@"cigValueToSave"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.cravingLabel.text forKey:@"cravedSaved"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.smokedLabel.text forKey:@"cigSmokedValue"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void)dayToSegue
 {
     self.day = [[Day alloc] init];
@@ -276,6 +284,7 @@
     [self dayToSegue];
     if ([segue.identifier isEqualToString:@"calendar"]) {
         CalendarViewController *detailVC = segue.destinationViewController;
+        [self saveToUserDefault];
         detailVC.currentDayData = self.day;
     }
 }
