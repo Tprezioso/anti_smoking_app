@@ -3,4 +3,8 @@ An app to keep track of your cigarette smoking and act as an aid to help the use
 
 # Features
 * Tracker: to track cravings and cigarettes smoked
-* Calendar: for viewing your tracking progress 
+* Calendar: for viewing your tracking progress
+
+#Cocoa Pods
+* FSCalendar
+* UIView+Shake 
