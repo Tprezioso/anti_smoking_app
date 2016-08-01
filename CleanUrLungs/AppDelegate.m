@@ -43,6 +43,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self scheduleNotification];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -56,13 +57,25 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
+    [self scheduleNotification];
     [self saveContext];
+}
+
+- (void) scheduleNotification
+{
+    NSString *smokedString = @"";
+    smokedString = [[NSUserDefaults standardUserDefaults] objectForKey:@"cigSmokedValue"];
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.fireDate = [[NSDate date] dateByAddingTimeInterval:60 * 60 * 24];
+    notification.alertBody = [NSString stringWithFormat: @"You Have Smoked %@ So Far Today",smokedString];
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 
 #pragma mark - Core Data stack
