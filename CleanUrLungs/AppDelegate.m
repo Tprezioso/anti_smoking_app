@@ -68,7 +68,7 @@
     [self saveContext];
 }
 
-- (void) scheduleNotification
+- (void)scheduleNotification
 {
     NSString *smokedString = @"";
     smokedString = [[NSUserDefaults standardUserDefaults] objectForKey:@"cigSmokedValue"];
