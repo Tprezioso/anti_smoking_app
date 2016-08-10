@@ -122,7 +122,7 @@
                                                                 [self changeDailyGoalCheck];
                                                             }];
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-                    self.alertTextField = textField;
+            self.alertTextField = textField;
             textField.keyboardType = UIKeyboardTypeNumberPad;
     }];
     [firstTimeAlert addAction:firstTimeAction];
