@@ -89,7 +89,7 @@
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action)
                                {
-                                   [self clearAllData];
+                                 [self clearAllData];
                                }];
     [alertController addAction:cancelAction];
     [alertController addAction:okAction];
