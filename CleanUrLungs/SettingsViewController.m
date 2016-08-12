@@ -119,7 +119,7 @@
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * _Nonnull action)
                                                             {
-                                                                [self changeDailyGoalCheck];
+                                                              [self changeDailyGoalCheck];
                                                             }];
     [firstTimeAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         self.alertTextField = textField;
