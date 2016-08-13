@@ -24,7 +24,7 @@
     NSDate *openDate = [NSDate new];
     [[NSUserDefaults standardUserDefaults] setObject:openDate forKey:@"openDate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
+
     return YES;
 }
 
@@ -50,8 +50,7 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     Day *checkDay = [[Day alloc] init];
-    [checkDay checkForGoalsMet];
-    
+    [checkDay checkForGoalsMet];  
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
