@@ -144,12 +144,12 @@
     }
 }
 
+#pragma mark - add in switch for notification
 - (IBAction)pushNotificationSwitchAction:(id)sender
 {
     
 }
 
-#pragma mark - add in switch for notification
 
 /*
  #pragma mark - Navigation
