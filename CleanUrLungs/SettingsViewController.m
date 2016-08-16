@@ -142,6 +142,9 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
+
+#pragma mark - add in switch for notification
+
 /*
  #pragma mark - Navigation
 
