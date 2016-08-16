@@ -144,7 +144,9 @@
     }
 }
 
-- (IBAction)pushNotificationSwitchAction:(id)sender {
+- (IBAction)pushNotificationSwitchAction:(id)sender
+{
+    
 }
 
 #pragma mark - add in switch for notification
