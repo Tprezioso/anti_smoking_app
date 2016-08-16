@@ -146,7 +146,42 @@
                                 </constraints>
                                 <connections>
                                     <action selector="dailyGoalSwitchAction:" destination="AdD-kT-WLp" eventType="valueChanged" id="rLQ-q6-cPo"/>
-                                    <action selector="mondaySwitch:" destination="AdD-kT-WLp" eventType="valueChanged" id="mkY-AX-tGh"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0W-7j-89C">
+                                <rect key="frame" x="20" y="410" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Fb9-tJ-9QJ"/>
+                                    <constraint firstAttribute="width" constant="288" id="ZUX-Yd-Jdt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3Z-uj-IgN">
+                                <rect key="frame" x="20" y="439" width="503" height="43"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="ILx-yK-n4D"/>
+                                    <constraint firstAttribute="width" constant="503" id="P9c-dw-sQA"/>
+                                </constraints>
+                                <state key="normal" title="Activate Push Notifications">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e1x-zp-m5b">
+                                <rect key="frame" x="531" y="445" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="LJP-PG-ova"/>
+                                    <constraint firstAttribute="height" constant="31" id="OWY-i4-666"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="pushNotificationSwitchAction:" destination="AdD-kT-WLp" eventType="valueChanged" id="dPE-Ge-QF3"/>
                                 </connections>
                             </switch>
                         </subviews>
@@ -154,27 +189,34 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="QWC-Fo-JVk" secondAttribute="trailing" id="0PI-RS-nm2"/>
                             <constraint firstItem="QWC-Fo-JVk" firstAttribute="leading" secondItem="smw-xB-rHY" secondAttribute="trailing" constant="8" id="0Xr-Xs-vhl"/>
+                            <constraint firstItem="e1x-zp-m5b" firstAttribute="leading" secondItem="E3Z-uj-IgN" secondAttribute="trailing" constant="8" id="0nM-HA-4HL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3HZ-rP-cEm" secondAttribute="trailing" id="1k7-yP-6WE"/>
                             <constraint firstAttribute="leadingMargin" secondItem="NP4-eX-QyU" secondAttribute="leading" id="7im-bB-75o"/>
                             <constraint firstItem="JwN-fP-B0I" firstAttribute="top" secondItem="ZiV-o2-HVy" secondAttribute="bottom" constant="8" id="D6c-Mm-zXg"/>
                             <constraint firstItem="EsV-mR-vse" firstAttribute="top" secondItem="NP4-eX-QyU" secondAttribute="bottom" constant="8" id="GYu-h9-JsI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e1x-zp-m5b" secondAttribute="trailing" id="JwM-CR-9Y1"/>
                             <constraint firstItem="NP4-eX-QyU" firstAttribute="top" secondItem="yTE-89-D0i" secondAttribute="bottom" constant="8" id="KQO-It-KsG"/>
                             <constraint firstItem="Hgn-Nu-mVr" firstAttribute="top" secondItem="EsV-mR-vse" secondAttribute="bottom" constant="8" id="MLb-93-FZ3"/>
                             <constraint firstItem="QWC-Fo-JVk" firstAttribute="top" secondItem="Hgn-Nu-mVr" secondAttribute="bottom" constant="43" id="NAg-5E-W9y"/>
                             <constraint firstItem="smw-xB-rHY" firstAttribute="top" secondItem="xwd-mJ-s4g" secondAttribute="bottom" constant="8" id="O6G-bv-BLz"/>
+                            <constraint firstItem="y0W-7j-89C" firstAttribute="top" secondItem="smw-xB-rHY" secondAttribute="bottom" constant="8" id="Pq1-E7-IT8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Hgn-Nu-mVr" secondAttribute="leading" id="PrR-dX-3XU"/>
+                            <constraint firstItem="e1x-zp-m5b" firstAttribute="top" secondItem="QWC-Fo-JVk" secondAttribute="bottom" constant="49" id="StK-yJ-kTG"/>
                             <constraint firstItem="xwd-mJ-s4g" firstAttribute="top" secondItem="Hgn-Nu-mVr" secondAttribute="bottom" constant="8" id="T3c-Ij-E3H"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="E3Z-uj-IgN" secondAttribute="leading" id="UcB-Vy-GmE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hgn-Nu-mVr" secondAttribute="trailing" id="Ury-4d-gr5"/>
                             <constraint firstAttribute="leadingMargin" secondItem="JwN-fP-B0I" secondAttribute="leading" id="V6N-ZV-tln"/>
                             <constraint firstAttribute="leadingMargin" secondItem="xwd-mJ-s4g" secondAttribute="leading" id="YOw-mw-pe0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BYF-kX-iS4" secondAttribute="trailing" id="cFQ-gD-vz2"/>
                             <constraint firstItem="3HZ-rP-cEm" firstAttribute="top" secondItem="BYF-kX-iS4" secondAttribute="bottom" constant="43" id="eA0-Ws-vPj"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="y0W-7j-89C" secondAttribute="leading" id="f9c-SJ-JvO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="EsV-mR-vse" secondAttribute="leading" id="fZH-9s-BWT"/>
                             <constraint firstAttribute="leadingMargin" secondItem="smw-xB-rHY" secondAttribute="leading" id="fj6-u1-9i8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="yTE-89-D0i" secondAttribute="leading" id="gBd-BV-APr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="BYF-kX-iS4" secondAttribute="leading" id="gbU-oO-rsw"/>
                             <constraint firstItem="3HZ-rP-cEm" firstAttribute="leading" secondItem="NP4-eX-QyU" secondAttribute="trailing" constant="8" id="lNA-6d-PEX"/>
                             <constraint firstItem="yTE-89-D0i" firstAttribute="top" secondItem="BYF-kX-iS4" secondAttribute="bottom" constant="8" id="tJD-Tg-YQk"/>
+                            <constraint firstItem="E3Z-uj-IgN" firstAttribute="top" secondItem="y0W-7j-89C" secondAttribute="bottom" constant="8" id="wWO-Ni-QKg"/>
                             <constraint firstItem="BYF-kX-iS4" firstAttribute="top" secondItem="JwN-fP-B0I" secondAttribute="bottom" constant="8" id="zXe-Pf-rY9"/>
                         </constraints>
                     </view>

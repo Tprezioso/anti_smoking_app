@@ -20,6 +20,7 @@
 - (IBAction)mondaySwitch:(id)sender;
 - (IBAction)changeDailyGoalButton:(id)sender;
 - (IBAction)dailyGoalSwitchAction:(id)sender;
+- (IBAction)pushNotificationSwitchAction:(id)sender;
 
 @end
 
@@ -141,6 +142,9 @@
         [[NSUserDefaults standardUserDefaults] setBool:self.isDailyGoalSwitchON forKey:@"DGswitch"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+}
+
+- (IBAction)pushNotificationSwitchAction:(id)sender {
 }
 
 #pragma mark - add in switch for notification
