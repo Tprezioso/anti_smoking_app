@@ -222,6 +222,7 @@
                     </view>
                     <connections>
                         <outlet property="dailyGoalSwitch" destination="QWC-Fo-JVk" id="phq-AA-h0P"/>
+                        <outlet property="notificationSwitch" destination="e1x-zp-m5b" id="fDv-Bg-QRD"/>
                         <outlet property="switchControl" destination="3HZ-rP-cEm" id="HLa-ea-4JR"/>
                     </connections>
                 </viewController>

@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UISwitch *switchControl;
 @property (strong, nonatomic) IBOutlet UISwitch *dailyGoalSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *notificationSwitch;
 @property (nonatomic) BOOL isSwitchON;
 @property (nonatomic) BOOL isDailyGoalSwitchON;
 @property (strong, nonatomic) UITextField *alertTextField;
