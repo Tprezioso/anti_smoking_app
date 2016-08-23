@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *notificationSwitch;
 @property (nonatomic) BOOL isSwitchON;
 @property (nonatomic) BOOL isDailyGoalSwitchON;
+@property (nonatomic) BOOL isNotifiactionsON;
 @property (strong, nonatomic) UITextField *alertTextField;
 - (IBAction)dataClearButton:(id)sender;
 - (IBAction)mondaySwitch:(id)sender;
@@ -42,6 +43,11 @@
     BOOL isDGSwitchOnorOFF = [[NSUserDefaults standardUserDefaults] boolForKey:@"DGswitch"];
     if (isDGSwitchOnorOFF) {
         [self.dailyGoalSwitch setOn:isDGSwitchOnorOFF animated:YES];
+    }
+    // dont forget to add an if statement to the notification in appDelegate 
+    BOOL isNotifSwitchONorOFF = [[NSUserDefaults standardUserDefaults] boolForKey:@"notifswitch"];
+    if (isNotifSwitchONorOFF) {
+        [self.notificationSwitch setOn:isNotifSwitchONorOFF animated:YES];
     }
     self.title = @"Settings";
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
@@ -148,7 +154,16 @@
 #pragma mark - add in switch for notification
 - (IBAction)pushNotificationSwitchAction:(id)sender
 {
-    
+    UISwitch *mySwitch = (UISwitch *)sender;
+    if ([mySwitch isOn]) {
+        self.isNotifiactionsON = YES;
+        [[NSUserDefaults standardUserDefaults] setBool:self.isNotifiactionsON forKey:@"notifswitch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        self.isNotifiactionsON = NO;
+        [[NSUserDefaults standardUserDefaults] setBool:self.isNotifiactionsON forKey:@"notifswitch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 
