@@ -11,6 +11,7 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet var craveLabel: UILabel!
+    @IBOutlet var smokedLabel: UILabel!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func updateCraveLabel() {
         let defaults = NSUserDefaults.init(suiteName: "group.CleanUrLungsTodayView")
         let cravedLabelString = defaults!.stringForKey("cravedExtension")
+        let smokedLabelString = defaults!.stringForKey("smokeExtension")
         self.craveLabel.text = cravedLabelString
+        self.smokedLabel.text = smokedLabelString
     }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
