@@ -26,6 +26,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.smokedLabel.text = smokedLabelString
     }
     
+    //MARK: ADD BUTTON TO OPEN UP APP
+    
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
