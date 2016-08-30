@@ -276,9 +276,9 @@
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
+    [[NSUserDefaults standardUserDefaults] setObject:self.smokedLabel.text forKey:@"cigSmokedValue"];
     NSUserDefaults *extensionDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.CleanUrLungsTodayView"];
     [extensionDefaults setObject:self.smokedLabel.text forKey:@"smokeExtension"];
-    [[NSUserDefaults standardUserDefaults] setObject:self.smokedLabel.text forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
