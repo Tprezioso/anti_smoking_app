@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>CleanUrLungsTodayView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>9F16CDE01D75DC2A00FF29D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9F1759441BFA67E400BAC8EE</key>
 		<dict>
 			<key>primary</key>
