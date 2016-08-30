@@ -10,15 +10,17 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+    @IBOutlet var craveLabel: UILabel!
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
+        updateCraveLabel()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func updateCraveLabel() {
+        let defaults = NSUserDefaults.init(suiteName: "group.CleanUrLungsTodayView")
+        let cravedLabelString = defaults!.stringForKey("cravedExtension")
+        self.craveLabel.text = cravedLabelString
     }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
@@ -30,5 +32,4 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
         completionHandler(NCUpdateResult.NewData)
     }
-    
 }
