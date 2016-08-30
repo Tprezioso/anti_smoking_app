@@ -263,6 +263,8 @@
 {
     self.cravingLabel.text = [NSString stringWithFormat:@"%d", [self.cravingLabel.text intValue] +1];
     [[NSUserDefaults standardUserDefaults] setObject:self.cravingLabel.text forKey:@"cravedSaved"];
+    NSUserDefaults *extensionDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.CleanUrLungsTodayView"];
+    [extensionDefaults setObject:self.cravingLabel.text forKey:@"cravedExtension"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -274,6 +276,8 @@
     if (self.smokedLabel.text > self.dailyGoalLabel.text) {
         self.smokedLabel.textColor = [UIColor redColor];
     }
+    NSUserDefaults *extensionDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.CleanUrLungsTodayView"];
+    [extensionDefaults setObject:self.smokedLabel.text forKey:@"smokeExtension"];
     [[NSUserDefaults standardUserDefaults] setObject:self.smokedLabel.text forKey:@"cigSmokedValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
