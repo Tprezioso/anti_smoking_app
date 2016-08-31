@@ -87,6 +87,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
     NSDate *newDate = [NSDate new];
+    // TODO: fix Calander BUG
     for (NSInteger i = 0; i < [daysToCheckArray count]; i++) {
         calenderDays.date = [daysToCheckArray[i] valueForKey:@"dateSaved"];
         calenderDays.smokeValue = [daysToCheckArray[i] valueForKey:@"smokedValue"];
@@ -94,7 +95,7 @@
         NSDate *coolDate = [self dateWithOutTime:date];
         newDate = [dateFormatter dateFromString:calenderDays.date];
         newDate = [self dateWithOutTime:newDate];
-        if ([newDate isEqualToDate:coolDate]) {
+        if (![newDate isEqualToDate:coolDate]) {
             self.calendarDay = [[Day alloc] init];
             self.calendarDay = calenderDays;
         } else {
@@ -106,7 +107,7 @@
                 currentDay.craveTotal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
                 self.calendarDay = currentDay;
             }
-            break;
+            //break;
         }
         if (currentDay.date == nil) {
             NSString *dateString = [dateFormatter stringFromDate:date];
