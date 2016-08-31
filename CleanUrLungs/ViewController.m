@@ -117,6 +117,10 @@
 {
     self.smokedLabel.text = @"0";
     self.cravingLabel.text = @"0";
+    NSUserDefaults *extensionDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.CleanUrLungsTodayView"];
+    [extensionDefaults setObject:self.cravingLabel.text forKey:@"cravedExtension"];
+    [extensionDefaults setObject:self.smokedLabel.text forKey:@"smokeExtension"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)resetLabel
