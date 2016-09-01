@@ -95,10 +95,10 @@
         NSDate *coolDate = [self dateWithOutTime:date];
         newDate = [dateFormatter dateFromString:calenderDays.date];
         newDate = [self dateWithOutTime:newDate];
-        if (![newDate isEqualToDate:coolDate]) {
+        if ([newDate isEqualToDate:coolDate]) {
             self.calendarDay = [[Day alloc] init];
             self.calendarDay = calenderDays;
-        } else {
+        } else if (![newDate isEqualToDate:coolDate]) {
             NSDate *calendarToday = [NSDate new];
             calendarToday = [self dateWithOutTime:self.calendar.today];
             if ([coolDate isEqualToDate:calendarToday]) {
@@ -106,13 +106,14 @@
                 currentDay.smokeValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"cigSmokedValue"];
                 currentDay.craveTotal = [[NSUserDefaults standardUserDefaults] stringForKey:@"cravedSaved"];
                 self.calendarDay = currentDay;
+            } else {
+                if (currentDay.date == nil) {
+                    NSString *dateString = [dateFormatter stringFromDate:date];
+                    currentDay.date = dateString;
+                    self.calendarDay = currentDay;
+                }
             }
-            //break;
-        }
-        if (currentDay.date == nil) {
-            NSString *dateString = [dateFormatter stringFromDate:date];
-            currentDay.date = dateString;
-            self.calendarDay = currentDay;
+            break;
         }
     }
     [self setupDetailLabel];
