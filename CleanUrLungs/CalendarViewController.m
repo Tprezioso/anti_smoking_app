@@ -188,6 +188,7 @@
     NSString *dateString = [dateFormat stringFromDate:self.dateToPass];
     return dateString;
 }
+
 /*
  #pragma mark - Navigation
 
