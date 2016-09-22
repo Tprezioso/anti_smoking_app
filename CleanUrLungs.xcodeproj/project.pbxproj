@@ -365,6 +365,7 @@
 					9F16CDE01D75DC2A00FF29D0 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 6JBM5ZNF6C;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -374,6 +375,7 @@
 					9F1759441BFA67E400BAC8EE = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = 6JBM5ZNF6C;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -585,6 +587,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -601,6 +604,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tom.CleanUrLungs.CleanUrLungsTodayView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -698,6 +702,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tom.CleanUrLungs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -715,6 +720,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tom.CleanUrLungs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -776,6 +782,7 @@
 				9F16CDEF1D75DC2A00FF29D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F1759401BFA67E400BAC8EE /* Build configuration list for PBXProject "CleanUrLungs" */ = {
 			isa = XCConfigurationList;

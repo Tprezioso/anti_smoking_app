@@ -19,22 +19,22 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func updateCraveLabel() {
-        let defaults = NSUserDefaults.init(suiteName: "group.CleanUrLungsTodayView")
-        let cravedLabelString = defaults!.stringForKey("cravedExtension")
-        let smokedLabelString = defaults!.stringForKey("smokeExtension")
+        let defaults = UserDefaults.init(suiteName: "group.CleanUrLungsTodayView")
+        let cravedLabelString = defaults!.string(forKey: "cravedExtension")
+        let smokedLabelString = defaults!.string(forKey: "smokeExtension")
         self.craveLabel.text = cravedLabelString
         self.smokedLabel.text = smokedLabelString
     }
     
     //MARK: ADD BUTTON TO OPEN UP APP
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
-        completionHandler(NCUpdateResult.NewData)
+        completionHandler(NCUpdateResult.newData)
     }
 }
