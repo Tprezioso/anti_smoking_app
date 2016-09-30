@@ -12,7 +12,7 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet var craveLabel: UILabel!
     @IBOutlet var smokedLabel: UILabel!
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateCraveLabel()
@@ -25,8 +25,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.craveLabel.text = cravedLabelString
         self.smokedLabel.text = smokedLabelString
     }
+
+    @IBAction func openAppButton(_ sender: AnyObject) {
+        extensionContext?.open(NSURL(string:"CleanUrLungs://")! as URL, completionHandler: nil)
+    }
     
-    //MARK: ADD BUTTON TO OPEN UP APP
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
