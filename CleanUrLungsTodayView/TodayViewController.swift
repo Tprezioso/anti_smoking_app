@@ -30,7 +30,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         extensionContext?.open(NSURL(string:"CleanUrLungs://")! as URL, completionHandler: nil)
     }
     
-    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         // If an error is encountered, use NCUpdateResult.Failed
