@@ -10,6 +10,7 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+   
     @IBOutlet var craveLabel: UILabel!
     @IBOutlet var smokedLabel: UILabel!
 
