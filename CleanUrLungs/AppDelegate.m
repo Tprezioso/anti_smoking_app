@@ -78,7 +78,7 @@
     NSString *smokedString = @"";
     smokedString = [[NSUserDefaults standardUserDefaults] objectForKey:@"cigSmokedValue"];
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.fireDate = [[NSDate date] dateByAddingTimeInterval:24 * 60 * 60 / 4];
+    notification.fireDate = [[NSDate date] dateByAddingTimeInterval:24 * 60 * 60];
     notification.alertBody = [NSString stringWithFormat: @"You Have Smoked %@ So Far Today",smokedString];
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
