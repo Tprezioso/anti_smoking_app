@@ -10,8 +10,6 @@
 #import "Day.h"
 #import <FSCalendar/FSCalendar.h>
 
-@interface CalendarViewController : UIViewController 
-
+@interface CalendarViewController : UIViewController
 @property (strong, nonatomic) Day *currentDayData;
-
 @end
